@@ -9,20 +9,26 @@ import {
     AppRegistry,
     StyleSheet,
     Text,
-    View
+    View,
+    StatusBar,
+    Image
 } from 'react-native';
 import { Button, TabBar, Icon } from 'antd-mobile';
-import Home from './js/Home';
+import Home from './js/home/Home';
+import SearchHeader from './js/home/SearchHeader';
+import ZhiFubaoIcon from './images/home/zhifubao.png';
+import MineIcon from './images/home/mine.png';
+
+// create a component
+const tabIcon = props => <Image style={{ height:30, width: 30 }} source={props.image} />;
+
 export default class myapp extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedTab: 'redTab',
+            selectedTab: 'hometab',
             hidden: false,
         };
-    }
-    renderContent(pageText) {
-        return <Text></Text>;
     }
     render() {
         return (
@@ -33,29 +39,33 @@ export default class myapp extends Component {
                 hidden={this.state.hidden}
             >
                 <TabBar.Item
-                    title="生活"
-                    key="生活"
-                    selected={this.state.selectedTab === 'blueTab'}
+                    title="首页"
+                    key="首页"
+                    icon={ZhiFubaoIcon}
+                    selected={this.state.selectedTab === 'hometab'}
                     onPress={() => {
                         this.setState({
-                            selectedTab: 'blueTab',
+                            selectedTab: 'hometab',
                         });
                     }}
                     data-seed="logId"
                 >
-                    {Home}
+                    
+                    
+                    <Home />
                 </TabBar.Item>
                 <TabBar.Item
                     title="我的"
                     key="我的"
-                    selected={this.state.selectedTab === 'yellowTab'}
+                    icon={MineIcon}
+                    selected={this.state.selectedTab === 'minetab'}
                     onPress={() => {
                         this.setState({
-                            selectedTab: 'yellowTab',
+                            selectedTab: 'minetab',
                         });
                     }}
                 >
-                    {this.renderContent('我的')}
+                    <View />
                 </TabBar.Item>
             </TabBar>
         );
@@ -68,17 +78,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#F5FCFF',
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
+        marginTop: -20,
+    }
 });
 
 AppRegistry.registerComponent('myapp', () => myapp);

@@ -6,48 +6,84 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
+    AppRegistry,
+    StyleSheet,
+    Text,
+    View,
+    StatusBar,
+    Image
 } from 'react-native';
+import { Button, TabBar, Icon } from 'antd-mobile';
+import Home from './js/home/Home';
+import SearchHeader from './js/home/SearchHeader';
+import ZhiFubaoIcon from './images/home/zhifubao.png';
+import MineIcon from './images/home/mine.png';
+
+// create a component
+const tabIcon = props => <Image style={{ height:30, width: 30 }} source={props.image} />;
 
 export default class myapp extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            selectedTab: 'hometab',
+            hidden: false,
+        };
+    }
+    render() {
+        return (
+            <TabBar
+                unselectedTintColor="#949494"
+                tintColor="#33A3F4"
+                barTintColor="white"
+                hidden={this.state.hidden}
+            >
+                <TabBar.Item
+                    title="首页"
+                    key="首页"
+                    icon={ZhiFubaoIcon}
+                    selected={this.state.selectedTab === 'hometab'}
+                    onPress={() => {
+                        this.setState({
+                            selectedTab: 'hometab',
+                        });
+                    }}
+                    data-seed="logId"
+                >
+                    
+                    <View>
+                        <StatusBar
+                            backgroundColor="#2D6ED5"
+                        />
+                        <Home />
+                    </View>
+                </TabBar.Item>
+                <TabBar.Item
+                    title="我的"
+                    key="我的"
+                    icon={MineIcon}
+                    selected={this.state.selectedTab === 'minetab'}
+                    onPress={() => {
+                        this.setState({
+                            selectedTab: 'minetab',
+                        });
+                    }}
+                >
+                    <Home />
+                </TabBar.Item>
+            </TabBar>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F5FCFF',
+        marginTop: -20,
+    }
 });
 
 AppRegistry.registerComponent('myapp', () => myapp);
