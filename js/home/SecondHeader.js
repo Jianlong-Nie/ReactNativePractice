@@ -34,7 +34,7 @@ class SecondHeader extends Component {
             <View style={styles.container}>
                 <Grid 
                     data={data} 
-                    hasLine={true} 
+                    hasLine={false}
                     renderItem={dataItem => {   
                         return (
                             <View style={[styles.itemcontainer,{opacity:this.props.opacity}]}>
@@ -54,7 +54,7 @@ class SecondHeader extends Component {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#2D6ED5',
-        height: 1000,
+        height: 120,
     },
     itemcontainer: {
         flex:1,

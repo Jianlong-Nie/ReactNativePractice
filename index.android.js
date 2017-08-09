@@ -51,12 +51,10 @@ export default class myapp extends Component {
                     data-seed="logId"
                 >
                     
-                    <View>
-                        <StatusBar
-                            backgroundColor="#2D6ED5"
-                        />
+
+
                         <Home />
-                    </View>
+                    
                 </TabBar.Item>
                 <TabBar.Item
                     title="我的"
@@ -69,7 +67,7 @@ export default class myapp extends Component {
                         });
                     }}
                 >
-                    <Home />
+                    <View />
                 </TabBar.Item>
             </TabBar>
         );
