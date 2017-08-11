@@ -60,10 +60,10 @@ class Home extends Component {
             offset = e.nativeEvent.contentOffset.y;
        var absOffset = Math.abs(offset) > 60 ? 60 : Math.abs(offset);
         console.log(`输出offset${offset} contentSize${height}`);
-        //去除顶部statusbar
-        if(absOffset===20){
-            absOffset=0;
-        }
+        // //去除顶部statusbar
+        // if(absOffset===20){
+        //     absOffset=0;
+        // }
         if(offset>0){
           this.setState({
             offsetY: offset,
@@ -89,6 +89,7 @@ class Home extends Component {
         return (
             <View style={{flex:1}}>
                 <ScrollView
+                    bounces = {false}
                     ref='scrollview'
                     onLayout={(event) => {
                         console.log(event.layout);

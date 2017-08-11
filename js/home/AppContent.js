@@ -10,10 +10,6 @@ import YanBaoFuWu from '../../images/home/haier/yanbao-fuwu.png';
 import ZhengChePeiSong from '../../images/home/haier/zhengche-peisong.png';
 
 
-// const data = Array.from(new Array(12)).map((_val, i) => ({
-//     icon: YueEBaoImage,
-//     text: `name${i}`,
-// }));
 const data = [
     { 
         icon: AnZhuangImage,
