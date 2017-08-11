@@ -60,7 +60,7 @@ class AppContent extends Component {
                             
                                 <View style={styles.itemcontainer}>
                                     <TouchableHighlight activeOpacity={0} underlayColor='transparent' onPress={() => this.onClick(dataItem)}>
-                                       <Image source={dataItem.icon} style={styles.itemimage}/>
+                                       <Image resizeMode='contain' source={dataItem.icon} style={styles.itemimage}/>
                                     </TouchableHighlight>
                                     <Text>{dataItem.text}</Text>
                                 </View>
