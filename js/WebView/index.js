@@ -1,22 +1,26 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, WebView, TouchableHighlight } from 'react-native';
-
+import { ActivityIndicator } from 'antd-mobile';
 
 class CustomWebView extends Component {
     static tabBarOptions = {
         tabBarVisible:false,
     }
+    constructor(props, context) {
+        super(props, context);
+        this.state={
+            isRefreshing: false,
+        }
+    }
+    
     render() {
         const { navigation } = this.props;
         return (
-           <View style={styles.container}>
-           <TouchableHighlight onPress={() =>{
-                navigation.goBack(null);
-               }}>
-               <Text style={{height:200, width: 200}}>返回</Text>
-            </TouchableHighlight> 
-        </View>
+            <WebView
+               source={{uri: 'https://www.baidu.com'}}
+               scalesPageToFit={true}
+            />
         );
     }
 }

@@ -1,4 +1,10 @@
 import WebView from './js/WebView';
+export const NavBarConfig = {
+         headerStyle:{backgroundColor:'#c60c1b'},
+         headerTitleStyle:{color:'white'},
+         headerTintColor:'white',
+         tabBarVisible: false
+};
 
 const Routes = {
   WebView: {

@@ -2,19 +2,12 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableHighlight } from 'react-native';
 import { Grid } from 'antd-mobile';
-import ZhuanZhangImage from '../../images/home/zhuanzhang.png';
-import CreditImage from '../../images/home/credit.png';
-import ChongZhiImage from '../../images/home/chongzhi.png';
-import YuEImage from '../../images/home/yuebao.png';
-import TaoPiaoPiao from '../../images/home/taopiaopiao.png';
-import DiDiImage from '../../images/home/didi.png';
-import ShengHuoImage from '../../images/home/shenghuo.png';
-import ZhiMaImage from '../../images/home/zhima.png';
-import ChePiao from '../../images/home/chepiao.png';
-import ShopImage from '../../images/home/shop.png';
-import DanCheImage from '../../images/home/danche.png';
-import MoreImage from '../../images/home/more.png';
-import Contollers from '../../controllers';
+import AnZhuangImage from '../../images/home/haier/peisonganzhuang.png';
+import QiangDImage from '../../images/home/haier/qiangdan.png';
+import ShuizhanImage from '../../images/home/haier/shuizhan.png';
+import XiaoGuanJiaImage from '../../images/home/haier/xiaoguanjia.png';
+import YanBaoFuWu from '../../images/home/haier/yanbao-fuwu.png';
+import ZhengChePeiSong from '../../images/home/haier/zhengche-peisong.png';
 
 
 // const data = Array.from(new Array(12)).map((_val, i) => ({
@@ -23,53 +16,30 @@ import Contollers from '../../controllers';
 // }));
 const data = [
     { 
-        icon: ZhuanZhangImage,
-        text: '转账',
+        icon: AnZhuangImage,
+        text: '安装',
     },
     { 
-        icon: CreditImage,
-        text: '信用卡转账',
+        icon: QiangDImage,
+        text: '抢单',
     },
     { 
-        icon: ChongZhiImage,
-        text: '充值中心',
+        icon: ShuizhanImage,
+        text: '水站',
     },
     { 
-        icon: YuEImage,
-        text: '余额宝',
+        icon: XiaoGuanJiaImage,
+        text: '小管家',
     },
     { 
-        icon: TaoPiaoPiao,
-        text: '淘票票',
+        icon: YanBaoFuWu,
+        text: '延保服务',
     },
     { 
-        icon: DiDiImage,
-        text: '滴滴打车',
+        icon: ZhengChePeiSong,
+        text: '整车配送',
     },
-    { 
-        icon: ShengHuoImage,
-        text: '生活中心',
-    },
-    { 
-        icon: ZhiMaImage,
-        text: '芝麻信用',
-    },
-    { 
-        icon: ChePiao,
-        text: '汽车票机票',
-    },
-    { 
-        icon: ShopImage,
-        text: '商家服务',
-    },
-    { 
-        icon: DanCheImage,
-        text: '共享单车',
-    },
-    { 
-        icon: MoreImage,
-        text: '更多',
-    },
+    
 ];
 
 // create a component

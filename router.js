@@ -117,6 +117,12 @@ const HomeRouter = StackNavigator(
 const MineTab = StackNavigator({
   Mine:{
       screen: Mine,
+      navigationOptions :{
+         title: '个人中心',
+         headerStyle:{backgroundColor:'#c60c1b'},
+         headerTitleStyle:{color:'white'},
+         headerTintColor:'white',
+    }
   }
 },
 {
@@ -156,6 +162,12 @@ const router = TabNavigator(
     tabBarPosition: 'bottom',
     animationEnabled: false,
     swipeEnabled: false,
+    tabBarOptions:{
+      activeTintColor: '#c60c1b',
+      inactiveTintColor: 'gray',
+      style: { backgroundColor: 'white'},
+      upperCaseLabel: false,
+    }
   }
 );
 
