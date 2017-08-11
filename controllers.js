@@ -5,6 +5,9 @@ const Routes = {
     name: 'WebView',
     description: 'WebView',
     screen: WebView,
+    navigationOptions: ({navigation}) => ({
+      title: `${navigation.state.params.name}`,
+    }),
   }
 };
 

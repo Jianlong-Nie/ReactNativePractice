@@ -77,7 +77,7 @@ class AppContent extends Component {
     onClick = dataItem => {
         const { navigation } = this.props;
         //const { screen } = Contollers.WebView;
-        navigation.navigate('WebView');
+        navigation.navigate('WebView',{name: '网页'});
     }
     render() {
         return (
