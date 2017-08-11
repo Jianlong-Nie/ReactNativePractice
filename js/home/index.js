@@ -90,6 +90,7 @@ class Home extends Component {
             <View style={{flex:1}}>
                 <ScrollView
                     bounces = {false}
+                    scrollEventThrottle={200}
                     ref='scrollview'
                     onLayout={(event) => {
                         console.log(event.layout);
