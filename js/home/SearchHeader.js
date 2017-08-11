@@ -47,7 +47,7 @@ class SearchHeader extends Component {
 // define your styles
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#2D6ED5',
+        backgroundColor: '#c60c1b',
         height: 64,
     },
     content:{

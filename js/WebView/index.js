@@ -4,8 +4,11 @@ import { View, Text, StyleSheet, WebView, TouchableHighlight } from 'react-nativ
 
 
 class CustomWebView extends Component {
-   
+    static tabBarOptions = {
+        tabBarVisible:false,
+    }
     render() {
+        const { navigation } = this.props;
         return (
            <View style={styles.container}>
            <TouchableHighlight onPress={() =>{
@@ -23,7 +26,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#2c3e50',
+        backgroundColor: 'white',
     },
 });
 

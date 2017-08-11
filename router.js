@@ -85,9 +85,11 @@ const HomeRouter = StackNavigator(
       screen: Home,
   }
 },
+
 {
     initialRouteName: 'Main',
-    
+    //headerMode: 'none',
+
     /*
    * Use modal on iOS because the card mode comes from the right,
    * which conflicts with the drawer example gesture
@@ -95,11 +97,6 @@ const HomeRouter = StackNavigator(
     mode: 'card',
   }
 );
-
-// const SimpleApp = StackNavigator(
-//   { Home: { screen: HomeScreen }, 
-//     LoginView: { screen: LoginView }, 
-//  },navigationOptions:{ header:{ visible:false }});
 // const MainTab = StackNavigator({
 //   Home: {
 //     screen: MyHomeScreen,

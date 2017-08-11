@@ -82,7 +82,9 @@ class Home extends Component {
 
         // } 
     }
-    
+    static navigationOptions = {
+         header:null
+    }
     render() {
         return (
             <View style={{flex:1}}>
