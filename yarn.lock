@@ -14,6 +14,12 @@ absolute-path@^0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/absolute-path/-/absolute-path-0.0.0.tgz#a78762fbdadfb5297be99b15d35a785b2f095bf7"
 
+ac-qrcode@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/ac-qrcode/-/ac-qrcode-1.0.1.tgz#46978c21e809fe5f603eeb6f14a2b7511c8dcd90"
+  dependencies:
+    react-native-camera "^0.7.0"
+
 accepts@1.3.3, accepts@~1.3.0, accepts@~1.3.3:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/accepts/-/accepts-1.3.3.tgz#c3ca7434938648c3e0d9c1e328dd68b622c284ca"
@@ -4173,6 +4179,16 @@ react-mixin@^3.0.5:
 react-native-camera-roll-picker@~1.1.6:
   version "1.1.9"
   resolved "https://registry.yarnpkg.com/react-native-camera-roll-picker/-/react-native-camera-roll-picker-1.1.9.tgz#99bad3a9c117ad79e67044c420ce463ee18f29d3"
+
+react-native-camera@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/react-native-camera/-/react-native-camera-0.10.0.tgz#5d973c9a8aab95f68aede395ba310eae0c3cecdd"
+  dependencies:
+    prop-types "^15.5.10"
+
+react-native-camera@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/react-native-camera/-/react-native-camera-0.7.0.tgz#a033a80b73fb1d56c2459a829f65a6f8f1a7328c"
 
 react-native-collapsible@^0.8.0:
   version "0.8.1"

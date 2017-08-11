@@ -11,7 +11,7 @@ import MineIcon from './images/home/mine.png';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 import Controllers from  './controllers';
 import Mine from './js/mine';
-
+//import { QRScannerView } from 'ac-qrcode';
 // create a component
 const tabIcon = props => <Image style={{ height:30, width: 30 }} source={props.image} />;
 const HomeRouter = StackNavigator(
