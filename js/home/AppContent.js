@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableHighlight } from 'react-native';
 import { Grid } from 'antd-mobile';
 import ZhuanZhangImage from '../../images/home/zhuanzhang.png';
 import CreditImage from '../../images/home/credit.png';
@@ -14,6 +14,8 @@ import ChePiao from '../../images/home/chepiao.png';
 import ShopImage from '../../images/home/shop.png';
 import DanCheImage from '../../images/home/danche.png';
 import MoreImage from '../../images/home/more.png';
+import Contollers from '../../controllers';
+
 
 // const data = Array.from(new Array(12)).map((_val, i) => ({
 //     icon: YueEBaoImage,
@@ -72,6 +74,11 @@ const data = [
 
 // create a component
 class AppContent extends Component {
+    onClick = dataItem => {
+        const { navigation } = this.props;
+        //const { screen } = Contollers.WebView;
+        navigation.navigate('WebView');
+    }
     render() {
         return (
             <View style={styles.container}>
@@ -80,10 +87,14 @@ class AppContent extends Component {
                     hasLine={false} 
                     renderItem={dataItem => {   
                         return (
-                            <View style={styles.itemcontainer}>
-                                <Image source={dataItem.icon} style={styles.itemimage}/>
-                                <Text>{dataItem.text}</Text>
-                            </View>
+                            
+                                <View style={styles.itemcontainer}>
+                                    <TouchableHighlight activeOpacity={0} underlayColor='transparent' onPress={() => this.onClick(dataItem)}>
+                                       <Image source={dataItem.icon} style={styles.itemimage}/>
+                                    </TouchableHighlight>
+                                    <Text>{dataItem.text}</Text>
+                                </View>
+                            
                         );
                     }
                     }

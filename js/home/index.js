@@ -1,6 +1,14 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, ScrollView, Dimensions } from 'react-native';
+import {
+    View, 
+    Text, 
+    StyleSheet, 
+    ScrollView, 
+    Dimensions,
+    Platform, 
+} from 'react-native';
+import { StackNavigator } from 'react-navigation';
 import SearchHeader from './SearchHeader';
 import AppContent from './AppContent';
 import SecondHeader from './SecondHeader';
@@ -114,7 +122,7 @@ class Home extends Component {
                 >
                     <SearchHeader opacity={this.state.searchHeaderOpacity}/>
                     <SecondHeader opacity={this.state.searchHeaderOpacity}/>
-                    <AppContent />
+                    <AppContent {...this.props}/>
                     <View style={{ backgroundColor:'transparent',height:15 }}/>
                     <MessageList />
                 </ScrollView>
@@ -136,6 +144,8 @@ const styles = StyleSheet.create({
     menuheader:{
     }
 });
+
+
 
 //make this component available to the app
 export default Home;
