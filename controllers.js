@@ -2,8 +2,9 @@ import WebView from './js/WebView';
 import SegmentComponent from "./js/home/SegmentComponent";
 import InstallView from './js/home/install';
 import PickerDemo from './js/EricDemo';
+const NavColor = '#c60c1b';
 export const NavBarConfig = {
-    headerStyle:{backgroundColor:'#c60c1b'},
+    headerStyle:{backgroundColor:NavColor},
     headerTitleStyle:{color:'white'},
     headerTintColor:'white',
     tabBarVisible: false
@@ -18,11 +19,8 @@ const Routes = {
         //   title: `${navigation.state.params.name}`,
         // }),
         navigationOptions :{
+            ...NavBarConfig,
             title: '安装',
-            headerStyle:{backgroundColor:'#c60c1b'},
-            headerTitleStyle:{color:'white'},
-            headerTintColor:'white',
-            tabBarVisible: false
         }
     },
     SegmentComponent:{
@@ -31,10 +29,7 @@ const Routes = {
         screen:SegmentComponent,
         navigationOptions:{
             title: 'SegmentComponent',
-            headerStyle:{backgroundColor:'#c60c1b'},
-            headerTitleStyle:{color:'white'},
-            headerTintColor:'white',
-            tabBarVisible: false
+            ...NavBarConfig,
         }
     },
     WebView: {
@@ -46,10 +41,7 @@ const Routes = {
         // }),
         navigationOptions :{
             title: '网页',
-            headerStyle:{backgroundColor:'#c60c1b'},
-            headerTitleStyle:{color:'white'},
-            headerTintColor:'white',
-            tabBarVisible: false
+            ...NavBarConfig,
         }
     },
     PickerDemo:{
@@ -57,7 +49,8 @@ const Routes = {
         description:'DatePicker and ImagePicker',
         screen:PickerDemo,
         navigationOptions:{
-            title:'Picker'
+            title:'Picker',
+            ...NavBarConfig,
         }
     }
 };
