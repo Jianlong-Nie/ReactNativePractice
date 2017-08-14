@@ -47,14 +47,16 @@ class AppContent extends Component {
             case 'xxxxxxx' :
                 navigation.navigate('WebView', {name: '网页'});
                 break;
+            case '安装':
+                navigation.navigate('InstallView',{name: '安装'});
             case '整车配送':
                 navigation.navigate('SegmentComponent', {name: 'SegmentComponent'});
                 break;
+            
             default:
                 break;
         }
     };
-
     render() {
         return (
             <View style={styles.container}>
