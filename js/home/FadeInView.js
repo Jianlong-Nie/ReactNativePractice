@@ -18,20 +18,20 @@ export default class FadeInView extends Component {
             }
         ).start();                                  // 开始执行动画
 
-        Animated.sequence([            // 首先执行decay动画，结束后同时执行spring和twirl动画
-            Animated.decay(position, {   // 滑行一段距离后停止
-                velocity: {x: gestureState.vx, y: gestureState.vy}, // 根据用户的手势设置速度
-                deceleration: 0.997,
-            }),
-            Animated.parallel([          // 在decay之后并行执行：
-                Animated.spring(position, {
-                    toValue: {x: 0, y: 0}    // 返回到起始点开始
-                }),
-                Animated.timing(twirl, {   // 同时开始旋转
-                    toValue: 360,
-                }),
-            ]),
-        ]).start();
+        // Animated.sequence([            // 首先执行decay动画，结束后同时执行spring和twirl动画
+        //     Animated.decay(position, {   // 滑行一段距离后停止
+        //         velocity: {x: gestureState.vx, y: gestureState.vy}, // 根据用户的手势设置速度
+        //         deceleration: 0.997,
+        //     }),
+        //     Animated.parallel([          // 在decay之后并行执行：
+        //         Animated.spring(position, {
+        //             toValue: {x: 0, y: 0}    // 返回到起始点开始
+        //         }),
+        //         Animated.timing(twirl, {   // 同时开始旋转
+        //             toValue: 360,
+        //         }),
+        //     ]),
+        // ]).start();
     }
     render() {
         return (

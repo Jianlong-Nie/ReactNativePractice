@@ -72,27 +72,7 @@ export default class SegmentComponent extends Component {
                 />
                 {
                     this.showSelectedView()
-                    /*this.state.selectedIndex === 0 ? <Text> 选择了第一个</Text> :
-                        <Image resizeMode='contain' source={YanBaoFuWu}/>*/
                 }
-
-                {/*
-                <View >
-                    <Text style={{fontSize:20,color:'blue'}}> 选择了第{this.state.selectedIndex}个</Text>
-                    {() => {
-                        if (this.state.selectedIndex === 0) {
-                            console.log('选择了第一个');
-                            return <Text> 选择了第一个</Text>
-                        } else if (this.state.selectedIndex === 1) {
-                            console.log('选择了第2个');
-                            return <Text style={{fontSize:20,color:'blue'}}> 选择了第2个</Text>
-                        } else if (this.state.selectedIndex === 2) {
-                            console.log('选择了第3个');
-                            return <Text> 选择了第3个</Text>
-                        }
-                    }}
-                </View>
-*/}
 
             </WingBlank>
         );
