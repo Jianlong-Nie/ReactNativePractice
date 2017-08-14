@@ -88,7 +88,7 @@ class Home extends Component {
             <View style={{flex:1}}>
                 <ScrollView
                     bounces = {false}
-                    scrollEventThrottle={16}
+                    scrollEventThrottle={30}
                     ref='scrollview'
                     onLayout={(event) => {
                         console.log(event.layout);
@@ -99,7 +99,9 @@ class Home extends Component {
                     onScroll={(e) => this.handleScroll(e)}
                 >
                     <SearchHeader opacity={this.state.searchHeaderOpacity}/>
-                    <SecondHeader opacity={this.state.searchHeaderOpacity}/>
+                    {
+                       this.state.searchHeaderOpacity === 0 ? null : <SecondHeader opacity={this.state.searchHeaderOpacity}/>
+                    }
                     <AppContent {...this.props}/>
                     <View style={{ backgroundColor:'transparent',height:15 }}/>
                     <MessageList />
