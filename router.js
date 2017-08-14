@@ -58,7 +58,7 @@ const MineTab = StackNavigator({
 }
 );
 
-const mrouter = TabNavigator(
+const router = TabNavigator(
     {
         MainTab: {
             screen: HomeRouter,
@@ -93,7 +93,8 @@ const mrouter = TabNavigator(
 );
 
 
- 
-const router = codePush({ updateDialog: true, installMode: codePush.InstallMode.IMMEDIATE })(mrouter);
+
+// const router = codePush({ updateDialog: true, installMode: codePush.InstallMode.IMMEDIATE })(mrouter);
+// const router = codePush(mrouter);
 //make this component available to the app
 export default router;
