@@ -7,7 +7,7 @@
 /coverage
 
 # production
-/build
+/ios/bundle
 
 # misc
 .DS_Store
