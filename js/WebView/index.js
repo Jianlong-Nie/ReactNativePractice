@@ -6,7 +6,7 @@ import { ActivityIndicator } from 'antd-mobile';
 class CustomWebView extends Component {
     static tabBarOptions = {
         tabBarVisible:false,
-    }
+    };
     constructor(props, context) {
         super(props, context);
         this.state={

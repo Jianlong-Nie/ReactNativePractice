@@ -53,7 +53,7 @@ const Routes = {
             headerTintColor:'white',
             tabBarVisible: false
         }
-    }
+    },
 };
 
 export default Routes;
