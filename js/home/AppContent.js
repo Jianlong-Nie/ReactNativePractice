@@ -1,7 +1,7 @@
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableHighlight } from 'react-native';
-import { Grid } from 'antd-mobile';
+import React, {Component} from 'react';
+import {View, Text, StyleSheet, Image, TouchableHighlight} from 'react-native';
+import {Grid} from 'antd-mobile';
 import AnZhuangImage from '../../images/home/haier/peisonganzhuang.png';
 import QiangDImage from '../../images/home/haier/qiangdan.png';
 import ShuizhanImage from '../../images/home/haier/shuizhan.png';
@@ -11,54 +11,69 @@ import ZhengChePeiSong from '../../images/home/haier/zhengche-peisong.png';
 
 
 const data = [
-    { 
+    {
         icon: AnZhuangImage,
         text: '安装',
     },
-    { 
+    {
         icon: QiangDImage,
         text: '抢单',
     },
-    { 
+    {
         icon: ShuizhanImage,
         text: '水站',
     },
-    { 
+    {
         icon: XiaoGuanJiaImage,
         text: '小管家',
     },
-    { 
+    {
         icon: YanBaoFuWu,
         text: '延保服务',
     },
-    { 
+    {
         icon: ZhengChePeiSong,
         text: '整车配送',
     },
-    
+
 ];
 
 // create a component
 class AppContent extends Component {
-    onClick = dataItem => {
-        const { navigation } = this.props;
+    onClick = (dataItem) => {
+        const {navigation} = this.props;
         //const { screen } = Contollers.WebView;
-        navigation.navigate('WebView',{name: '网页'});
-    }
+        switch (dataItem.text){
+            case 'xxxxxxx' :
+                navigation.navigate('WebView', {name: '网页'});
+                break;
+            case '整车配送':
+                navigation.navigate('SegmentComponent', {name: 'SegmentComponent'});
+                break;
+            default:
+                break;
+        }
+    };
+
     render() {
         return (
             <View style={styles.container}>
-                <Grid 
-                    data={data} 
-                    hasLine={false} 
-                    renderItem={dataItem => {   
+                <Grid
+                    data={data}
+                    hasLine={false}
+                    renderItem={(dataItem) => {
                         return (
-                            <TouchableHighlight activeOpacity={0} underlayColor='transparent' onPress={() => this.onClick(dataItem)} style={styles.itemcontainer}>
+                            <TouchableHighlight
+                                activeOpacity={0}
+                                underlayColor='transparent'
+                                onPress={() => this.onClick(dataItem)}
+                                style={styles.itemcontainer}
+                            >
                                 <View style={styles.itemcontainer}>
                                     <Image resizeMode='contain' source={dataItem.icon} style={styles.itemimage}/>
                                     <Text>{dataItem.text}</Text>
                                 </View>
-                             </TouchableHighlight>
+                            </TouchableHighlight>
                         );
                     }
                     }
@@ -74,11 +89,11 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
     },
     itemcontainer: {
-        flex:1,
+        flex: 1,
         justifyContent: 'center',
-        alignItems:'center',
+        alignItems: 'center',
     },
-    itemimage:{
+    itemimage: {
         height: 30,
         width: 30,
         marginBottom: 15,
