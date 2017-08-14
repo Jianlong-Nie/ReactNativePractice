@@ -3,6 +3,11 @@ package com.myapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+<<<<<<< HEAD
+=======
+import com.beefe.picker.PickerViewPackage;
+import com.keyee.datetime.RCTDateTimePickerPackage;
+>>>>>>> 添加了一个时间日期选择器
 //import com.microsoft.codepush.react.CodePush;
 import com.lwansbrough.RCTCamera.RCTCameraPackage;
 import com.facebook.react.ReactNativeHost;
@@ -31,6 +36,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new PickerViewPackage(),
 //            new CodePush(null, getApplicationContext(), BuildConfig.DEBUG),
             new RCTCameraPackage()
       );

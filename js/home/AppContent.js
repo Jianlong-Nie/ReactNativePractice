@@ -14,26 +14,32 @@ const data = [
     {
         icon: AnZhuangImage,
         text: '安装',
+        dest: 'InstallView'
     },
     {
         icon: QiangDImage,
         text: '抢单',
+        dest: 'PickerDemo'
     },
     {
         icon: ShuizhanImage,
         text: '水站',
+        dest: 'PickerDemo'
     },
     {
         icon: XiaoGuanJiaImage,
         text: '小管家',
+        dest: 'PickerDemo'
     },
     {
         icon: YanBaoFuWu,
         text: '延保服务',
+        dest: 'PickerDemo'
     },
     {
         icon: ZhengChePeiSong,
         text: '整车配送',
+        dest: 'SegmentComponent'
     },
 
 ];
@@ -43,27 +49,15 @@ class AppContent extends Component {
     onClick = (dataItem) => {
         const {navigation} = this.props;
         //const { screen } = Contollers.WebView;
-        switch (dataItem.text){
-            case 'xxxxxxx' :
-                navigation.navigate('WebView', {name: '网页'});
-                break;
-            case '安装':
-                navigation.navigate('InstallView',{name: '安装'});
-            case '整车配送':
-                navigation.navigate('SegmentComponent', {name: 'SegmentComponent'});
-                break;
-            
-            default:
-                break;
-        }
-    };
+        navigation.navigate(dataItem.dest,{name: '网页'});
+    }
     render() {
         return (
             <View style={styles.container}>
-                <Grid
-                    data={data}
-                    hasLine={false}
-                    renderItem={(dataItem) => {
+                <Grid 
+                    data={data} 
+                    hasLine={false} 
+                    renderItem={dataItem => {
                         return (
                             <TouchableHighlight
                                 activeOpacity={0}

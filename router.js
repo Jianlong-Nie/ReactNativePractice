@@ -1,11 +1,3 @@
-import React, { Component } from 'react';
-import codePush from 'react-native-code-push';
-import {
-    Text,
-    View,
-    StatusBar,
-    Image,
-} from 'react-native';
 import Home from './js/home';
 import ZhiFubaoIcon from './images/home/zhifubao.png';
 import MineIcon from './images/home/mine.png';
@@ -14,7 +6,7 @@ import Controllers from  './controllers';
 import Mine from './js/mine';
 //import { QRScannerView } from 'ac-qrcode';
 // create a component
-const tabIcon = props => <Image style={{ height:30, width: 30 }} source={props.image} />;
+// const tabIcon = props => <Image style={{ height:30, width: 30 }} source={props.image} />;
 const HomeRouter = StackNavigator(
     {
         ...Controllers,
@@ -92,9 +84,6 @@ const router = TabNavigator(
     }
 );
 
-
-
-// const router = codePush({ updateDialog: true, installMode: codePush.InstallMode.IMMEDIATE })(mrouter);
 // const router = codePush(mrouter);
 //make this component available to the app
 export default router;

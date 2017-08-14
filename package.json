@@ -14,7 +14,14 @@
 		"react": "~15.4.1",
 		"react-native": "0.42.0",
 		"react-native-camera": "^0.10.0",
+<<<<<<< HEAD
 //		"react-native-code-push": "^5.0.0-beta",
+=======
+		"react-native-code-push": "^5.0.0-beta",
+		"react-native-custom-action-sheet": "^0.0.11",
+		"react-native-datetime": "^0.1.2",
+		"react-native-picker": "^4.0.19",
+>>>>>>> 添加了一个时间日期选择器
 		"react-native-svg-uri": "^1.2.0",
 		"react-navigation": "^1.0.0-beta.12"
 	},

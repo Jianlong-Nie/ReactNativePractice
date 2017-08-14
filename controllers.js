@@ -1,9 +1,7 @@
 import WebView from './js/WebView';
-
 import SegmentComponent from "./js/home/SegmentComponent";
-
 import InstallView from './js/home/install';
-
+import PickerDemo from './js/EricDemo';
 export const NavBarConfig = {
     headerStyle:{backgroundColor:'#c60c1b'},
     headerTitleStyle:{color:'white'},
@@ -54,6 +52,14 @@ const Routes = {
             tabBarVisible: false
         }
     },
+    PickerDemo:{
+        name:'PickerDemo',
+        description:'DatePicker and ImagePicker',
+        screen:PickerDemo,
+        navigationOptions:{
+            title:'Picker'
+        }
+    }
 };
 
 export default Routes;
