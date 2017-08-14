@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import codePush from 'react-native-code-push';
 import {
     Text,
     View,
@@ -57,7 +58,7 @@ const MineTab = StackNavigator({
 }
 );
 
-const router = TabNavigator(
+const mrouter = TabNavigator(
     {
         MainTab: {
             screen: HomeRouter,
@@ -92,5 +93,6 @@ const router = TabNavigator(
 );
 
 
+const router = codePush(mrouter);
 //make this component available to the app
 export default router;
