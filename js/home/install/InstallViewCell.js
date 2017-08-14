@@ -8,18 +8,17 @@ class InstallViewCell extends React.Component {
         let {info} = this.props;
         let imageUrl = info.imageUrl.replace('w.h', '160.0');
         return (
-            <View/>
-            // <TouchableOpacity style = {styles.container}>
-            //     <Image source = {{uri: imageUrl}} style = {styles.image}/>
+            <TouchableOpacity style = {styles.container}>
+                <Image source = {{uri: imageUrl}} style = {styles.image}/>
 
-            //     <View style = {styles.detailContainer}>
-            //         <Heading>{info.title}</Heading>
-            //         <Paragraph numberOfLines = {0} style = {{marginTop: 8}}>{info.subTitle}</Paragraph>
-            //         <View style = {{flex: 1, justifyContent: 'flex-end'}}>
-            //             <Heading style = {styles.price}>{info.price}元></Heading>
-            //         </View>
-            //     </View>
-            // </TouchableOpacity>
+                <View style = {styles.detailContainer}>
+                    <Heading>{info.title}</Heading>
+                    <Paragraph numberOfLines = {0} style = {{marginTop: 8}}>{info.subTitle}</Paragraph>
+                    <View style = {{flex: 1, justifyContent: 'flex-end'}}>
+                        <Heading>{info.price}元></Heading>
+                    </View>
+                </View>
+            </TouchableOpacity>
         );
     }
 }

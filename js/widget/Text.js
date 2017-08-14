@@ -2,7 +2,7 @@ import React from 'react';
 import ReactNative, { StyleSheet, Dimensions, Text ,ReactElement} from 'react-native';
 
 export const Heading = ({style, ...props}) => {
-    return <Text style = {[style, styles.h1]} {...props}></Text>;
+    return <Text style = {[styles.h1, style]} {...props}></Text>;
 };
 
 export const Paragraph = ({style, ...props}) => {
