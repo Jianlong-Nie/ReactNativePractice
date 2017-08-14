@@ -43,7 +43,6 @@ class Home extends Component {
         super(props, context);
         this.state={
             scrollEnable:true,
-            offsetY: 0,
             //默认向上滑动 1向上 0 向下
             direction: 1,
             searchHeaderOpacity: 1,
@@ -52,33 +51,42 @@ class Home extends Component {
     }
     componentDidMount() {
         this.scrollView = this.refs.scrollview;
+        this.searchHeader = this.refs.searchheader;
     }
     
     handleScroll = (e) => {
-       var windowHeight = Dimensions.get('window').height,
-            height = e.nativeEvent.contentSize.height,
-            offset = e.nativeEvent.contentOffset.y;
-       var absOffset = Math.abs(offset) > 60 ? 60 : Math.abs(offset);
-        console.log(`输出offset${offset} contentSize${height}`);
-        if(offset>0){
-          this.setState({
-            offsetY: offset,
-            navigantionHeaderOpacity: absOffset/60,
-            searchHeaderOpacity: 1-absOffset/60,
-          });
-          console.log('输出上拉操作');
-        }else{
-            this.setState({
-                offsetY: 0,
-                navigantionHeaderOpacity: 0,
-                searchHeaderOpacity: 1,
-          });
-           console.log('输出下拉操作');
-        }
-        //加载更多
-        // if( windowHeight + offset >= height ){
+    //    var windowHeight = Dimensions.get('window').height,
+    //         height = e.nativeEvent.contentSize.height,
+    //         offset = e.nativeEvent.contentOffset.y;
+    //    var absOffset = Math.abs(offset) > 60 ? 60 : Math.abs(offset);
+    //     console.log(`输出offset${offset} contentSize${height}`);
+    //    var opacity1 = absOffset/60;
+    //    if(opacity1<0.3){
+    //        opacity1=0;
+    //    }
+    //     if(offset>0){
+    //         // this.setNativeProps({
+    //         //      navigantionHeaderOpacity: opacity1,
+    //         //      searchHeaderOpacity: 1-opacity1,    
+    //         // });
+    //         this.searchHeader.setNativeProps({style:{opacity:1-opacity1}});
 
-        // } 
+    //     //   this.setState({
+           
+    //     //   });
+    //       console.log('输出上拉操作');
+    //     }else{
+    //         // this.setNativeProps({
+    //         //     navigantionHeaderOpacity: 0,
+    //         //     searchHeaderOpacity: 1, 
+    //         // });
+    //     //     this.setState({
+    //     //         navigantionHeaderOpacity: 0,
+    //     //         searchHeaderOpacity: 1,
+    //     //   });
+    //        console.log('输出下拉操作');
+    //     }
+
     }
     static navigationOptions = {
          header:null
@@ -88,19 +96,20 @@ class Home extends Component {
             <View style={{flex:1}}>
                 <ScrollView
                     bounces = {false}
-                    scrollEventThrottle={30}
+                    scrollEventThrottle={400}
                     ref='scrollview'
                     onLayout={(event) => {
                         console.log(event.layout);
                     }}
-                    scrollEnabled={this.state.scrollEnable}
                     style={styles.container}
                     showsVerticalScrollIndicator={false}
                     onScroll={(e) => this.handleScroll(e)}
                 >
-                    <SearchHeader opacity={this.state.searchHeaderOpacity}/>
+                    <View style={{opacity: this.state.opacity}} ref='searchheader'>
+                    <SearchHeader />
+                    </View>
                     {
-                       this.state.searchHeaderOpacity === 0 ? null : <SecondHeader opacity={this.state.searchHeaderOpacity}/>
+                       this.state.searchHeaderOpacity < 0.3 ? null : <SecondHeader opacity={this.state.searchHeaderOpacity} ref='secondheader'/>
                     }
                     <AppContent {...this.props}/>
                     <View style={{ backgroundColor:'transparent',height:15 }}/>

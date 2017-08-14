@@ -93,6 +93,7 @@ const mrouter = TabNavigator(
 );
 
 
-const router = codePush(mrouter);
+ 
+const router = codePush({ updateDialog: true, installMode: codePush.InstallMode.IMMEDIATE })(mrouter);
 //make this component available to the app
 export default router;
