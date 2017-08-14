@@ -53,14 +53,12 @@ class AppContent extends Component {
                     hasLine={false} 
                     renderItem={dataItem => {   
                         return (
-                            
+                            <TouchableHighlight activeOpacity={0} underlayColor='transparent' onPress={() => this.onClick(dataItem)} style={styles.itemcontainer}>
                                 <View style={styles.itemcontainer}>
-                                    <TouchableHighlight activeOpacity={0} underlayColor='transparent' onPress={() => this.onClick(dataItem)}>
-                                       <Image resizeMode='contain' source={dataItem.icon} style={styles.itemimage}/>
-                                    </TouchableHighlight>
+                                    <Image resizeMode='contain' source={dataItem.icon} style={styles.itemimage}/>
                                     <Text>{dataItem.text}</Text>
                                 </View>
-                            
+                             </TouchableHighlight>
                         );
                     }
                     }

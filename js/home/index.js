@@ -60,22 +60,20 @@ class Home extends Component {
             offset = e.nativeEvent.contentOffset.y;
        var absOffset = Math.abs(offset) > 60 ? 60 : Math.abs(offset);
         console.log(`输出offset${offset} contentSize${height}`);
-        // //去除顶部statusbar
-        // if(absOffset===20){
-        //     absOffset=0;
-        // }
         if(offset>0){
           this.setState({
             offsetY: offset,
             navigantionHeaderOpacity: absOffset/60,
-            searchHeaderOpacity: 1-absOffset/80,
+            searchHeaderOpacity: 1-absOffset/60,
           });
+          console.log('输出上拉操作');
         }else{
             this.setState({
                 offsetY: 0,
                 navigantionHeaderOpacity: 0,
                 searchHeaderOpacity: 1,
           });
+           console.log('输出下拉操作');
         }
         //加载更多
         // if( windowHeight + offset >= height ){
@@ -90,7 +88,7 @@ class Home extends Component {
             <View style={{flex:1}}>
                 <ScrollView
                     bounces = {false}
-                    scrollEventThrottle={200}
+                    scrollEventThrottle={16}
                     ref='scrollview'
                     onLayout={(event) => {
                         console.log(event.layout);
@@ -99,30 +97,6 @@ class Home extends Component {
                     style={styles.container}
                     showsVerticalScrollIndicator={false}
                     onScroll={(e) => this.handleScroll(e)}
-                    
-                    onPanResponderMove={(e,gesture)=>{
-                         if (getDirection(gesture)==='draggedDown'&&this.scrollView.offsetY<-20) {
-                            this.setState({scrollEnable:false});
-                        }else{
-                            this.setState({scrollEnable:true});
-                        }
-                    }}
-                    onMoveShouldSetResponder={(e,gesture)=>{
-                        if (getDirection(gesture)==='draggedDown'&&this.scrollView.offsetY<-20) {
-                            this.setState({scrollEnable:false});
-                        }else{
-                            this.setState({scrollEnable:true});
-                        }
-                        return true;
-                    }}
-                    onStartShouldSetResponderCapture={(e,gesture)=>{
-                        console.log('事件是否被劫持4');
-                        return true;
-                    }}
-                    onMoveShouldSetResponderCapture={(e,gesture)=>{
-                        console.log('事件是否被劫持5');
-                        return true;
-                    }}
                 >
                     <SearchHeader opacity={this.state.searchHeaderOpacity}/>
                     <SecondHeader opacity={this.state.searchHeaderOpacity}/>
