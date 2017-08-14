@@ -9,6 +9,8 @@ import {
   Dimensions
 } from 'react-native';
 
+import { QRScannerView } from 'ac-qrcode';
+
 const { width, height } = Dimensions.get('window');
 
 var CIRCLE_SIZE = 80;  
@@ -60,24 +62,59 @@ export default class extends React.Component {
   //   );
   // }
 
+  // render() {
+  //   return (
+  //     <View style={styles.container}>
+  //       <ScrollView
+  //         {...this._panResponder.panHandlers}
+  //         ref={(circle) => {
+  //           this.circle = circle;
+  //         }}
+  //         scrollEventThrottle={100}
+  //         onScroll={this.onScroll}
+  //         automaticallyAdjustContentInsets={false}
+  //         scrollEnabled={true}
+  //         style={[styles.containerScr]}>
+  //         <View style={{width: width, height: 80, backgroundColor: 'red', marginTop: 0}} ref={(c) => this._refButton = c} />
+  //       </ScrollView>
+  //     </View>
+  //   );
+  // }
+
   render() {
-    return (
-      <View style={styles.container}>
-        <ScrollView
-          {...this._panResponder.panHandlers}
-          ref={(circle) => {
-            this.circle = circle;
-          }}
-          scrollEventThrottle={100}
-          onScroll={this.onScroll}
-          automaticallyAdjustContentInsets={false}
-          scrollEnabled={true}
-          style={[styles.containerScr]}>
-          <View style={{width: width, height: 80, backgroundColor: 'red', marginTop: 0}} ref={(c) => this._refButton = c} />
-        </ScrollView>
-      </View>
-    );
-  }
+        return (
+
+            < QRScannerView
+                onScanResultReceived={this.barcodeReceived.bind(this)}
+
+                renderTopBarView={() => this._renderTitleBar()}
+
+                renderBottomMenuView={() => this._renderMenu()}
+            />
+        )
+    }
+
+    _renderTitleBar(){
+        return(
+            <Text
+                style={{color:'white',textAlignVertical:'center', textAlign:'center',font:20,padding:12}}
+            >Here is title bar</Text>
+        );
+    }
+
+    _renderMenu() {
+        return (
+            <Text
+                style={{color:'white',textAlignVertical:'center', textAlign:'center',font:20,padding:12}}
+            >Here is bottom menu</Text>
+        )
+    }
+
+    barcodeReceived(e) {
+        Toast.show('Type: ' + e.type + '\nData: ' + e.data);
+        //console.log(e)
+    }
+      
   onScroll = (value) => {
     console.log('调用次数', value.nativeEvent.contentOffset.y);
     this.offsetY = value.nativeEvent.contentOffset.y;
