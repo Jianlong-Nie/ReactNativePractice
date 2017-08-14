@@ -49,8 +49,24 @@ class AppContent extends Component {
     onClick = (dataItem) => {
         const {navigation} = this.props;
         //const { screen } = Contollers.WebView;
-        navigation.navigate(dataItem.dest,{name: '网页'});
-    }
+        switch (dataItem.text){
+            case 'xxxxxxx' :
+                navigation.navigate('WebView', {name: '网页'});
+                break;
+            case '安装':
+                navigation.navigate('InstallView',{name: '安装'});
+                break;
+            case '整车配送':
+                navigation.navigate('SegmentComponent', {name: 'SegmentComponent'});
+                break;
+            case '延保服务':
+                navigation.navigate('AnimateComponent',{name:'AnimateComponent'});
+                break;
+            
+            default:
+                break;
+        }
+    };
     render() {
         return (
             <View style={styles.container}>

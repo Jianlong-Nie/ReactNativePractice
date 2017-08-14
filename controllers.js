@@ -1,5 +1,7 @@
 import WebView from './js/WebView';
 import SegmentComponent from "./js/home/SegmentComponent";
+import AnimateComponent from './js/home/AnimateComponent'
+
 import InstallView from './js/home/install';
 import PickerDemo from './js/EricDemo';
 const NavColor = '#c60c1b';
@@ -30,6 +32,18 @@ const Routes = {
         navigationOptions:{
             title: 'SegmentComponent',
             ...NavBarConfig,
+        }
+    },
+    AnimateComponent:{
+        name:'AnimateComponent',
+        description:'AnimateComponent',
+        screen:AnimateComponent,
+        navigationOptions:{
+            title: 'AnimateComponent',
+            headerStyle:{backgroundColor:'#c60c1b'},
+            headerTitleStyle:{color:'white'},
+            headerTintColor:'white',
+            tabBarVisible: false
         }
     },
     WebView: {
