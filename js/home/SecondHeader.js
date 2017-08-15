@@ -9,52 +9,36 @@ import CardImage from '../../images/home/home_card.png';
 //     icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
 //     text: `name${i}`,
 // }));
-// const data = [
-//     {
-//         icon: ScanImage,
-//         text: '扫一扫', 
-//         onPress: ()=> {
-//             this.props.navigation.navigate('QRScanner', {name: '网页'});
-//         }
-//     },
-//     {
-//         icon: PayImage,
-//         text: '付款', 
-//     },
-//     {
-//         icon: XiuImage,
-//         text: '收钱', 
-//     },
-//     {
-//         icon: CardImage,
-//         text: '卡包', 
-//     },
-// ];
+const data = [
+    {
+        icon: ScanImage,
+        text: '扫一扫', 
+    },
+    {
+        icon: PayImage,
+        text: '付款', 
+    },
+    {
+        icon: XiuImage,
+        text: '收钱', 
+    },
+    {
+        icon: CardImage,
+        text: '卡包', 
+    },
+];
 // create a component
 class SecondHeader extends Component {
-    data = [
-        {
-            icon: ScanImage,
-            text: '扫一扫', 
-            onPress: ()=> {
+    onClick = (dataItem) => {
+        switch(dataItem.text) {
+            case '扫一扫':
                 this.props.navigation.navigate('QRScanner', {name: '网页'});
-            }
-        },
-        {
-            icon: PayImage,
-            text: '付款', 
-        },
-        {
-            icon: XiuImage,
-            text: '收钱', 
-        },
-        {
-            icon: CardImage,
-            text: '卡包', 
-        },
-    ];
+                break;
+            default:
+                break;
+        }
+    }
     render() {
-        const data = this.data;
         return (
             <View style={styles.container}>
                 <Grid 
@@ -62,9 +46,7 @@ class SecondHeader extends Component {
                     hasLine={false}
                     renderItem={dataItem => {   
                         return (
-                            <TouchableHighlight style={styles.itemcontainer} onPress={()=> {
-                                dataItem.onPress();
-                                }}>
+                            <TouchableHighlight style={styles.itemcontainer} onPress={() => this.onClick(dataItem)}>
                                 <View style={[styles.itemcontainer,{opacity:this.props.opacity}]}>
                                     <Image source={dataItem.icon} style={styles.itemimage}/>
                                     <Text style={styles.desctext}>{dataItem.text}</Text>
