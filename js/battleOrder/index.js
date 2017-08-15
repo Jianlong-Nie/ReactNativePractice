@@ -6,6 +6,8 @@ import {
     StyleSheet,
     Dimensions,
 } from 'react-native';
+import BattleList from './BattleList';
+import { IndicatorViewPager, PagerTitleIndicator } from 'rn-viewpager';
 
 class BattleOrder extends Component {
     constructor(props) {
@@ -49,69 +51,58 @@ class BattleOrder extends Component {
 
     render() {
         return (
-            <View>
-                <ListView
-                    enableEmptySections={true}
-                    dataSource={this.state.dataSource}
-                    renderRow={this.renderRow}
-                    initialListSize={5}
-                />
+            <View style={{flex: 1}} >
+                <IndicatorViewPager
+                    style={{flexDirection: 'column-reverse', flex: 1, width: width}}
+                    indicator={this.renderTitleIndicator()}
+                    onPageScroll={this.onPageScroll}
+                >
+                    <BattleList dataSource={this.state.dataSource}/>
+                    <BattleList dataSource={this.state.dataSource}/>
+                </IndicatorViewPager>
                 {this.state.loading && <LoadingView />}
             </View>
         );
     }
-    renderRow = (rowData) => {
-      return (
-          <View style={styles.cell}>
-              <View style={styles.firstRow}>
-                  <Text style={styles.firstRow1}>{rowData.customerLeval}</Text>
-                  <Text style={styles.firstRow2}>14:40</Text>
-                  <Text style={styles.firstRow2}>{rowData.distance}</Text>
-              </View>
-              <View style={styles.secondRow}>
-                  <Text style={styles.secondText}>{rowData.adress}</Text>
-              </View>
-              <View style={styles.secondRow}>
-                  <Text style={styles.secondText}>{rowData.expendTime}</Text>
-              </View>
-              <View style={styles.secondRow}>
-                  <Text style={styles.secondText}>{rowData.name}</Text>
-              </View>
-          </View>
-      );
+
+    renderTitleIndicator = () => {
+        return (
+            <PagerTitleIndicator
+                style={styles.indicatorContainer}
+                itemTextStyle={styles.indicatorText}
+                selectedItemTextStyle={styles.indicatorSelectedText}
+                selectedBorderStyle={styles.selectedBorderStyle}
+                titles={['待抢订单', '已抢订单']}
+            />
+        )
+    }
+
+    onPageScroll = (scrollData) => {
+        let {offset, position} = scrollData
+        if (position < 0 || position >= 2) return
+        // this._setBgColor({bgColor: offset + position})
     }
 }
 
 
 const {width, height} = Dimensions.get('window');
 const styles = StyleSheet.create({
-    cell: {
-        width: width,
-        backgroundColor: 'white',
-        borderBottomWidth: 0.5,
-        borderBottomColor: '#F0F0F0',
+    indicatorContainer: {
+        backgroundColor: '#EFEFEF',
+        height: 48
     },
-    firstRow: {
-        flexDirection: 'row',
-        width: width,
-        alignItems: 'center',
-        padding: 8
+    indicatorText: {
+        fontSize: 14,
+        color: '#969696'
     },
-    firstRow1: {
-        fontSize: 16,
-        color: '#54B0BE',
-        marginRight: 4,
+    indicatorSelectedText: {
+        fontSize: 14,
+        color: '#3894A2'
     },
-    firstRow2: {
-        fontSize: 11,
-        color: '#999999',
-        marginLeft: 8,
-    },
-    secondRow: {
-      padding: 8
-    },
-    secondText: {
-      fontSize: 13,
+    selectedBorderStyle: {
+        height: 3,
+        backgroundColor: '#EFEFEF',
+        backgroundColor: '#3894A2'
     }
 });
 
