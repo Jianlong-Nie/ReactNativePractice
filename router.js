@@ -1,5 +1,6 @@
 import React from 'react';
 import Home from './js/home';
+// import HomeTest from './js/home/HomeTest';
 import ZhiFubaoIcon from './images/home/zhifubao.png';
 import MineIcon from './images/home/mine.png';
 import { StackNavigator, TabNavigator } from 'react-navigation';

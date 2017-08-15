@@ -1,10 +1,12 @@
 import WebView from './js/WebView';
 import SegmentComponent from "./js/home/SegmentComponent";
-import AnimateComponent from './js/home/AnimateComponent'
+import AnimateComponent from './js/home/AnimateComponent';
 
 import InstallView from './js/home/install';
 import PickerDemo from './js/EricDemo';
 const NavColor = '#c60c1b';
+import QRScanner from './js/qrScanner';
+import BattleOrder from './js/battleOrder';
 export const NavBarConfig = {
     headerStyle:{backgroundColor:NavColor},
     headerTitleStyle:{color:'white'},
@@ -23,6 +25,19 @@ const Routes = {
         navigationOptions :{
             ...NavBarConfig,
             title: '安装',
+    WebView: {
+        name: 'WebView',
+        description: 'WebView',
+        screen: WebView,
+        // navigationOptions: ({navigation}) => ({
+        //   title: `${navigation.state.params.name}`,
+        // }),
+        navigationOptions: {
+            title: '网页',
+            headerStyle:{backgroundColor:'#c60c1b'},
+            headerTitleStyle:{color:'white'},
+            headerTintColor:'white',
+            tabBarVisible: false
         }
     },
     SegmentComponent:{
@@ -62,6 +77,29 @@ const Routes = {
         navigationOptions:{
             title:'Picker',
             ...NavBarConfig,
+
+        }
+    },
+    QRScanner: {
+        name: 'QRScanner',
+        screen: QRScanner,
+        navigationOptions:{
+            title: '扫描二维码',
+            headerStyle:{backgroundColor:'#c60c1b'},
+            headerTitleStyle:{color:'white'},
+            headerTintColor:'white',
+            tabBarVisible: false
+        }
+    },
+    BattleOrder : {
+        name: 'BattleOrder',
+        screen: BattleOrder,
+        navigationOptions:{
+            title: '抢单',
+            headerStyle:{backgroundColor:'#c60c1b'},
+            headerTitleStyle:{color:'white'},
+            headerTintColor:'white',
+            tabBarVisible: false
         }
     }
 };

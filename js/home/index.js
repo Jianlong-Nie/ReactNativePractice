@@ -109,7 +109,7 @@ class Home extends Component {
                     <SearchHeader />
                     </View>
                     {
-                       this.state.searchHeaderOpacity < 0.3 ? null : <SecondHeader opacity={this.state.searchHeaderOpacity} ref='secondheader'/>
+                       this.state.searchHeaderOpacity < 0.3 ? null : <SecondHeader {...this.props} opacity={this.state.searchHeaderOpacity} ref='secondheader'/>
                     }
                     <AppContent {...this.props}/>
                     <View style={{ backgroundColor:'transparent',height:15 }}/>
