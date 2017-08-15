@@ -127,6 +127,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-spinkit')
     compile project(':react-native-picker')
     compile project(':react-native-datetime')
 //    compile project(':react-native-code-push')

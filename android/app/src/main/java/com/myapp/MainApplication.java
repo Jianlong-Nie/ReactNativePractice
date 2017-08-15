@@ -3,6 +3,7 @@ package com.myapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.react.rnspinkit.RNSpinkitPackage;
 import com.beefe.picker.PickerViewPackage;
 import com.keyee.datetime.RCTDateTimePickerPackage;
 //import com.microsoft.codepush.react.CodePush;
@@ -19,6 +20,12 @@ public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
 
+    @Override
+    protected String getJSBundleFile() {
+      return CodePush.getJSBundleFile();
+    }
+
+
 //    @Override
 //    protected String getJSBundleFile() {
 //      return CodePush.getJSBundleFile();
@@ -33,6 +40,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNSpinkitPackage(),
             new PickerViewPackage(),
 //            new CodePush(null, getApplicationContext(), BuildConfig.DEBUG),
             new RCTCameraPackage()

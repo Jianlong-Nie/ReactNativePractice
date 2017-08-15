@@ -62,7 +62,9 @@ class AppContent extends Component {
             case '延保服务':
                 navigation.navigate('AnimateComponent',{name:'AnimateComponent'});
                 break;
-            
+            case '抢单':
+                navigation.navigate('BattleOrder');
+                break;
             default:
                 break;
         }
