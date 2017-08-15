@@ -40,10 +40,7 @@ const Routes = {
         screen:AnimateComponent,
         navigationOptions:{
             title: 'AnimateComponent',
-            headerStyle:{backgroundColor:'#c60c1b'},
-            headerTitleStyle:{color:'white'},
-            headerTintColor:'white',
-            tabBarVisible: false
+            ...NavBarConfig,
         }
     },
     WebView: {
