@@ -25,6 +25,8 @@ const Routes = {
         navigationOptions :{
             ...NavBarConfig,
             title: '安装',
+        }
+    },
     WebView: {
         name: 'WebView',
         description: 'WebView',
@@ -102,6 +104,6 @@ const Routes = {
             tabBarVisible: false
         }
     }
-};
+}
 
 export default Routes;
