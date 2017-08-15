@@ -71,6 +71,8 @@ const Routes = {
             title:'Picker',
             ...NavBarConfig,
 
+        }
+    },
     WaterStore:{
         name:'WaterStore',
         description:'WaterStore',
@@ -82,8 +84,6 @@ const Routes = {
             headerTintColor:'white',
             tabBarVisible: false
         }),
-    }
-        }
     },
     QRScanner: {
         name: 'QRScanner',
