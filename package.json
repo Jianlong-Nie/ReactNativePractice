@@ -15,7 +15,9 @@
 		"react-native-camera": "^0.10.0",
 		"react-native-code-push": "^5.0.0-beta",
 		"react-native-svg-uri": "^1.2.0",
-		"react-navigation": "^1.0.0-beta.11"
+		"react-navigation": "^1.0.0-beta.11",
+		"lodash": "^4.17.4",
+		"react-native-spinkit": "^1.1.1"
 	},
 	"devDependencies": {
 		"babel-jest": "20.0.3",
