@@ -21,7 +21,7 @@ class BattleOrder extends Component {
         };
     }
     
-    componentWillMount() {
+    componentDidMount() {
         setTimeout(() => this.initData(), 3000);
     }
 
