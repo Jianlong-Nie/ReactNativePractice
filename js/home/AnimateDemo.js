@@ -95,7 +95,7 @@ export default class AnimateDemo extends Component {
                     {this.renderButton(2)}
                 </View>
                 <View style={styles.content}>
-                    <View style={{flexDirection: 'row', height: 100}}>
+                    <View style={{flexDirection: 'row', height: 50}}>
                         <View style={[leftStyle, {backgroundColor: 'firebrick'}]}/>
                         <View style={[middleStyle, {backgroundColor: 'seagreen'}]}/>
                         <View style={[rightStyle, {backgroundColor: 'steelblue'}]}/>

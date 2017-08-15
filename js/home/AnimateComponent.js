@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import FadeInView from "./FadeInView";
 import {
-    Animated, Easing, Text, View, LayoutAnimation, NativeModules, Dimensions, TouchableHighlight,ScrollView
+    Animated, Easing, Text, View, LayoutAnimation, NativeModules,
+    Dimensions, TouchableHighlight, ScrollView, PanResponder,
 } from 'react-native';
 import YanBaoFuWu from '../../images/home/haier/yanbao-fuwu.png';
 import AnimateDemo from "./AnimateDemo";
@@ -17,15 +18,35 @@ export default class AnimateComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            rotateValue: '0deg',
-            position: new Animated.ValueXY(0, 0),
+            rotateValue: new Animated.Value(0),
+            position: new Animated.ValueXY(),
             pressCount: 0,
-            showText: ['点我试试', '用力', '加把劲啊老铁', '哦了，别点了😳', '再点没了老铁，别点了😳'],
+            showText: ['点我试试', '用力', '下面的图片可以拖动哦', '加把劲啊老铁', '哦了，别点了😳', '再点没了老铁，别点了😳'],
             h: 50,
             w: 250,
             bounceValue: new Animated.Value(0),
             opacityValue: new Animated.Value(0),          // 透明度初始值设为0
-        }
+
+        };
+        this.state.panResponder = PanResponder.create({
+            onStartShouldSetPanResponder: () => true,
+            onPanResponderMove: Animated.event([null,
+                {
+                    dx: this.state.position.x,
+                    dy: this.state.position.y,
+                }
+            ])
+            // onPanResponderMove: Animated.event([null, {
+            //     dx: this.state.position.x, // x,y are Animated.Value
+            //     dy: this.state.position.y,
+            // }]),
+            /*onPanResponderRelease: () => {
+                Animated.spring(
+                    this.state.position,         // Auto-multiplexed
+                    {toValue: {x: 0, y: 0}} // Back to zero
+                ).start();
+            },*/
+        });
     }
 
     componentDidMount() {
@@ -35,9 +56,10 @@ export default class AnimateComponent extends Component {
             Animated.spring(                          // 可选的基本动画类型: spring, decay, timing
                 this.state.bounceValue,                 // 将`bounceValue`值动画化
                 {
-                    toValue: 0.8,                         // 将其值以动画的形式改到一个较小值
-                    friction: 1,                          // 摩擦力
-                    tension: 50,                           //张力
+                    toValue: 1,                         // 将其值以动画的形式改到一个较小值
+                    friction: 3,                          // 摩擦力
+                    tension: -20,                           //张力
+                    velocity: 7,
                 }
             ),
             Animated.timing(                            // 随时间变化而执行的动画类型
@@ -59,32 +81,8 @@ export default class AnimateComponent extends Component {
                 {
                     toValue: {x: 0, y: 0}    // 返回到起始点开始
                 }),
-            /*Animated.timing(
-                this.state.rotateValue,
-                {   // 同时开始旋转
-                    toValue: this.state.rotateValue.interpolate({
-                        inputRange: [0, 360],
-                        outputRange: ['0deg', '360deg'],
-                    }),
-                    duration: 2000,
-                }),*/
         ]).start();
 
-
-        /*Animated.sequence([            // 首先执行decay动画，结束后同时执行spring和twirl动画
-            Animated.decay(position, {   // 滑行一段距离后停止
-                velocity: {x: gestureState.vx, y: gestureState.vy}, // 根据用户的手势设置速度
-                deceleration: 0.997,
-            }),
-            Animated.parallel([          // 在decay之后并行执行：
-                Animated.spring(position, {
-                    toValue: {x: 0, y: 0}    // 返回到起始点开始
-                }),
-                Animated.timing(twirl, {   // 同时开始旋转
-                    toValue: 360,
-                }),
-            ]),
-        ]).start();                    // 执行这一整套动画序列*/
     }
 
     _onPress = () => {
@@ -99,20 +97,10 @@ export default class AnimateComponent extends Component {
 
     render() {
         return (
-            <ScrollView style={{ flex: 1}}>
-                <AnimateDemo style={{flex:1}}/>
+            <ScrollView style={{flex: 1}}>
+                <AnimateDemo style={{flex: 1}}/>
                 <TouchableHighlight
                     onPress={this._onPress}
-                    /*onScroll={Animated.event(
-                        // 设置scrollX = e.nativeEvent.contentOffset.x
-                        [{nativeEvent: {contentOffset: {x: scrollX}}}]
-                    )}
-                    onPanResponderMove={Animated.event([
-                        null,                                          // 忽略原生事件
-                        // 从gestureState中取出dx和dy的值
-                        // like 'pan.x = gestureState.dx, pan.y = gestureState.dy'
-                        {dx: pan.x, dy: pan.y}
-                    ])}*/
                 >
                     <Animated.Text                            // 可动画化的视图组件
                         style={{
@@ -121,21 +109,47 @@ export default class AnimateComponent extends Component {
                             textAlignVertical: 'center',
                             width: this.state.w, height: this.state.h,
                             backgroundColor: 'powderblue',
-                            opacity: this.state.opacityValue
+                            opacity: this.state.opacityValue,
+                            transform: [                        // `transform`是一个有序数组（动画按顺序执行）
+                                {scale: this.state.bounceValue},  // 将`bounceValue`赋值给 `scale`
+                                {
+                                    rotate: this.state.bounceValue.interpolate({
+                                        inputRange: [0, 1],
+                                        outputRange: ['0deg', '360deg']
+                                    })
+                                },
+                                {
+                                    translateX: this.state.bounceValue.interpolate({
+                                        inputRange: [0, 1],
+                                        outputRange: [300, 0],
+                                    })
+                                },
+                            ]
                         }}
+
                     >
                         {this.state.showText[this.state.pressCount]}
                     </Animated.Text>
                 </TouchableHighlight>
                 <Animated.Image  // 可选的基本组件类型: Image, Text, View,（0.45以后ScrollView）
                     source={YanBaoFuWu}
-                    style={{
-                        width: 150, height: 150,
-                        transform: [                        // `transform`是一个有序数组（动画按顺序执行）
-                            {scale: this.state.bounceValue},  // 将`bounceValue`赋值给 `scale`
-                            {rotate: this.state.rotateValue},
-                        ]
-                    }}
+                    {...this.state.panResponder.panHandlers}
+                    style={[
+                        this.state.position.getLayout(),
+                        // this.state.position.getTranslateTransform(),
+                        {
+                            width: 150, height: 150,
+                            transform: [                        // `transform`是一个有序数组（动画按顺序执行）
+                                {scale: this.state.bounceValue},  // 将`bounceValue`赋值给 `scale`
+                                {
+                                    rotate: this.state.bounceValue.interpolate({
+                                        inputRange: [0, 1],
+                                        outputRange: ['0deg', '360deg']
+                                    })
+                                },
+                            ]
+                        }
+                    ]}
                 />
             </ScrollView>
         );
