@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, PixelRatio } from 'react-native';
+import React from 'react';
+import { View, StyleSheet, TouchableOpacity, Image, PixelRatio } from 'react-native';
 import {Heading, Paragraph} from '../../widget/Text.js';
 
 class InstallViewCell extends React.Component {
     
     render() {
-        let {info} = this.props;
+        let { info } = this.props;
         let imageUrl = info.imageUrl.replace('w.h', '160.0');
         return (
             <TouchableOpacity style = {styles.container}>

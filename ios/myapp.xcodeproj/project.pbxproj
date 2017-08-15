@@ -107,6 +107,13 @@
 			remoteGlobalIDString = 83CBBA2E1A601D0E00E9B192;
 			remoteInfo = React;
 		};
+		17D5D9EA1F4286A40014242F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 553159D945A24CB081E8BAF2 /* RCTBEEPickerManager.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 17D41E551D7EE0CA0031415E;
+			remoteInfo = RCTBEEPickerManager;
+		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
@@ -452,6 +459,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		17D5D9E21F4286A30014242F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				17D5D9EB1F4286A40014242F /* libRCTBEEPickerManager.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		474174191F41A08700FB93F7 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -689,6 +704,10 @@
 					ProjectRef = 5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */;
 				},
 				{
+					ProductGroup = 17D5D9E21F4286A30014242F /* Products */;
+					ProjectRef = 553159D945A24CB081E8BAF2 /* RCTBEEPickerManager.xcodeproj */;
+				},
+				{
 					ProductGroup = 51017C821F3DA14900631B84 /* Products */;
 					ProjectRef = 85235D67E87A409095286F72 /* RCTCamera.xcodeproj */;
 				},
@@ -794,6 +813,13 @@
 			fileType = archive.ar;
 			path = libReact.a;
 			remoteRef = 146834031AC3E56700842450 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		17D5D9EB1F4286A40014242F /* libRCTBEEPickerManager.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTBEEPickerManager.a;
+			remoteRef = 17D5D9EA1F4286A40014242F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		3DAD3E841DF850E9000B6D8A /* libRCTImage-tvOS.a */ = {
