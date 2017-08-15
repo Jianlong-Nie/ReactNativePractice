@@ -35,7 +35,7 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new RNSpinkitPackage(),
-            new PickerViewPackage(),
+//            new PickerViewPackage(),
 //            new CodePush(null, getApplicationContext(), BuildConfig.DEBUG),
 
             new RCTCameraPackage()

@@ -1,5 +1,4 @@
 import WebView from './js/WebView';
-<<<<<<< HEAD
 import SegmentComponent from "./js/home/SegmentComponent";
 import AnimateComponent from './js/home/AnimateComponent';
 
