@@ -20,16 +20,12 @@ public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
 
-    @Override
-    protected String getJSBundleFile() {
-      return CodePush.getJSBundleFile();
-    }
-
-
 //    @Override
 //    protected String getJSBundleFile() {
 //      return CodePush.getJSBundleFile();
 //    }
+
+
 
     @Override
     public boolean getUseDeveloperSupport() {
@@ -40,13 +36,16 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+
             new RNSpinkitPackage(),
             new PickerViewPackage(),
 //            new CodePush(null, getApplicationContext(), BuildConfig.DEBUG),
+
             new RCTCameraPackage()
       );
     }
   };
+
 
   @Override
   public ReactNativeHost getReactNativeHost() {

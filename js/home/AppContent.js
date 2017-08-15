@@ -65,10 +65,14 @@ class AppContent extends Component {
             case '抢单':
                 navigation.navigate('BattleOrder');
                 break;
+            case '水站':
+                navigation.navigate('WaterStore',{name:'测试Toast'});
+                break;
             default:
                 break;
         }
     };
+
     render() {
         return (
             <View style={styles.container}>

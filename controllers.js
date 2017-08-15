@@ -1,4 +1,5 @@
 import WebView from './js/WebView';
+<<<<<<< HEAD
 import SegmentComponent from "./js/home/SegmentComponent";
 import AnimateComponent from './js/home/AnimateComponent';
 
@@ -7,6 +8,8 @@ import PickerDemo from './js/EricDemo';
 const NavColor = '#c60c1b';
 import QRScanner from './js/qrScanner';
 import BattleOrder from './js/battleOrder';
+import WaterStore from './js/home/WaterStore';
+
 export const NavBarConfig = {
     headerStyle:{backgroundColor:NavColor},
     headerTitleStyle:{color:'white'},
@@ -42,6 +45,7 @@ const Routes = {
             tabBarVisible: false
         }
     },
+
     SegmentComponent:{
         name:'SegmentComponent',
         description:'SegmentComponent',
@@ -60,18 +64,6 @@ const Routes = {
             ...NavBarConfig,
         }
     },
-    WebView: {
-        name: 'WebView',
-        description: 'WebView',
-        screen: WebView,
-        // navigationOptions: ({navigation}) => ({
-        //   title: `${navigation.state.params.name}`,
-        // }),
-        navigationOptions :{
-            title: '网页',
-            ...NavBarConfig,
-        }
-    },
     PickerDemo:{
         name:'PickerDemo',
         description:'DatePicker and ImagePicker',
@@ -80,6 +72,18 @@ const Routes = {
             title:'Picker',
             ...NavBarConfig,
 
+    WaterStore:{
+        name:'WaterStore',
+        description:'WaterStore',
+        screen:WaterStore,
+        navigationOptions: ({navigation}) => ({
+            title: `${navigation.state.params.name}`,
+            headerStyle:{backgroundColor:'#c60c1b'},
+            headerTitleStyle:{color:'white'},
+            headerTintColor:'white',
+            tabBarVisible: false
+        }),
+    }
         }
     },
     QRScanner: {

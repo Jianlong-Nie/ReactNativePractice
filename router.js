@@ -88,6 +88,8 @@ const router = TabNavigator(
     }
 );
 
-// const router = codePush(mrouter);
+
+//const router = codePush(mrouter);
+
 //make this component available to the app
 export default router;
