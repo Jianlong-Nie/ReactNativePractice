@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import FadeInView from "./FadeInView";
 import {
-    Animated, Easing, Text, View, LayoutAnimation, NativeModules, Dimensions, TouchableHighlight
+    Animated, Easing, Text, View, LayoutAnimation, NativeModules, Dimensions, TouchableHighlight,ScrollView
 } from 'react-native';
 import YanBaoFuWu from '../../images/home/haier/yanbao-fuwu.png';
+import AnimateDemo from "./AnimateDemo";
 
 
 // const {UIManager} = NativeModules;
@@ -16,6 +17,8 @@ export default class AnimateComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            rotateValue: '0deg',
+            position: new Animated.ValueXY(0, 0),
             pressCount: 0,
             showText: ['点我试试', '用力', '加把劲啊老铁', '哦了，别点了😳', '再点没了老铁，别点了😳'],
             h: 50,
@@ -44,8 +47,29 @@ export default class AnimateComponent extends Component {
                     // easing: Easing.back,
                     duration: 2000,
                 }
-            ),                                 // 开始执行动画
+            ),
+            /*Animated.decay(
+                this.state.position,
+                {   // 滑行一段距离后停止
+                    velocity: {x: gestureState.vx, y: gestureState.vy}, // 根据用户的手势设置速度
+                    deceleration: 0.997,
+                }),*/
+            Animated.spring(
+                this.state.position,
+                {
+                    toValue: {x: 0, y: 0}    // 返回到起始点开始
+                }),
+            /*Animated.timing(
+                this.state.rotateValue,
+                {   // 同时开始旋转
+                    toValue: this.state.rotateValue.interpolate({
+                        inputRange: [0, 360],
+                        outputRange: ['0deg', '360deg'],
+                    }),
+                    duration: 2000,
+                }),*/
         ]).start();
+
 
         /*Animated.sequence([            // 首先执行decay动画，结束后同时执行spring和twirl动画
             Animated.decay(position, {   // 滑行一段距离后停止
@@ -75,9 +99,20 @@ export default class AnimateComponent extends Component {
 
     render() {
         return (
-            <View style={{justifyContent: 'center', alignItems: 'center', flex: 1}}>
+            <ScrollView style={{ flex: 1}}>
+                <AnimateDemo style={{flex:1}}/>
                 <TouchableHighlight
                     onPress={this._onPress}
+                    /*onScroll={Animated.event(
+                        // 设置scrollX = e.nativeEvent.contentOffset.x
+                        [{nativeEvent: {contentOffset: {x: scrollX}}}]
+                    )}
+                    onPanResponderMove={Animated.event([
+                        null,                                          // 忽略原生事件
+                        // 从gestureState中取出dx和dy的值
+                        // like 'pan.x = gestureState.dx, pan.y = gestureState.dy'
+                        {dx: pan.x, dy: pan.y}
+                    ])}*/
                 >
                     <Animated.Text                            // 可动画化的视图组件
                         style={{
@@ -92,16 +127,17 @@ export default class AnimateComponent extends Component {
                         {this.state.showText[this.state.pressCount]}
                     </Animated.Text>
                 </TouchableHighlight>
-                <Animated.Image  // 可选的基本组件类型: Image, Text, View
+                <Animated.Image  // 可选的基本组件类型: Image, Text, View,（0.45以后ScrollView）
                     source={YanBaoFuWu}
                     style={{
                         width: 150, height: 150,
                         transform: [                        // `transform`是一个有序数组（动画按顺序执行）
                             {scale: this.state.bounceValue},  // 将`bounceValue`赋值给 `scale`
+                            {rotate: this.state.rotateValue},
                         ]
                     }}
                 />
-            </View>
+            </ScrollView>
         );
     }
 }
