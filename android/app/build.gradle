@@ -1,5 +1,5 @@
 apply plugin: "com.android.application"
-apply from: "../../node_modules/react-native/react.gradle"
+//apply from: "../../node_modules/react-native/react.gradle"
 //apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
 
 import com.android.build.OutputFile
@@ -133,7 +133,7 @@ dependencies {
 //    compile project(':react-native-code-push')
     compile project(':react-native-camera')
     compile fileTree(dir: "libs", include: ["*.jar"])
-    compile "com.android.support:appcompat-v7:23.0.1"
+    compile "com.android.support:appcompat-v7:25.0.0"
     compile "com.facebook.react:react-native:+"  // From node_modules
 }
 

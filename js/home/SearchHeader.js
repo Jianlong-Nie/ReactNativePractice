@@ -1,11 +1,13 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet, TextInput, Dimensions, TouchableHighlight } from 'react-native';
+import { View, Text, Image, StyleSheet, TextInput, Dimensions, TouchableHighlight,Platform } from 'react-native';
 import { Button, TabBar, Icon, InputItem } from 'antd-mobile';
 import SearchImage from '../../images/home/search.png';
 import MicImage from '../../images/home/mic.png';
 import TongXunLuImage from '../../images/home/tongxunlu.png';
 import JiaHaoImage from '../../images/home/jiahao.png';
+import MorePopWindow from '../home/MorePopWindow.js';
+const headH = 64;
 const { width, height } = Dimensions.get('window');
 
 // create a component
@@ -25,6 +27,16 @@ const CustomSearchBar = () => {
 
 // create a component
 class SearchHeader extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showPop: false,
+        };
+    }
+
+    showPop = () => {
+        this.setState({ showPop: !this.state.showPop });
+    }
     render() {
         return (
             <View style={[styles.container,{opacity:this.props.opacity}]}>
@@ -34,9 +46,15 @@ class SearchHeader extends Component {
                         <TouchableHighlight>
                             <Image source={TongXunLuImage} style={styles.btnIcon}/>
                         </TouchableHighlight>
-                        <TouchableHighlight>
+                        <TouchableHighlight
+                            onPress = {this.showPop}>
                             <Image source={JiaHaoImage} style={styles.btnIcon}/>
                         </TouchableHighlight>
+                    </View>
+                    <View style={{ position: 'absolute', top: 300, left: 0, width: width, height: height }}>
+                        <MorePopWindow width={90} height={100} show={this.state.showPop} closeModal={(show) => {
+                            this.setState({showPop: show});
+                        }} {...this.props}/>
                     </View>
                 </View>
             </View>

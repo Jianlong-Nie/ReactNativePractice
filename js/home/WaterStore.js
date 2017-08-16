@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, Dimensions, Image, TouchableHighlight} from 'react-native';
+import {View, Text, Dimensions, Image, TouchableHighlight,Platform,} from 'react-native';
 import {
   Toast,
   Button,
@@ -16,27 +16,25 @@ import {
 } from 'antd-mobile';
 import IconScan from '../../images/home/home_scan.png';
 import IconBill from '../../images/home/home_bill.png';
+import MorePopWindow from './MorePopWindow.js';
 
 const Item = Popover.Item;
 const {width, height} = Dimensions.get('window');
+const headH = (Platform.OS == "ios" ? 64 : 44) * width/375;
 let maskProps;
 export default class WaterStore extends Component {
   
   showToast = () => {
     Toast.info('Toast测试！！', 1);
   }
-  state = {
-    visible: true,
-    selected: ''
-  };
-
-  onSelect = (opt) => {
-    // console.log(opt.props.value);
-    // this.setState({visible: false, selected: opt.props.value});
-  };
-  handleVisibleChange = (visible) => {
-    this.setState({visible});
-  };
+ 
+  constructor(props) {
+    super(props);
+    this.state = {
+      showPop: false,
+  }
+  }
+  
 
   showPop = (e) => {
     e.preventDefault(); // 修复 Android 上点击穿透
@@ -49,19 +47,13 @@ export default class WaterStore extends Component {
   }
 
   showScan = () => {
-    this.refs.mc.refs.menuContext.toggleMenu('m');
-  }
-
-  constructor(props) {
-    super(props);
+    // this.refs.mc.refs.menuContext.toggleMenu('m');
+    this.setState({ showPop: !this.state.showPop });
   }
 
   render() {
-    let offsetX = -26; // just for pc demo
-    // if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {   offsetX
-    // = -26; }
     return (
-      <View>
+      <View style={{backgroundColor:'white'}}>
         <WingBlank>
           <WhiteSpace/>
           <Button ref='dismiss' onClick={this.showToast} type="primary">
@@ -78,31 +70,11 @@ export default class WaterStore extends Component {
             弹窗测试</Button>
         </WingBlank>
         <WhiteSpace/>
-        <Popover
-          ref='mc'
-          name={'m'}
-          overlayClassName="fortest"
-          overlayStyle={{
-          backgroundColor: 'yellow',
-          height: 800,
-          width: 800,
-          }}
-          contextStyle = {{
-            backgroundColor:'gray',
-            height:height,
-            width:width,
-          }}
-          visible={this.state.visible}
-          overlay={<View style = {{backgroundColor:'yellow'}}></View>}
-          style={{
-          backgroundColor: '#eee',
-          height: 500,
-          width: 400
-          }}
-          onVisibleChange={this.handleVisibleChange}
-          onSelect={this.onSelect}>
-          
-        </Popover>
+        <View style={{ position: 'absolute', top: 300, left: 0, width: width, height: height,backgroundColor:'white'}}>
+                    <MorePopWindow width={90} height={100} show={this.state.showPop} closeModal={(show) => {
+                        this.setState({showPop: show})
+                    }} {...this.props}/>
+                </View>
 
       </View>
     );
