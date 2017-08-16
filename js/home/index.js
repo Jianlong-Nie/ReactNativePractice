@@ -6,7 +6,9 @@ import {
     StyleSheet, 
     ScrollView, 
     Dimensions,
-    Platform, 
+    Platform,
+    PanResponder,
+    Animated,
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import SearchHeader from './SearchHeader';
@@ -22,7 +24,21 @@ class Home extends Component {
         super(props, context);
         this.state={
             navigantionHeaderOpacity: 0,
+            // position:new Animated.ValueXY(),
+
         };
+        /*this.state.panResponder = PanResponder.create({
+            onStartShouldSetPanResponder: () => true,
+            // onPanResponderMove: (e)=>{
+            //     console.log(`${e.gesture.moveY}`);
+            // },
+            onPanResponderMove: Animated.event([null,
+                {
+                    moveX: this.state.position.x,
+                    moveY: this.state.position.y,
+                }
+            ])
+        });*/
     }
     handleScroll = (e) => {
        var windowHeight = Dimensions.get('window').height,
@@ -40,18 +56,19 @@ class Home extends Component {
     }
     static navigationOptions = {
          header:null
-    }
+    };
     render() {
         return (
             <View style={{flex:1}}>
                 <ScrollView
+                    /*{...this.state.panResponder.panHandlers}*/
                     bounces = {false}
                     scrollEventThrottle={16}
                     style={styles.container}
                     showsVerticalScrollIndicator={false}
                     onScroll={(e) => this.handleScroll(e)}
                 >
-                    <SearchHeader />
+                    <SearchHeader /*style = {this.state.position.getLayout()*/ />
                     <SecondHeader {...this.props} />
                     <AppContent {...this.props} />
                     <View style={{ backgroundColor:'transparent',height:15 }} />

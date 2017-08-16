@@ -35,6 +35,7 @@ export default class AnimateComponent extends Component {
                     dx: this.state.position.x,
                     dy: this.state.position.y,
                 }
+
             ])
             // onPanResponderMove: Animated.event([null, {
             //     dx: this.state.position.x, // x,y are Animated.Value
