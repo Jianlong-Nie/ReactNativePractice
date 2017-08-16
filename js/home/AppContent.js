@@ -50,7 +50,7 @@ class AppContent extends Component {
         const {navigation} = this.props;
         //const { screen } = Contollers.WebView;
         switch (dataItem.text){
-            case 'xxxxxxx' :
+            case '小管家' :
                 navigation.navigate('WebView', {name: '网页'});
                 break;
             case '安装':
