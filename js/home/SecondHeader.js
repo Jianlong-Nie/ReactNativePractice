@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableHighlight } from 'react-native';
 import { Grid } from 'antd-mobile';
-import ScanImage from '../../images/home/home_scan.png';
-import PayImage from '../../images/home/home_pay.png';
-import XiuImage from '../../images/home/home_xiu.png';
-import CardImage from '../../images/home/home_card.png';
+import ScanImage from '../../images/home/haier/icon_saoyisao.png';
+import PayImage from '../../images/home/haier/icon_pay.png';
+import XiuImage from '../../images/home/haier/icon_shouqian.png';
+import CardImage from '../../images/home/haier/icon_kabao.png';
 // const data = Array.from(new Array(4)).map((_val, i) => ({
 //     icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
 //     text: `name${i}`,
@@ -48,7 +48,7 @@ class SecondHeader extends Component {
                         return (
                             <TouchableHighlight style={styles.itemcontainer} onPress={() => this.onClick(dataItem)}>
                                 <View style={[styles.itemcontainer,{opacity:this.props.opacity}]}>
-                                    <Image source={dataItem.icon} style={styles.itemimage}/>
+                                    <Image source={dataItem.icon} resizeMode = "contain" style={styles.itemimage}/>
                                     <Text style={styles.desctext}>{dataItem.text}</Text>
                                 </View>
                             </TouchableHighlight>
@@ -65,7 +65,7 @@ class SecondHeader extends Component {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#c60c1b',
-        height: 120,
+        height: 110,
     },
     itemcontainer: {
         flex:1,
@@ -74,12 +74,13 @@ const styles = StyleSheet.create({
     },
     itemimage:{
         marginTop: 20,
-        height: 50,
-        width: 50,
+        height: 35,
+        width: 35,
         marginBottom: 20,
     },
     desctext:{
-        fontSize: 16,
+        fontSize: 15,
+        fontWeight: '600',
         color: 'white',
         marginBottom: 15
     }

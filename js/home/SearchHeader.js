@@ -2,10 +2,10 @@
 import React, { Component } from 'react';
 import { View, Text, Image, StyleSheet, TextInput, Dimensions, TouchableHighlight,Platform } from 'react-native';
 import { Button, TabBar, Icon, InputItem } from 'antd-mobile';
-import SearchImage from '../../images/home/search.png';
+import SearchImage from '../../images/home/haier/icon_search.png';
 import MicImage from '../../images/home/mic.png';
 import TongXunLuImage from '../../images/home/tongxunlu.png';
-import JiaHaoImage from '../../images/home/jiahao.png';
+import JiaHaoImage from '../../images/home/haier/tianjia.png';
 import MorePopWindow from '../home/MorePopWindow.js';
 const headH = 64;
 const { width, height } = Dimensions.get('window');
@@ -16,11 +16,10 @@ const CustomSearchBar = () => {
         <View style={styles.customSearchBar}>
             <Image source={SearchImage} style={styles.searchIcon}/>
             <TextInput
-                defaultValue="真诚超市满六减一"
-                style={{width: width-180, height: 35, color: 'white'}}
+                defaultValue=""
+                style={{flex: 1, height: 20, color: 'white'}}
                 editable = {false}
             />
-            <Image source={MicImage} style={styles.searchIcon}/>
         </View>
     );
 };
@@ -42,19 +41,11 @@ class SearchHeader extends Component {
             <View style={[styles.container,{opacity:this.props.opacity}]}>
                 <View style={styles.content}>
                     <CustomSearchBar />
-                    <View style={{flexDirection:'row', width: 80, marginRight: 15,marginTop: 5,marginLeft:10}}>
-                        <TouchableHighlight>
-                            <Image source={TongXunLuImage} style={styles.btnIcon}/>
-                        </TouchableHighlight>
+                    <View style={{flexDirection:'row', alignItems: 'center', justifyContent: 'flex-end'}}>
                         <TouchableHighlight
                             onPress = {this.showPop}>
                             <Image source={JiaHaoImage} style={styles.btnIcon}/>
                         </TouchableHighlight>
-                    </View>
-                    <View style={{ position: 'absolute', top: 300, left: 0, width: width, height: height }}>
-                        <MorePopWindow width={90} height={100} show={this.state.showPop} closeModal={(show) => {
-                            this.setState({showPop: show});
-                        }} {...this.props}/>
                     </View>
                 </View>
             </View>
@@ -69,30 +60,32 @@ const styles = StyleSheet.create({
         height: 64,
     },
     content:{
-        marginTop: 20,
-        backgroundColor: 'transparent',
-        flex: 1,
+        marginTop: 25,
+        marginLeft: 20,
+        marginRight: 20,
+        backgroundColor: 'transparent',        
+        flexDirection: 'row',        
         justifyContent: 'space-between',
-        flexDirection: 'row',
+        alignItems: 'center'
     },
     customSearchBar:{
-        marginLeft: 15,
-        backgroundColor: 'rgba(0, 0, 0, 0.3)',
-        borderRadius: 6,
-        height: 35,
-        alignItems:'center',
+        flex: 1,
+        borderRadius: 22.5,
+        height: 30,
+        borderWidth: 1,
+        borderColor: 'rgba(255, 255, 255, 0.3)',
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginRight: 15,
+        paddingLeft: 15
     },
     searchIcon:{
-        margin: 10,
-        height: 20,
-        width: 20,
+        height: 15,
+        width: 15,
     },
     btnIcon:{
-        height: 23,
-        width: 23, 
-        marginRight: 15,
+        height: 15,
+        width: 15, 
     }
 });
 

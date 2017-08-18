@@ -1,12 +1,15 @@
 import React from 'react';
 import Home from './js/home';
 // import HomeTest from './js/home/HomeTest';
-import ZhiFubaoIcon from './images/home/zhifubao.png';
+import ZhiFubaoIconSelected from './images/home/haier/zhuye_selected.png';
+import ZhiFubaoIconNormal from './images/home/haier/zhuye.png';
 import MineIcon from './images/home/mine.png';
+import MineIconSelected from './images/home/haier/wode.png';
 import { StackNavigator, TabNavigator } from 'react-navigation';
+
 import Controllers from  './controllers';
 import Mine from './js/mine';
-import { Image } from 'react-native';
+import { Image} from 'react-native';
 import './js/customComponent/CustomView';
 //import { QRScannerView } from 'ac-qrcode';
 // create a component
@@ -54,6 +57,16 @@ const MineTab = StackNavigator({
 }
 );
 
+const TabBarItem = props => {
+    return (
+        <Image
+            resizeMode = "contain"
+            source = {props.focused ? props.selectedImage : props.normalImage}
+            style = {{tintColor: props.tintColor, width: 25, height: 25}}
+        />
+    );
+}
+
 const router = TabNavigator(
     {
         MainTab: {
@@ -61,7 +74,12 @@ const router = TabNavigator(
             navigationOptions: {
                 tabBarLabel: '首页',
                 tabBarIcon: ({ tintColor, focused }) => (
-                    <Image source={ZhiFubaoIcon} />
+                    <TabBarItem
+                        tintColor={tintColor}
+                        focused={focused}
+                        normalImage= {ZhiFubaoIconNormal}
+                        selectedImage= {ZhiFubaoIconSelected}
+                    />
                 ),
             },
         },
@@ -70,7 +88,12 @@ const router = TabNavigator(
             navigationOptions: {
                 tabBarLabel: '我的',
                 tabBarIcon: ({ tintColor, focused }) => (
-                    <Image source={MineIcon} />
+                    <TabBarItem
+                        tintColor={tintColor}
+                        focused={focused}
+                        normalImage= {MineIconSelected}
+                        selectedImage= {MineIconSelected}
+                    />
                 ),
             },
         },
@@ -87,8 +110,6 @@ const router = TabNavigator(
         }
     }
 );
-
-
 //const router = codePush(mrouter);
 
 //make this component available to the app

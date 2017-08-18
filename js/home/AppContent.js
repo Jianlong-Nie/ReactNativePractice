@@ -2,33 +2,41 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image, TouchableHighlight} from 'react-native';
 import {Grid} from 'antd-mobile';
+import ShuizhanImage from '../../images/home/haier/shuizhan.png';
+import ZhengChePeiSong from '../../images/home/haier/zhengche-peisong.png';
+import PeiSongAnZhuang from '../../images/home/haier/peisonganzhuang.png';
+import XiaoGuanJia from '../../images/home/haier/xiaoguanjia.png';
 import AnZhuangImage from '../../images/home/haier/peisonganzhuang.png';
 import QiangDImage from '../../images/home/haier/qiangdan.png';
-import ShuizhanImage from '../../images/home/haier/shuizhan.png';
 import XiaoGuanJiaImage from '../../images/home/haier/xiaoguanjia.png';
 import YanBaoFuWu from '../../images/home/haier/yanbao-fuwu.png';
-import ZhengChePeiSong from '../../images/home/haier/zhengche-peisong.png';
+import More from '../../images/home/haier/more.png';
 
 
 const data = [
-    {
-        icon: AnZhuangImage,
-        text: '安装',
-        dest: 'InstallView'
-    },
-    {
-        icon: QiangDImage,
-        text: '抢单',
-        dest: 'PickerDemo'
-    },
     {
         icon: ShuizhanImage,
         text: '水站',
         dest: 'PickerDemo'
     },
     {
-        icon: XiaoGuanJiaImage,
+        icon: ZhengChePeiSong,
+        text: '整车配送',
+        dest: 'SegmentComponent'
+    },
+    {
+        icon: PeiSongAnZhuang,
+        text: '配送安装',
+        dest: 'SegmentComponent'
+    },
+    {
+        icon: XiaoGuanJia,
         text: '小管家',
+        dest: 'SegmentComponent'
+    },
+    {
+        icon: QiangDImage,
+        text: '抢单',
         dest: 'PickerDemo'
     },
     {
@@ -37,9 +45,9 @@ const data = [
         dest: 'PickerDemo'
     },
     {
-        icon: ZhengChePeiSong,
-        text: '整车配送',
-        dest: 'SegmentComponent'
+        icon: More,
+        text: '更多',
+        dest: 'PickerDemo'
     },
 
 ];
@@ -114,7 +122,7 @@ const styles = StyleSheet.create({
     itemimage: {
         height: 30,
         width: 30,
-        marginBottom: 15,
+        marginBottom: 10,
     },
 });
 

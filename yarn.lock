@@ -4563,7 +4563,7 @@ react-native-camera@^0.7.0:
 
 react-native-code-push@^5.0.0-beta:
   version "5.0.0-beta"
-  resolved "https://registry.yarnpkg.com/react-native-code-push/-/react-native-code-push-5.0.0-beta.tgz#7d182c93c945e9d5e9e7dd92dab4237ef743ed00"
+  resolved "http://registry.npm.taobao.org/react-native-code-push/download/react-native-code-push-5.0.0-beta.tgz#7d182c93c945e9d5e9e7dd92dab4237ef743ed00"
   dependencies:
     code-push "1.11.2-beta"
     glob "^5.0.15"
