@@ -76,6 +76,9 @@ class AppContent extends Component {
             case '水站':
                 navigation.navigate('WaterStore',{name:'测试Toast'});
                 break;
+            case '小管家':
+                navigation.navigate('PickerDemo', {name:'选择器'});
+                break;
             default:
                 break;
         }

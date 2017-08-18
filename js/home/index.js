@@ -45,13 +45,13 @@ class Home extends Component {
             height = e.nativeEvent.contentSize.height,
             offset = e.nativeEvent.contentOffset.y;
        
-        if(offset>64){
-          this.setState({navigantionHeaderOpacity: 1});
-          console.log('输出上拉操作');
-        }else{
-         this.setState({navigantionHeaderOpacity: 0});
-           console.log('输出下拉操作');
-        }
+            if(offset>64){
+              this.setState({navigantionHeaderOpacity: 1});
+              console.log('输出上拉操作');
+            }else{
+             this.setState({navigantionHeaderOpacity: 0});
+               console.log('输出下拉操作');
+            }
 
     }
     static navigationOptions = {

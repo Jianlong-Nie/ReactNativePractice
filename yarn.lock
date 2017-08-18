@@ -1136,7 +1136,7 @@ browser-sync-ui@0.6.3:
 
 browser-sync@^2.18.13:
   version "2.18.13"
-  resolved "https://registry.yarnpkg.com/browser-sync/-/browser-sync-2.18.13.tgz#c28dc3eb3be67c97a907082b772a37f915c14d7d"
+  resolved "http://registry.npm.taobao.org/browser-sync/download/browser-sync-2.18.13.tgz#c28dc3eb3be67c97a907082b772a37f915c14d7d"
   dependencies:
     browser-sync-client "2.5.1"
     browser-sync-ui "0.6.3"

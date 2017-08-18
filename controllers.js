@@ -3,7 +3,7 @@ import SegmentComponent from "./js/home/SegmentComponent";
 import AnimateComponent from './js/home/AnimateComponent';
 
 import InstallView from './js/home/install';
-import PickerDemo from './js/EricDemo';
+import PickerDemo from './js/picker/EricDemo';
 const NavColor = '#c60c1b';
 import QRScanner from './js/qrScanner';
 import BattleOrder from './js/battleOrder';
