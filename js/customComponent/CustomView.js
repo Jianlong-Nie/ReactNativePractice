@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, StyleSheet, Dimensions} from 'react-native';
-import Spinner from 'react-native-spinkit';
+// import Spinner from 'react-native-spinkit';
 
 class LoadingView extends Component {
     constructor(props) {
@@ -17,7 +17,6 @@ class LoadingView extends Component {
         return(
             <View style = {styles.spContain}>
                 <View style = {styles.spinner}>
-                    <Spinner style = {{marginBottom: 5, marginRight: 5}} size={20} type={'Circle'} color={'#FFFFFF'}/>
                 </View>
             </View>
         );

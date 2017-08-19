@@ -1,5 +1,6 @@
 import WebView from './js/WebView/WebViewExample';
-import SegmentComponent from "./js/home/SegmentComponent";
+import CustomWebView from './js/WebView';
+import SegmentComponent from './js/home/SegmentComponent';
 import AnimateComponent from './js/home/AnimateComponent';
 
 import InstallView from './js/home/install';
@@ -8,15 +9,29 @@ const NavColor = '#c60c1b';
 import QRScanner from './js/qrScanner';
 import BattleOrder from './js/battleOrder';
 import WaterStore from './js/home/WaterStore';
+import EditWeb  from './js/weblist';
 
 export const NavBarConfig = {
     headerStyle:{backgroundColor:NavColor},
     headerTitleStyle:{color:'white'},
     headerTintColor:'white',
-    tabBarVisible: false
+    tabBarVisible: false,
+    headerBackTitle: '',
 };
 
 const Routes = {
+    EditWeb: {
+        name: 'EditWeb',
+        description: 'EditWeb',
+        screen: EditWeb,
+        // navigationOptions: ({navigation}) => ({
+        //   title: `${navigation.state.params.name}`,
+        // }),
+        navigationOptions :{
+            ...NavBarConfig,
+            title: '添加网站',
+        }
+    },
     InstallView: {
         name: 'InstallView',
         description: 'InstallView',
@@ -38,12 +53,22 @@ const Routes = {
         // }),
         navigationOptions: {
             title: '网页',
-            headerStyle:{backgroundColor:'#c60c1b'},
-            headerTitleStyle:{color:'white'},
-            headerTintColor:'white',
-            tabBarVisible: false
+            ...NavBarConfig,
         }
     },
+    CustomWebView: {
+        name: 'CustomWebView',
+        description: 'WebView',
+        screen: CustomWebView,
+        // navigationOptions: ({navigation}) => ({
+        //   title: `${navigation.state.params.name}`,
+        // }),
+        navigationOptions: {
+            title: '网页',
+            ...NavBarConfig,
+        }
+    },
+
 
     SegmentComponent:{
         name:'SegmentComponent',
@@ -79,10 +104,7 @@ const Routes = {
         screen:WaterStore,
         navigationOptions: ({navigation}) => ({
             title: `${navigation.state.params.name}`,
-            headerStyle:{backgroundColor:'#c60c1b'},
-            headerTitleStyle:{color:'white'},
-            headerTintColor:'white',
-            tabBarVisible: false
+            ...NavBarConfig,
         }),
     },
     QRScanner: {
@@ -90,10 +112,7 @@ const Routes = {
         screen: QRScanner,
         navigationOptions:{
             title: '扫描二维码',
-            headerStyle:{backgroundColor:'#c60c1b'},
-            headerTitleStyle:{color:'white'},
-            headerTintColor:'white',
-            tabBarVisible: false
+            ...NavBarConfig,
         }
     },
     BattleOrder : {
@@ -101,12 +120,9 @@ const Routes = {
         screen: BattleOrder,
         navigationOptions:{
             title: '抢单',
-            headerStyle:{backgroundColor:'#c60c1b'},
-            headerTitleStyle:{color:'white'},
-            headerTintColor:'white',
-            tabBarVisible: false
+            ...NavBarConfig,
         }
     }
-}
+};
 
 export default Routes;
