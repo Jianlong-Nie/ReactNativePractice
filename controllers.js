@@ -10,6 +10,9 @@ import QRScanner from './js/qrScanner';
 import BattleOrder from './js/battleOrder';
 import WaterStore from './js/home/WaterStore';
 import EditWeb  from './js/weblist';
+import AntDesign from './js/antDesign';
+import AntDesignTwo from './js/antDesinTwo';
+import AntDesignThree from './js/antDesinThree';
 
 export const NavBarConfig = {
     headerStyle:{backgroundColor:NavColor},
@@ -30,6 +33,30 @@ const Routes = {
         navigationOptions :{
             ...NavBarConfig,
             title: '添加网站',
+        }
+    },
+    AntDesignTwo: {
+        name: 'AntDesignTwo',
+        description: 'AntDesignTwo',
+        screen: AntDesignTwo,
+        // navigationOptions: ({navigation}) => ({
+        //   title: `${navigation.state.params.name}`,
+        // }),
+        navigationOptions :{
+            ...NavBarConfig,
+            title: 'antDesign',
+        }
+    },
+    AntDesignThree: {
+        name: 'AntDesignThree',
+        description: 'AntDesignThree',
+        screen: AntDesignThree,
+        // navigationOptions: ({navigation}) => ({
+        //   title: `${navigation.state.params.name}`,
+        // }),
+        navigationOptions :{
+            ...NavBarConfig,
+            title: 'antDesign',
         }
     },
     InstallView: {
@@ -76,6 +103,15 @@ const Routes = {
         screen:SegmentComponent,
         navigationOptions:{
             title: 'SegmentComponent',
+            ...NavBarConfig,
+        }
+    },
+    AntDesign:{
+        name:'AntDesign',
+        description:'AntDesign',
+        screen:AntDesign,
+        navigationOptions:{
+            title: 'AntDesign',
             ...NavBarConfig,
         }
     },

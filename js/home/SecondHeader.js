@@ -5,6 +5,7 @@ import ScanImage from '../../images/home/haier/icon_saoyisao.png';
 import PayImage from '../../images/home/haier/icon_pay.png';
 import XiuImage from '../../images/home/haier/icon_shouqian.png';
 import CardImage from '../../images/home/haier/icon_kabao.png';
+import AntDesign from '../antDesign';
 // const data = Array.from(new Array(4)).map((_val, i) => ({
 //     icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
 //     text: `name${i}`,
@@ -20,7 +21,7 @@ const data = [
     },
     {
         icon: XiuImage,
-        text: '收钱', 
+        text: '收款', 
     },
     {
         icon: CardImage,
@@ -34,6 +35,15 @@ class SecondHeader extends Component {
             case '扫一扫':
                 this.props.navigation.navigate('QRScanner', {name: '网页'});
                 break;
+            case '付款':
+                this.props.navigation.navigate('AntDesign', {name: 'antDesign'});
+                break;
+            case '收款':
+                this.props.navigation.navigate('AntDesignTwo', {name: 'AntDesignTwo'});
+                break;
+            case '卡包':
+                this.props.navigation.navigate('AntDesignThree', {name: 'AntDesignThree'});
+                break;
             default:
                 break;
         }
@@ -46,7 +56,7 @@ class SecondHeader extends Component {
                     hasLine={false}
                     renderItem={dataItem => {   
                         return (
-                            <TouchableHighlight style={styles.itemcontainer} onPress={() => this.onClick(dataItem)}>
+                            <TouchableHighlight style={styles.itemcontainer} onPress={() => this.onClick(dataItem)} activeOpacity={0}>
                                 <View style={[styles.itemcontainer,{opacity:this.props.opacity}]}>
                                     <Image source={dataItem.icon} resizeMode = "contain" style={styles.itemimage}/>
                                     <Text style={styles.desctext}>{dataItem.text}</Text>
