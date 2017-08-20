@@ -1260,7 +1260,7 @@ chalk@^1.0.0, chalk@^1.1.0, chalk@^1.1.1, chalk@^1.1.3:
     strip-ansi "^3.0.0"
     supports-color "^2.0.0"
 
-chalk@^2.0.0:
+chalk@^2.0.0, chalk@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.1.0.tgz#ac5becf14fa21b99c6c92ca7a7d7cfd5b17e743e"
   dependencies:
@@ -1940,13 +1940,13 @@ eslint-scope@^3.7.1:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint@^4.4.1:
-  version "4.4.1"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.4.1.tgz#99cd7eafcffca2ff99a5c8f5f2a474d6364b4bd3"
+eslint@^4.5.0:
+  version "4.5.0"
+  resolved "http://registry.npm.taobao.org/eslint/download/eslint-4.5.0.tgz#bb75d3b8bde97fb5e13efcd539744677feb019c3"
   dependencies:
     ajv "^5.2.0"
     babel-code-frame "^6.22.0"
-    chalk "^1.1.3"
+    chalk "^2.1.0"
     concat-stream "^1.6.0"
     cross-spawn "^5.1.0"
     debug "^2.6.8"
@@ -1977,6 +1977,7 @@ eslint@^4.4.1:
     progress "^2.0.0"
     require-uncached "^1.0.3"
     semver "^5.3.0"
+    strip-ansi "^4.0.0"
     strip-json-comments "~2.0.1"
     table "^4.0.1"
     text-table "~0.2.0"
@@ -5111,9 +5112,9 @@ rn-topview@~0.1.0:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/rn-topview/-/rn-topview-0.1.3.tgz#3ec8100b693ba2811a9e5a5af2b893e8dc45d057"
 
-rn-viewpager@^1.2.3:
-  version "1.2.3"
-  resolved "http://registry.npm.taobao.org/rn-viewpager/download/rn-viewpager-1.2.3.tgz#e2183f379586d44a7827b3d8bc566c71045e7544"
+rn-viewpager@^1.2.4:
+  version "1.2.4"
+  resolved "http://registry.npm.taobao.org/rn-viewpager/download/rn-viewpager-1.2.4.tgz#1d572709d083d7ed28f0c03d2794e128726241b9"
 
 rndm@1.2.0:
   version "1.2.0"
