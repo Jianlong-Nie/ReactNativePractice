@@ -99,7 +99,8 @@ const HTML = `
     </style>
   </head>
   <body>
-    <h1>Hello Static World</h1>
+    <h1>Html</h1>
+    <p>dsdfsdklfklsdfjsdlfjsdkfljdkflj</p>
     <button onclick={window.postMessage('Hello-from-React-Native')}>点我调用系统摄像头</button>
   </body>
 </html>
