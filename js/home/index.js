@@ -47,16 +47,16 @@ class Home extends Component {
             offset = e.nativeEvent.contentOffset.y;
        
             if(offset>44){
-              Animated.timing(this.state.headerOpacity,{
-                  toValue: 1,
-              }).start();
-             // this.setState({navigantionHeaderOpacity: 1});
+            //   Animated.timing(this.state.headerOpacity,{
+            //       toValue: 1,
+            //   }).start();
+              this.setState({navigantionHeaderOpacity: 1});
               console.log('输出上拉操作');
             }else{
-                Animated.timing(this.state.headerOpacity,{
-                  toValue: 0,
-              }).start();
-            //  this.setState({navigantionHeaderOpacity: 0});
+            //     Animated.timing(this.state.headerOpacity,{
+            //       toValue: 0,
+            //   }).start();
+              this.setState({navigantionHeaderOpacity: 0});
             //    console.log('输出下拉操作');
             }
 
@@ -82,7 +82,7 @@ class Home extends Component {
                     <MessageList />
                 </ScrollView>
                 {
-                    this.state.headerOpacity === 0 ? null : <NavigationBar opacity={this.state.headerOpacity}/>
+                    this.state.headerOpacity === 0 ? null : <NavigationHeader opacity={this.state.navigantionHeaderOpacity}/>
                 }
             </View>
         );
