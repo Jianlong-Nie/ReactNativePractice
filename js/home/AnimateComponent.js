@@ -69,6 +69,7 @@ export default class AnimateComponent extends Component {
                     toValue: 1,                             // 透明度最终变为1，即完全不透明
                     // easing: Easing.back,
                     duration: 2000,
+                    easing: Easing.elastic(1),
                 }
             ),
             /*Animated.decay(
