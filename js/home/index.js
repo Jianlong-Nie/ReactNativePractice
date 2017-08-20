@@ -17,7 +17,7 @@ import SecondHeader from './SecondHeader';
 import MessageList from './MessageList';
 import NavigationHeader from './NavigationHeader';
 const { width, height } = Dimensions.get('window');
-
+const NavigationBar = Animated.createAnimatedComponent(NavigationHeader);
 // create a component
 class Home extends Component {
     constructor(props, context) {
@@ -25,6 +25,7 @@ class Home extends Component {
         this.state={
             navigantionHeaderOpacity: 0,
             // position:new Animated.ValueXY(),
+            headerOpacity : new Animated.Value(0),
 
         };
         /*this.state.panResponder = PanResponder.create({
@@ -45,12 +46,18 @@ class Home extends Component {
             height = e.nativeEvent.contentSize.height,
             offset = e.nativeEvent.contentOffset.y;
        
-            if(offset>64){
-              this.setState({navigantionHeaderOpacity: 1});
+            if(offset>44){
+              Animated.timing(this.state.headerOpacity,{
+                  toValue: 1,
+              }).start();
+             // this.setState({navigantionHeaderOpacity: 1});
               console.log('输出上拉操作');
             }else{
-             this.setState({navigantionHeaderOpacity: 0});
-               console.log('输出下拉操作');
+                Animated.timing(this.state.headerOpacity,{
+                  toValue: 0,
+              }).start();
+            //  this.setState({navigantionHeaderOpacity: 0});
+            //    console.log('输出下拉操作');
             }
 
     }
@@ -75,7 +82,7 @@ class Home extends Component {
                     <MessageList />
                 </ScrollView>
                 {
-                    this.state.navigantionHeaderOpacity === 0 ? null : <NavigationHeader opacity={this.state.navigantionHeaderOpacity}/>
+                    this.state.headerOpacity === 0 ? null : <NavigationBar opacity={this.state.headerOpacity}/>
                 }
             </View>
         );

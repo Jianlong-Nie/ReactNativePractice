@@ -102,10 +102,10 @@ class AppContent extends Component {
             case 0:
             {
                 switch (dataItem.text){
-                    case '小管家' :
+                    case '水站' :
                         navigation.navigate('WebView', {name: '网页'});
                         break;
-                    case '安装':
+                    case '配送安装':
                         navigation.navigate('InstallView',{name: '安装'});
                         break;
                     case '整车配送':
@@ -117,9 +117,9 @@ class AppContent extends Component {
                     case '抢单':
                         navigation.navigate('BattleOrder');
                         break;
-                    case '水站':
-                        navigation.navigate('WaterStore',{name:'测试Toast'});
-                        break;
+                    // case '水站':
+                    //     navigation.navigate('WaterStore',{name:'测试Toast'});
+                    //     break;
                     case '小管家':
                         navigation.navigate('PickerDemo', {name:'选择器'});
                         break;

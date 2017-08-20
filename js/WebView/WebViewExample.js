@@ -11,13 +11,15 @@ export default class WebViewExample extends Component {
             message: '',
         }
     }
-
+   //injectedJavaScript = "confirm('注入的一段js代码injectedJavaScript')"
     onMessage = e => {
         console.log(`收到了Message === ${e.nativeEvent.data}`);
-        this.setState({
-            messagesReceivedFromWebView: this.state.messagesReceivedFromWebView + 1,
-            message: e.nativeEvent.data,
-        });
+        const { navigation } = this.props;
+        navigation.navigate('QRScanner', {name: '扫一扫'});
+        // this.setState({
+        //     messagesReceivedFromWebView: this.state.messagesReceivedFromWebView + 1,
+        //     message: e.nativeEvent.data,
+        // });
     };
 
     injectJS = () => {
@@ -98,7 +100,7 @@ const HTML = `
   </head>
   <body>
     <h1>Hello Static World</h1>
-    <button onclick={window.postMessage('Hello-from-React-Native')}>点我试试</button>
+    <button onclick={window.postMessage('Hello-from-React-Native')}>点我调用系统摄像头</button>
   </body>
 </html>
 `;
