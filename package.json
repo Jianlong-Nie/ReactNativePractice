@@ -8,7 +8,7 @@
 	},
 	"dependencies": {
 		"ac-qrcode": "^1.0.1",
-		"antd-mobile": "^1.6.0",
+		"antd-mobile": "^1.6.3",
 		"browser-sync": "^2.18.13",
 		"rc-form": "^1.4.6",
 		"react": "16.0.0-alpha.12",

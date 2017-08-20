@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity, Image, PixelRatio } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Image, PixelRatio} from 'react-native';
 import {Heading, Paragraph} from '../../widget/Text.js';
 
 class InstallViewCell extends React.Component {
