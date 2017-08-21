@@ -1,6 +1,6 @@
 apply plugin: "com.android.application"
-//apply from: "../../node_modules/react-native/react.gradle"
-//apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
+apply from: "../../node_modules/react-native/react.gradle"
+apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
 
 import com.android.build.OutputFile
 
@@ -67,8 +67,6 @@ import com.android.build.OutputFile
  * ]
  */
 
-apply from: "../../node_modules/react-native/react.gradle"
-//apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
 
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -94,7 +92,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
@@ -108,9 +106,19 @@ android {
         }
     }
     buildTypes {
+        debug {
+            // CodePush updates should not be tested in Debug mode
+            buildConfigField "String", "CODEPUSH_KEY", '"80uYBvQx31R_IAbL7BnxcWLtAaNFd8650785-6732-40b6-858f-3713d6b26331"'
+        }
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            buildConfigField "String", "CODEPUSH_KEY", '"0x2YFayPul2ihq8Tm7ckswXntyj1d8650785-6732-40b6-858f-3713d6b26331"'
+//            buildConfigField "String", "CODEPUSH_KEY", '"'+properties.getProperty("code_push_key_production")+'"'
+        }
+        releaseStaging {
+            buildConfigField "String", "CODEPUSH_KEY", '"80uYBvQx31R_IAbL7BnxcWLtAaNFd8650785-6732-40b6-858f-3713d6b26331"'
+//            buildConfigField "String", "CODEPUSH_KEY", '"'+properties.getProperty("code_push_key_staging")+'"'
         }
     }
     // applicationVariants are e.g. debug, release
@@ -131,7 +139,7 @@ android {
 dependencies {
     compile project(':react-native-splash-screen')
   //  compile project(':react-native-spinkit')
-//    compile project(':react-native-code-push')
+    compile project(':react-native-code-push')
     compile project(':react-native-camera')
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile "com.android.support:appcompat-v7:25.0.0"
