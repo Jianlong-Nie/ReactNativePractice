@@ -1,10 +1,10 @@
 //import liraries
 import React, {Component} from 'react';
 import {
-    View, 
-    Text, 
-    StyleSheet, 
-    Image, 
+    View,
+    Text,
+    StyleSheet,
+    Image,
     TouchableHighlight,
     AsyncStorage,
 } from 'react-native';
@@ -70,49 +70,49 @@ const data = [
 class AppContent extends Component {
     constructor(props, context) {
         super(props, context);
-         this.state = {
-           data: data
+        this.state = {
+            data: data
         };
-        AsyncStorage.getItem('items',(error,items)=>{
+        AsyncStorage.getItem('items', (error, items) => {
             console.log(`输出items${items}`);
             if (items) {
-               this.state = {
-                  data: JSON.parse(items)
-                }; 
+                this.state = {
+                    data: JSON.parse(items)
+                };
             }
         });
-       
+
     }
-    
-    addAction = (item) =>{
-      var mdata = this.state.data;
-    //   const mitem = {
-    //       icon: More,
-    //       text: '京东',
-    //       dest: '京东商城' 
-    //   };
-      mdata.splice(mdata.length-1,0,item);
-      this.setState({data:mdata});
-      AsyncStorage.setItem('items',JSON.stringify(mdata),()=>{});
-      console.log('返回了连接水电费');
+
+    addAction = (item) => {
+        var mdata = this.state.data;
+        //   const mitem = {
+        //       icon: More,
+        //       text: '京东',
+        //       dest: '京东商城'
+        //   };
+        mdata.splice(mdata.length - 1, 0, item);
+        this.setState({data: mdata});
+        AsyncStorage.setItem('items', JSON.stringify(mdata), () => {
+        });
+        console.log('返回了连接水电费');
     }
     onClick = (dataItem) => {
-        const { navigation, setParams } = this.props;
+        const {navigation, setParams} = this.props;
         switch (dataItem.type) {
-            case 0:
-            {
-                switch (dataItem.text){
+            case 0: {
+                switch (dataItem.text) {
                     case '水站' :
                         navigation.navigate('WebView', {name: '网页'});
                         break;
                     case '配送安装':
-                        navigation.navigate('InstallView',{name: '安装'});
+                        navigation.navigate('InstallView', {name: '安装'});
                         break;
                     case '整车配送':
                         navigation.navigate('SegmentComponent', {name: 'SegmentComponent'});
                         break;
                     case '延保服务':
-                        navigation.navigate('AnimateComponent',{name:'AnimateComponent'});
+                        navigation.navigate('AnimateComponent', {name: 'AnimateComponent'});
                         break;
                     case '抢单':
                         navigation.navigate('BattleOrder');
@@ -121,21 +121,21 @@ class AppContent extends Component {
                     //     navigation.navigate('WaterStore',{name:'测试Toast'});
                     //     break;
                     case '小管家':
-                        navigation.navigate('PickerDemo', {name:'选择器'});
+                        navigation.navigate('PickerDemo', {name: '选择器'});
                         break;
                     case '更多':
                         // setParams=setParams({add:this.addAction});
-                        navigation.navigate('EditWeb', {name:'编辑网页',add:this.addAction});
+                        navigation.navigate('EditWeb', {name: '编辑网页', add: this.addAction});
                         break;
                     default:
                         break;
-                    }
+                }
 
-            } 
+            }
                 break;
             case 1:
-               navigation.navigate('CustomWebView',{name:'webView',url: dataItem.dest}); 
-            break;
+                navigation.navigate('CustomWebView', {name: 'webView', url: dataItem.dest});
+                break;
             default:
                 break;
         }
@@ -145,9 +145,9 @@ class AppContent extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Grid 
-                    data={this.state.data} 
-                    hasLine={false} 
+                <Grid
+                    data={this.state.data}
+                    hasLine={false}
                     renderItem={dataItem => {
                         return (
                             <TouchableHighlight
@@ -157,7 +157,9 @@ class AppContent extends Component {
                                 style={styles.itemcontainer}
                             >
                                 <View style={styles.itemcontainer}>
-                                    <Image resizeMode='contain' source={dataItem.type === 0 ? dataItem.icon : {uri: dataItem.icon }} style={styles.itemimage}/>
+                                    <Image resizeMode='contain'
+                                           source={dataItem.type === 0 ? dataItem.icon : {uri: dataItem.icon}}
+                                           style={styles.itemimage}/>
                                     <Text>{dataItem.text}</Text>
                                 </View>
                             </TouchableHighlight>
