@@ -13,6 +13,7 @@ import EditWeb  from './js/weblist';
 import AntDesign from './js/antDesign';
 import AntDesignTwo from './js/antDesinTwo';
 import AntDesignThree from './js/antDesinThree';
+import MapScene from './js/home/map';
 
 export const NavBarConfig = {
     headerStyle:{backgroundColor:NavColor},
@@ -156,6 +157,14 @@ const Routes = {
         screen: BattleOrder,
         navigationOptions:{
             title: '抢单',
+            ...NavBarConfig,
+        }
+    },
+    MapScene : {
+        name: 'MapScene',
+        screen: MapScene,
+        navigationOptions:{
+            title: '地图',
             ...NavBarConfig,
         }
     }

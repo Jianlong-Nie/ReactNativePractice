@@ -63,6 +63,12 @@ const data = [
         dest: 'PickerDemo',
         type: 0,
     },
+    {
+        icon: More,
+        text: '地图',
+        dest: 'PickerDemo',
+        type: 0,
+    }
 
 ];
 
@@ -126,6 +132,10 @@ class AppContent extends Component {
                     case '更多':
                         // setParams=setParams({add:this.addAction});
                         navigation.navigate('EditWeb', {name: '编辑网页', add: this.addAction});
+                        break;
+                    case '地图':
+                        // setParams=setParams({add:this.addAction});
+                        navigation.navigate('MapScene', {name: '地图', add: this.addAction});
                         break;
                     default:
                         break;
