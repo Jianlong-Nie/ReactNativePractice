@@ -11,6 +11,7 @@
 #import <CodePush/CodePush.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#import <AMapFoundationKit/AMapFoundationKit.h>
 
 @implementation AppDelegate
 
@@ -18,7 +19,7 @@
 {
   NSURL *jsCodeLocation;
 
-  
+  [AMapServices sharedServices].apiKey = @"01a399055caec0666eba92117eaed544	";
 
     
 #ifdef DEBUG

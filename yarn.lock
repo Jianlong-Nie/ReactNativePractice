@@ -4800,6 +4800,10 @@ react-native-amap-location@^0.0.4:
   version "0.0.4"
   resolved "http://registry.npm.taobao.org/react-native-amap-location/download/react-native-amap-location-0.0.4.tgz#475f371d6847bfc09314c6f24ad55bfbb617d4d9"
 
+react-native-amap3d@^0.2.5:
+  version "0.2.5"
+  resolved "http://registry.npm.taobao.org/react-native-amap3d/download/react-native-amap3d-0.2.5.tgz#08fcd977e1f8264ed24f6ddc8f9fdb6988c7e734"
+
 react-native-camera-roll-picker@~1.1.6:
   version "1.1.9"
   resolved "https://registry.yarnpkg.com/react-native-camera-roll-picker/-/react-native-camera-roll-picker-1.1.9.tgz#99bad3a9c117ad79e67044c420ce463ee18f29d3"
