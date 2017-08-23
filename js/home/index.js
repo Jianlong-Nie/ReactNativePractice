@@ -1,10 +1,10 @@
 //import liraries
 import React, { Component } from 'react';
 import {
-    View, 
-    Text, 
-    StyleSheet, 
-    ScrollView, 
+    View,
+    Text,
+    StyleSheet,
+    ScrollView,
     Dimensions,
     Platform,
     PanResponder,
@@ -24,10 +24,10 @@ const NavigationBar = Animated.createAnimatedComponent(NavigationHeader);
 class Home extends Component {
     constructor(props, context) {
         super(props, context);
-        this.state={
+        this.state = {
             navigantionHeaderOpacity: 0,
             // position:new Animated.ValueXY(),
-            headerOpacity : new Animated.Value(0),
+            headerOpacity: new Animated.Value(0),
 
         };
         /*this.state.panResponder = PanResponder.create({
@@ -50,35 +50,36 @@ class Home extends Component {
         SplashScreen.hide();
     }
 
+
     handleScroll = (e) => {
-       var windowHeight = Dimensions.get('window').height,
+        var windowHeight = Dimensions.get('window').height,
             height = e.nativeEvent.contentSize.height,
             offset = e.nativeEvent.contentOffset.y;
-       
-            if(offset>44){
+
+        if (offset > 44) {
             //   Animated.timing(this.state.headerOpacity,{
             //       toValue: 1,
             //   }).start();
-              this.setState({navigantionHeaderOpacity: 1});
-              console.log('输出上拉操作');
-            }else{
+            this.setState({ navigantionHeaderOpacity: 1 });
+            console.log('输出上拉操作');
+        } else {
             //     Animated.timing(this.state.headerOpacity,{
             //       toValue: 0,
             //   }).start();
-              this.setState({navigantionHeaderOpacity: 0});
+            this.setState({ navigantionHeaderOpacity: 0 });
             //    console.log('输出下拉操作');
-            }
+        }
 
     }
     static navigationOptions = {
-         header:null
+        header: null
     };
     render() {
         return (
-            <View style={{flex:1}}>
+            <View style={{ flex: 1 }}>
                 <ScrollView
                     /*{...this.state.panResponder.panHandlers}*/
-                    bounces = {false}
+                    bounces={false}
                     scrollEventThrottle={16}
                     style={styles.container}
                     showsVerticalScrollIndicator={false}
@@ -87,11 +88,11 @@ class Home extends Component {
                     <SearchHeader /*style = {this.state.position.getLayout()*/ />
                     <SecondHeader {...this.props} />
                     <AppContent {...this.props} />
-                    <View style={{ backgroundColor:'transparent',height:15 }} />
+                    <View style={{ backgroundColor: 'transparent', height: 15 }} />
                     <MessageList />
                 </ScrollView>
                 {
-                    this.state.headerOpacity === 0 ? null : <NavigationHeader opacity={this.state.navigantionHeaderOpacity}/>
+                    this.state.headerOpacity === 0 ? null : <NavigationHeader opacity={this.state.navigantionHeaderOpacity} />
                 }
             </View>
         );
@@ -104,7 +105,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#E7E7E7',
         height: height,
     },
-    messagelist:{
+    messagelist: {
         marginTop: 20,
     },
 });

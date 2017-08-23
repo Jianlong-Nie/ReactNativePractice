@@ -1,5 +1,5 @@
 'use strict';
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 import {
     Platform,
@@ -35,9 +35,10 @@ export default class AnimateDemo extends Component {
 
         this.state = {
             index: 0,
-        }
+        };
     }
 
+    
     onPress(index) {
 
         // Uncomment to animate the next state change.
@@ -49,7 +50,7 @@ export default class AnimateDemo extends Component {
         // Or use a Custom Layout Animation
         // LayoutAnimation.configureNext(CustomLayoutAnimation);
 
-        this.setState({index: index});
+        this.setState({ index: index });
     }
 
     renderButton(index) {
@@ -76,9 +77,9 @@ export default class AnimateDemo extends Component {
 
     render() {
 
-        let leftStyle = this.state.index === 0 ? {flex: 1} : {width: 20};
-        let middleStyle = this.state.index === 2 ? {width: 20} : {flex: 1};
-        let rightStyle = {flex: 1};
+        let leftStyle = this.state.index === 0 ? { flex: 1 } : { width: 20 };
+        let middleStyle = this.state.index === 2 ? { width: 20 } : { flex: 1 };
+        let rightStyle = { flex: 1 };
 
         let whiteHeight = this.state.index * 80;
 
@@ -95,10 +96,10 @@ export default class AnimateDemo extends Component {
                     {this.renderButton(2)}
                 </View>
                 <View style={styles.content}>
-                    <View style={{flexDirection: 'row', height: 50}}>
-                        <View style={[leftStyle, {backgroundColor: 'firebrick'}]}/>
-                        <View style={[middleStyle, {backgroundColor: 'seagreen'}]}/>
-                        <View style={[rightStyle, {backgroundColor: 'steelblue'}]}/>
+                    <View style={{ flexDirection: 'row', height: 50 }}>
+                        <View style={[leftStyle, { backgroundColor: 'firebrick' }]} />
+                        <View style={[middleStyle, { backgroundColor: 'seagreen' }]} />
+                        <View style={[rightStyle, { backgroundColor: 'steelblue' }]} />
                     </View>
                     <View style={{
                         height: whiteHeight,

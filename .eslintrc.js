@@ -17,10 +17,12 @@ module.exports = {
         "react"
     ],
     "rules": {
+        //0:关闭，1:警告，2:异常
         "indent": [
             "error",
             4
         ],
+        "no-unused-vars": 1,
         "linebreak-style": [
             "error",
             "unix"

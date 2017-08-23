@@ -10,6 +10,7 @@ import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.lwansbrough.RCTCamera.RCTCameraPackage;
 import com.microsoft.codepush.react.CodePush;
+import com.xiaobu.amap.AMapLocationReactPackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -38,7 +39,9 @@ public class MainApplication extends Application implements ReactApplication {
                     new MainReactPackage(),
                     new SplashScreenReactPackage(),
                     new CodePush(BuildConfig.CODEPUSH_KEY, MainApplication.this, BuildConfig.DEBUG),
-                    new RCTCameraPackage()
+                    new RCTCameraPackage(),
+                    new AMapLocationReactPackage()
+
             );
         }
     };
