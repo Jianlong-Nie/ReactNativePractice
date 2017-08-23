@@ -52,6 +52,7 @@ export default class WaterStore extends Component {
   }
 
   render() {
+    console.log('水站');
     return (
       <View style={{backgroundColor:'white'}}>
         <WingBlank>
@@ -67,7 +68,7 @@ export default class WaterStore extends Component {
         <WhiteSpace/>
         <WingBlank>
           <Button onClick={this.showScan} type="ghost">
-            弹窗测试</Button>
+            弹窗测试11</Button>
         </WingBlank>
         <WhiteSpace/>
         <View style={{ position: 'absolute', top: 300, left: 0, width: width, height: height,backgroundColor:'white'}}>

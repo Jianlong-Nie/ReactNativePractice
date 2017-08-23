@@ -108,9 +108,9 @@ class AppContent extends Component {
         switch (dataItem.type) {
             case 0: {
                 switch (dataItem.text) {
-                    case '水站' :
-                        navigation.navigate('WebView', {name: '网页'});
-                        break;
+                    // case '水站' :
+                    //     navigation.navigate('WebView', {name: '网页'});
+                    //     break;
                     case '配送安装':
                         navigation.navigate('InstallView', {name: '安装'});
                         break;
@@ -123,9 +123,9 @@ class AppContent extends Component {
                     case '抢单':
                         navigation.navigate('BattleOrder');
                         break;
-                    // case '水站':
-                    //     navigation.navigate('WaterStore',{name:'测试Toast'});
-                    //     break;
+                    case '水站':
+                        navigation.navigate('WaterStore',{name:'测试Toast'});
+                        break;
                     case '小管家':
                         navigation.navigate('PickerDemo', {name: '选择器'});
                         break;

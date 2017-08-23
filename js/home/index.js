@@ -86,16 +86,17 @@ class Home extends Component {
                     scrollEventThrottle={16}
                     style={styles.container}
                     showsVerticalScrollIndicator={false}
-                    onScroll={(e) => this.handleScroll(e)}
+                    onScroll={(e) => this.handleScroll(e)
+                    }
                 >
-                    <SearchHeader /*style = {this.state.position.getLayout()*/ />
+                    <SearchHeader /*style = {this.state.position.getLayout()*//>
                     <SecondHeader {...this.props} />
                     <AppContent {...this.props} />
                     <View style={{ backgroundColor: 'transparent', height: 15 }} />
                     <MessageList />
                 </ScrollView>
                 {
-                    this.state.headerOpacity === 0 ? null : <NavigationHeader opacity={this.state.navigantionHeaderOpacity} />
+                    this.state.navigantionHeaderOpacity === 0 ? null : <NavigationHeader opacity={this.state.navigantionHeaderOpacity} />
                 }
             </View>
         );

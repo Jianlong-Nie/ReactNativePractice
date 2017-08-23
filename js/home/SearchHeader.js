@@ -34,18 +34,24 @@ class SearchHeader extends Component {
     }
 
     showPop = () => {
+        console.log('点击弹窗');
         this.setState({ showPop: !this.state.showPop });
     }
     render() {
         return (
             <View style={[styles.container,{opacity:this.props.opacity}]}>
                 <View style={styles.content}>
-                    <CustomSearchBar />
-                    <View style={{flexDirection:'row', alignItems: 'center', justifyContent: 'flex-end'}}>
-                        <TouchableHighlight
-                            onPress = {this.showPop}>
-                            <Image source={JiaHaoImage} style={styles.btnIcon}/>
-                        </TouchableHighlight>
+                   <CustomSearchBar />
+                    <View style={{flexDirection:'row', alignItems: 'center', justifyContent: 'flex-end'}}>                            
+                    <TouchableHighlight
+                            onPress = {this.showPop}>                   
+                            <Image source={JiaHaoImage} style={styles.btnIcon}/>            
+                    </TouchableHighlight>               
+                    </View>
+                    <View style={{ position: 'absolute', top: 300, left: 0, width: width, height: height,backgroundColor:'white'}}>
+                    <MorePopWindow width={90} height={100} show={this.state.showPop} closeModal={(show) => {
+                        this.setState({showPop: show})
+                    }} {...this.props}/>
                     </View>
                 </View>
             </View>
