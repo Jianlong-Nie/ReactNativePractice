@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {StyleSheet, View, Text, Switch} from 'react-native'
 import MapView from 'react-native-amap3d'
-import commonStyles from '../map/styles'
+import styles from '../map/styles'
 
 export default class Gestures extends Component {
   static navigationOptions = {

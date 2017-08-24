@@ -25,6 +25,8 @@ import Polyline from './js/home/map/polyline';
 import Polygon from './js/home/map/polygon';
 import Circle from './js/home/map/circle';
 import Events from './js/home/map/events';
+import Navigation from './js/home/map/navigation';
+
 
 export const NavBarConfig = {
     headerStyle: { backgroundColor: NavColor },
@@ -180,62 +182,90 @@ const Routes = {
         }
     },
     MapTypes: {
-        screen: MapTypes, 
+        screen: MapTypes,
         navigationOptions: {
             title: '地图',
             ...NavBarConfig,
         }
     },
-    Layers: { screen: Layers,
-        navigationOptions:{
+    Layers: {
+        screen: Layers,
+        navigationOptions: {
             title: '地图',
             ...NavBarConfig,
-        } },
-    Indoor: { screen: Indoor,
-        navigationOptions:{
+        }
+    },
+    Indoor: {
+        screen: Indoor,
+        navigationOptions: {
             title: '地图',
             ...NavBarConfig,
-        } },
-    Animated: { screen: Animated,
-        navigationOptions:{
+        }
+    },
+    Animated: {
+        screen: Animated,
+        navigationOptions: {
             title: '地图',
             ...NavBarConfig,
-        } },
-    Controls: { screen: Controls,
-        navigationOptions:{
+        }
+    },
+    Controls: {
+        screen: Controls,
+        navigationOptions: {
             title: '地图',
             ...NavBarConfig,
-        } },
-    Gestures: { screen: Gestures,
-        navigationOptions:{
+        }
+    },
+    Gestures: {
+        screen: Gestures,
+        navigationOptions: {
             title: '地图',
             ...NavBarConfig,
-        } },
-    Marker: { screen: Marker,
-        navigationOptions:{
+        }
+    },
+    Marker: {
+        screen: Marker,
+        navigationOptions: {
             title: '地图',
             ...NavBarConfig,
-        } },
-    Polyline: { screen: Polyline,
-        navigationOptions:{
+        }
+    },
+    Polyline: {
+        screen: Polyline,
+        navigationOptions: {
             title: '地图',
             ...NavBarConfig,
-        } },
-    Polygon: { screen: Polygon,
-        navigationOptions:{
+        }
+    },
+    Polygon: {
+        screen: Polygon,
+        navigationOptions: {
             title: '地图',
             ...NavBarConfig,
-        } },
-    Circle: { screen: Circle,
-        navigationOptions:{
+        }
+    },
+    Circle: {
+        screen: Circle,
+        navigationOptions: {
             title: '地图',
             ...NavBarConfig,
-        } },
-    Events: { screen: Events,
-        navigationOptions:{
+        }
+    },
+    Events: {
+        screen: Events,
+        navigationOptions: {
             title: '地图',
             ...NavBarConfig,
-        } },
+        }
+    },
+    Navigation: {
+        screen: Navigation,
+        navigationOptions: {
+            title: '地图',
+            ...NavBarConfig,
+        }
+    },
+
 };
 
 export default Routes;
