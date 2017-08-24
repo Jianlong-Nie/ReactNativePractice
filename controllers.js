@@ -9,16 +9,27 @@ const NavColor = '#c60c1b';
 import QRScanner from './js/qrScanner';
 import BattleOrder from './js/battleOrder';
 import WaterStore from './js/home/WaterStore';
-import EditWeb  from './js/weblist';
+import EditWeb from './js/weblist';
 import AntDesign from './js/antDesign';
 import AntDesignTwo from './js/antDesinTwo';
 import AntDesignThree from './js/antDesinThree';
-import MapScene from './js/home/map';
+import MapScene from './js/home/map/index';
+import MapTypes from './js/home/map/map-types';
+import Layers from './js/home/map/layers';
+import Indoor from './js/home/map/indoor';
+import Animated from './js/home/map/animated';
+import Controls from './js/home/map/controls';
+import Gestures from './js/home/map/gestures';
+import Marker from './js/home/map/marker';
+import Polyline from './js/home/map/polyline';
+import Polygon from './js/home/map/polygon';
+import Circle from './js/home/map/circle';
+import Events from './js/home/map/events';
 
 export const NavBarConfig = {
-    headerStyle:{backgroundColor:NavColor},
-    headerTitleStyle:{color:'white'},
-    headerTintColor:'white',
+    headerStyle: { backgroundColor: NavColor },
+    headerTitleStyle: { color: 'white' },
+    headerTintColor: 'white',
     tabBarVisible: false,
     headerBackTitle: '',
 };
@@ -31,7 +42,7 @@ const Routes = {
         // navigationOptions: ({navigation}) => ({
         //   title: `${navigation.state.params.name}`,
         // }),
-        navigationOptions :{
+        navigationOptions: {
             ...NavBarConfig,
             title: '添加网站',
         }
@@ -43,7 +54,7 @@ const Routes = {
         // navigationOptions: ({navigation}) => ({
         //   title: `${navigation.state.params.name}`,
         // }),
-        navigationOptions :{
+        navigationOptions: {
             ...NavBarConfig,
             title: 'antDesign',
         }
@@ -55,7 +66,7 @@ const Routes = {
         // navigationOptions: ({navigation}) => ({
         //   title: `${navigation.state.params.name}`,
         // }),
-        navigationOptions :{
+        navigationOptions: {
             ...NavBarConfig,
             title: 'antDesign',
         }
@@ -67,7 +78,7 @@ const Routes = {
         // navigationOptions: ({navigation}) => ({
         //   title: `${navigation.state.params.name}`,
         // }),
-        navigationOptions :{
+        navigationOptions: {
             ...NavBarConfig,
             title: '安装',
         }
@@ -98,48 +109,48 @@ const Routes = {
     },
 
 
-    SegmentComponent:{
-        name:'SegmentComponent',
-        description:'SegmentComponent',
-        screen:SegmentComponent,
-        navigationOptions:{
+    SegmentComponent: {
+        name: 'SegmentComponent',
+        description: 'SegmentComponent',
+        screen: SegmentComponent,
+        navigationOptions: {
             title: 'SegmentComponent',
             ...NavBarConfig,
         }
     },
-    AntDesign:{
-        name:'AntDesign',
-        description:'AntDesign',
-        screen:AntDesign,
-        navigationOptions:{
+    AntDesign: {
+        name: 'AntDesign',
+        description: 'AntDesign',
+        screen: AntDesign,
+        navigationOptions: {
             title: 'AntDesign',
             ...NavBarConfig,
         }
     },
-    AnimateComponent:{
-        name:'AnimateComponent',
-        description:'AnimateComponent',
-        screen:AnimateComponent,
-        navigationOptions:{
+    AnimateComponent: {
+        name: 'AnimateComponent',
+        description: 'AnimateComponent',
+        screen: AnimateComponent,
+        navigationOptions: {
             title: 'AnimateComponent',
             ...NavBarConfig,
         }
     },
-    PickerDemo:{
-        name:'PickerDemo',
-        description:'DatePicker and ImagePicker',
-        screen:PickerDemo,
-        navigationOptions:{
-            title:'Picker',
+    PickerDemo: {
+        name: 'PickerDemo',
+        description: 'DatePicker and ImagePicker',
+        screen: PickerDemo,
+        navigationOptions: {
+            title: 'Picker',
             ...NavBarConfig,
 
         }
     },
-    WaterStore:{
-        name:'WaterStore',
-        description:'WaterStore',
-        screen:WaterStore,
-        navigationOptions: ({navigation}) => ({
+    WaterStore: {
+        name: 'WaterStore',
+        description: 'WaterStore',
+        screen: WaterStore,
+        navigationOptions: ({ navigation }) => ({
             title: `${navigation.state.params.name}`,
             ...NavBarConfig,
         }),
@@ -147,27 +158,84 @@ const Routes = {
     QRScanner: {
         name: 'QRScanner',
         screen: QRScanner,
-        navigationOptions:{
+        navigationOptions: {
             title: '扫描二维码',
             ...NavBarConfig,
         }
     },
-    BattleOrder : {
+    BattleOrder: {
         name: 'BattleOrder',
         screen: BattleOrder,
-        navigationOptions:{
+        navigationOptions: {
             title: '抢单',
             ...NavBarConfig,
         }
     },
-    MapScene : {
+    MapScene: {
         name: 'MapScene',
         screen: MapScene,
-        navigationOptions:{
+        navigationOptions: {
             title: '地图',
             ...NavBarConfig,
         }
-    }
+    },
+    MapTypes: {
+        screen: MapTypes, 
+        navigationOptions: {
+            title: '地图',
+            ...NavBarConfig,
+        }
+    },
+    Layers: { screen: Layers,
+        navigationOptions:{
+            title: '地图',
+            ...NavBarConfig,
+        } },
+    Indoor: { screen: Indoor,
+        navigationOptions:{
+            title: '地图',
+            ...NavBarConfig,
+        } },
+    Animated: { screen: Animated,
+        navigationOptions:{
+            title: '地图',
+            ...NavBarConfig,
+        } },
+    Controls: { screen: Controls,
+        navigationOptions:{
+            title: '地图',
+            ...NavBarConfig,
+        } },
+    Gestures: { screen: Gestures,
+        navigationOptions:{
+            title: '地图',
+            ...NavBarConfig,
+        } },
+    Marker: { screen: Marker,
+        navigationOptions:{
+            title: '地图',
+            ...NavBarConfig,
+        } },
+    Polyline: { screen: Polyline,
+        navigationOptions:{
+            title: '地图',
+            ...NavBarConfig,
+        } },
+    Polygon: { screen: Polygon,
+        navigationOptions:{
+            title: '地图',
+            ...NavBarConfig,
+        } },
+    Circle: { screen: Circle,
+        navigationOptions:{
+            title: '地图',
+            ...NavBarConfig,
+        } },
+    Events: { screen: Events,
+        navigationOptions:{
+            title: '地图',
+            ...NavBarConfig,
+        } },
 };
 
 export default Routes;

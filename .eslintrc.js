@@ -23,6 +23,7 @@ module.exports = {
             4
         ],
         "no-unused-vars": 1,
+        "no-console":1,
         "linebreak-style": [
             "error",
             "unix"
