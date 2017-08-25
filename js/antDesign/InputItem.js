@@ -37,7 +37,7 @@ class MInputItem extends Component {
           >数字键盘</InputItem>
           <List.Item>
             <View
-              style={{ width: width, color: '#108ee9', textAlign: 'center' }}
+              style={{ width: width }}
               onClick={() => {
                 this.setState({
                   moneyfocused: true,
