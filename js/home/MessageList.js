@@ -41,7 +41,7 @@ class MessageList extends Component {
       refreshing: false,
     };
   }
-  componentDidMount() {
+ componentDidMount() {
     // this.manuallyRefresh = true;
     // setTimeout(() => this.setState({ refreshing: true}), 10);
   }

@@ -12,7 +12,7 @@ class antDesignTwo extends Component {
                 <SearchBarDemo />
                 <View style={{height: 15, width: 100}} />
                 <SteperDemo />
-                 <View style={{height: 15, width: 100}} />
+                <View style={{height: 15, width: 100}} />
                 <TextArea />
             </ScrollView>
         );

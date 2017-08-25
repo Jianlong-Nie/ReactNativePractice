@@ -41,9 +41,6 @@ const Routes = {
         name: 'EditWeb',
         description: 'EditWeb',
         screen: EditWeb,
-        // navigationOptions: ({navigation}) => ({
-        //   title: `${navigation.state.params.name}`,
-        // }),
         navigationOptions: {
             ...NavBarConfig,
             title: '添加网站',
@@ -53,9 +50,6 @@ const Routes = {
         name: 'AntDesignTwo',
         description: 'AntDesignTwo',
         screen: AntDesignTwo,
-        // navigationOptions: ({navigation}) => ({
-        //   title: `${navigation.state.params.name}`,
-        // }),
         navigationOptions: {
             ...NavBarConfig,
             title: 'antDesign',
@@ -65,9 +59,6 @@ const Routes = {
         name: 'AntDesignThree',
         description: 'AntDesignThree',
         screen: AntDesignThree,
-        // navigationOptions: ({navigation}) => ({
-        //   title: `${navigation.state.params.name}`,
-        // }),
         navigationOptions: {
             ...NavBarConfig,
             title: 'antDesign',
@@ -77,9 +68,6 @@ const Routes = {
         name: 'InstallView',
         description: 'InstallView',
         screen: InstallView,
-        // navigationOptions: ({navigation}) => ({
-        //   title: `${navigation.state.params.name}`,
-        // }),
         navigationOptions: {
             ...NavBarConfig,
             title: '安装',
@@ -89,9 +77,6 @@ const Routes = {
         name: 'WebView',
         description: 'WebView',
         screen: WebView,
-        // navigationOptions: ({navigation}) => ({
-        //   title: `${navigation.state.params.name}`,
-        // }),
         navigationOptions: {
             title: '网页',
             ...NavBarConfig,
@@ -101,9 +86,6 @@ const Routes = {
         name: 'CustomWebView',
         description: 'WebView',
         screen: CustomWebView,
-        // navigationOptions: ({navigation}) => ({
-        //   title: `${navigation.state.params.name}`,
-        // }),
         navigationOptions: {
             title: '网页',
             ...NavBarConfig,
