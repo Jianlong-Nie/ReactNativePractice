@@ -4796,13 +4796,9 @@ react-mixin@^3.0.5:
     object-assign "^4.0.1"
     smart-mixin "^2.0.0"
 
-react-native-amap-location@^0.0.4:
-  version "0.0.4"
-  resolved "http://registry.npm.taobao.org/react-native-amap-location/download/react-native-amap-location-0.0.4.tgz#475f371d6847bfc09314c6f24ad55bfbb617d4d9"
-
-react-native-amap3d@^0.2.5:
-  version "0.2.5"
-  resolved "http://registry.npm.taobao.org/react-native-amap3d/download/react-native-amap3d-0.2.5.tgz#08fcd977e1f8264ed24f6ddc8f9fdb6988c7e734"
+react-native-amap3d@^0.3.0:
+  version "0.3.0"
+  resolved "http://registry.npm.taobao.org/react-native-amap3d/download/react-native-amap3d-0.3.0.tgz#7ee413a6a3968ba65ec54fbdd59478c02e6e6de1"
 
 react-native-camera-roll-picker@~1.1.6:
   version "1.1.9"
