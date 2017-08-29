@@ -1,6 +1,6 @@
 {
   "name": "react-native-amap3d",
-  "version": "0.2.5",
+  "version": "0.3.0",
   "summary": "react-native 高德地图组件",
   "authors": {
     "Qiu Xiang": "i@7c00.cc"
@@ -18,7 +18,7 @@
     "React": [
 
     ],
-    "AMap3DMap": [
+    "AMapNavi": [
 
     ]
   }
