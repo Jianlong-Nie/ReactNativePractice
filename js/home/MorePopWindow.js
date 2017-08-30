@@ -47,7 +47,12 @@ export default class MorePopWindow extends Component {
     }
 
     scan() {
-       alert('点击了扫一扫');
+       this.closeModal();
+       this.props.navigation.navigate('QRScanner', {name: '网页'});
+    }
+
+    payCode(){
+        this.closeModal();
     }
 
     render() {
@@ -66,7 +71,7 @@ export default class MorePopWindow extends Component {
                       <Text style={styles.textStyle}>扫一扫</Text>
                     </TouchableOpacity>
                      <View style= {{backgroundColor:'white',height:0.5,width:mwidth}}/>
-                    <TouchableOpacity activeOpacity={1} onPress={() => Alert.alert('点击了付款码')} style={styles.itemView}>
+                    <TouchableOpacity activeOpacity={1} onPress={this.payCode.bind(this)} style={styles.itemView}>
                       <Image style={styles.imgStyle} source={IconXiu} />
                       <Text style={styles.textStyle}>付款码</Text>
                     </TouchableOpacity>

@@ -89,7 +89,7 @@ class Home extends Component {
                     onScroll={(e) => this.handleScroll(e)
                     }
                 >
-                    <SearchHeader /*style = {this.state.position.getLayout()*//>
+                    <SearchHeader /*style = {this.state.position.getLayout()*/{...this.props}/>
                     <SecondHeader {...this.props} />
                     <AppContent {...this.props} />
                     <View style={{ backgroundColor: 'transparent', height: 15 }} />

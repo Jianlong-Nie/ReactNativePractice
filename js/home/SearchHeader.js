@@ -44,6 +44,7 @@ class SearchHeader extends Component {
                    <CustomSearchBar />
                     <View style={{flexDirection:'row', alignItems: 'center', justifyContent: 'flex-end'}}>                            
                     <TouchableHighlight
+                        underlayColor={'transparent'}
                             onPress = {this.showPop}>                   
                             <Image source={JiaHaoImage} style={styles.btnIcon}/>            
                     </TouchableHighlight>               
