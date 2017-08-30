@@ -4855,6 +4855,12 @@ react-native-scrollable-tab-view@^0.7.2:
     react-static-container "^1.0.1"
     react-timer-mixin "^0.13.3"
 
+react-native-search-box@^0.0.11:
+  version "0.0.11"
+  resolved "http://registry.npm.taobao.org/react-native-search-box/download/react-native-search-box-0.0.11.tgz#1746ff2f051ab7565e240800e19089d127415afe"
+  dependencies:
+    prop-types "^15.5.10"
+
 react-native-splash-screen@^3.0.0:
   version "3.0.0"
   resolved "http://registry.npm.taobao.org/react-native-splash-screen/download/react-native-splash-screen-3.0.0.tgz#44ac95f84b9bf58d800af1ab9ff52093fa3efcb9"
