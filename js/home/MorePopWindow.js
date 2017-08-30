@@ -53,6 +53,7 @@ export default class MorePopWindow extends Component {
 
     payCode(){
         this.closeModal();
+        this.props.navigation.navigate('Login',{name:'登录'});
     }
 
     render() {
@@ -73,7 +74,7 @@ export default class MorePopWindow extends Component {
                      <View style= {{backgroundColor:'white',height:0.5,width:mwidth}}/>
                     <TouchableOpacity activeOpacity={1} onPress={this.payCode.bind(this)} style={styles.itemView}>
                       <Image style={styles.imgStyle} source={IconXiu} />
-                      <Text style={styles.textStyle}>付款码</Text>
+                      <Text style={styles.textStyle}>登录</Text>
                     </TouchableOpacity>
                   </View>
                 </TouchableOpacity>

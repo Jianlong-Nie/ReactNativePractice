@@ -26,6 +26,7 @@ import Polygon from './js/home/map/polygon';
 import Circle from './js/home/map/circle';
 import Events from './js/home/map/events';
 import Navigation from './js/home/map/navigation';
+import Login from './js/login/login';
 
 
 export const NavBarConfig = {
@@ -244,6 +245,14 @@ const Routes = {
         screen: Navigation,
         navigationOptions: {
             title: '地图',
+            ...NavBarConfig,
+        }
+    },
+    Login: {
+        name:'登录',
+        screen: Login,
+        navigationOptions: {
+            title:'登录',
             ...NavBarConfig,
         }
     },
