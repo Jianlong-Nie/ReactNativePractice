@@ -14,6 +14,7 @@ import IconHead from '../../images/home/haier/wode.png';
 import IconPassWord from '../../images/home/pass_word.png';
 import IconShowPassWord from '../../images/home/pass_word_selected.png';
 import IconArrow from '../../images/home/arrow.png';
+import IconClose from '../../images/home/icon_close.png';
 import {Toast} from 'antd-mobile';
 const {width, height} = Dimensions.get('window');
 
@@ -25,15 +26,17 @@ export default class LoginView extends Component {
             account: '',
             password: '',
             canLogin: false,
+            accountCloseOpacity: 0,
+            passwordCloseOpacity: 0
         }
-        }
+    }
 
     login = () => {
-        if(this.state.account.length == 0){
-            Toast.info('请输入账号',1);
+        if (this.state.account.length == 0) {
+            Toast.info('请输入账号', 1);
             return;
-        } else if(this.state.password.length == 0){
-            Toast.info('请输入密码',1);
+        } else if (this.state.password.length == 0) {
+            Toast.info('请输入密码', 1);
             return;
         } else {
             Alert.alert('登录成功\n账号:' + this.state.account + '\n密码:' + this.state.password);
@@ -47,6 +50,14 @@ export default class LoginView extends Component {
         });
     }
 
+    clearAccount = () => {
+        this.setState({account: '', accountCloseOpacity: 0, canLogin: false});
+    }
+
+    clearPassWord = () => {
+        this.setState({password: '', passwordCloseOpacity: 0,canLogin: false});
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -57,14 +68,43 @@ export default class LoginView extends Component {
                     <View style={styles.accountContent}>
                         <Text style={styles.textStyle}>账号</Text>
                         <TextInput
-                            autoCapitalize = 'none'
+                            autoCapitalize='none'
                             multiline={false}
                             style={styles.accountTextInput}
                             underlineColorAndroid='transparent'
+                            keyboardType='email-address'
+                            value={this.state.account}
                             onChangeText={(account) => {
-                            this.setState({account});
+                            let opacity;
+                            let canLogin;
+                            if (account.length > 0) {
+                                opacity = 1;
+                                if (this.state.password.length > 0) {
+                                    canLogin = true;
+                                } else {
+                                    canLogin = false;
+                                }
+                            } else {
+                                opacity = 0;
+                                canLogin = false;
+                            }
+                            this.setState({account: account, accountCloseOpacity: opacity, canLogin: canLogin});
                         }}
                             placeholder='请输入账号（邮箱或手机号）'/>
+                        <TouchableHighlight
+                            underlayColor={'transparent'}
+                            onPress={() => this.clearAccount()}
+                            style= {{opacity:this.state.accountCloseOpacity}}>
+                            <Image
+                                source={IconClose}
+                                style={[
+                                styles.rightImage, {
+                                    marginRight: 5,
+                                    marginLeft: 5,
+                                    opacity: this.state.accountCloseOpacity,
+                                }
+                            ]}/>
+                        </TouchableHighlight>
                         <Image source={IconArrow} style={styles.rightImage}/>
                     </View>
                     <View
@@ -78,20 +118,42 @@ export default class LoginView extends Component {
                         <Text style={styles.textStyle}>密码</Text>
                         <TextInput
                             multiline={false}
-                            autoCapitalize = 'none'
+                            autoCapitalize='none'
                             style={styles.accountTextInput}
                             secureTextEntry={this.state.showPassWord}
                             underlineColorAndroid='transparent'
                             maxLength={16}
+                            value={this.state.password}
+                            keyboardType='email-address'
                             onChangeText={(password) => {
-                            this.setState({password});
+                            let opacity = 0;
+                            let isLogIn;
                             if (password.length > 0) {
-                                this.setState({canLogin: true})
+                                opacity = 1;
+                                if (this.state.account.length > 0) {
+                                    isLogIn = true;
+                                }
                             } else {
-                                this.setState({canLogin: false});
+                                isLogIn = false;
+                                opacity = 0;
                             }
+                            this.setState({password: password, canLogin: isLogIn, passwordCloseOpacity: opacity});
                         }}
                             placeholder='请输入登录密码'/>
+                        <TouchableHighlight
+                            underlayColor={'transparent'}
+                            onPress={() => this.clearPassWord()}
+                            style= {{opacity:this.state.passwordCloseOpacity}}>
+                            <Image
+                                source={IconClose}
+                                style={[
+                                styles.rightImage, {
+                                    marginRight: 5,
+                                    marginLeft: 5,
+                                    opacity: this.state.passwordCloseOpacity
+                                }
+                            ]}/>
+                        </TouchableHighlight>
                         <TouchableHighlight
                             underlayColor={'transparent'}
                             onPress={this
@@ -110,13 +172,13 @@ export default class LoginView extends Component {
                         backgroundColor: '#bdbdbd'
                     }}/>
                 </View>
-                <TouchableHighlight
-                    underlayColor='transparent'
-                    onPress={this.login.bind(this)}>
+                <TouchableHighlight underlayColor='transparent' onPress={() => this.login()}>
                     <View style={styles.buttonStyle}>
                         <Text
                             style={{
-                            color: this.state.canLogin? '#fff' : '#7ccbf1',
+                            color: this.state.canLogin
+                                ? '#fff'
+                                : '#7ccbf1',
                             fontSize: 14
                         }}>
                             登录
@@ -174,7 +236,8 @@ const styles = StyleSheet.create({
     },
     textStyle: {
         color: 'black',
-        fontSize: 14
+        fontSize: 14,
+        fontWeight: 'bold'
     },
     accountTextInput: {
         flex: 1,
@@ -184,11 +247,12 @@ const styles = StyleSheet.create({
         marginTop: 0,
         marginBottom: 0,
         padding: 0,
-        fontSize: 14
+        fontSize: 14,
+        fontWeight: 'bold'
     },
     rightImage: {
-        height: 15,
-        width: 15
+        height: 20,
+        width: 20,
     },
     buttonStyle: {
         margin: 20,
