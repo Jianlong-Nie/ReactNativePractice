@@ -31,6 +31,10 @@ export default class LoginView extends Component {
         }
     }
 
+    static navigationOptions = {
+        header: null
+    };
+
     login = () => {
         if (this.state.account.length == 0) {
             Toast.info('请输入账号', 1);
@@ -46,7 +50,7 @@ export default class LoginView extends Component {
 
     showPassWord = () => {
         this.setState({
-            showPassWord: !this.state.showPassWord
+            showPassWord: !this.state.showPassWord,
         });
     }
 
@@ -55,7 +59,7 @@ export default class LoginView extends Component {
     }
 
     clearPassWord = () => {
-        this.setState({password: '', passwordCloseOpacity: 0,canLogin: false});
+        this.setState({password: '', passwordCloseOpacity: 0, canLogin: false});
     }
 
     render() {
@@ -94,14 +98,16 @@ export default class LoginView extends Component {
                         <TouchableHighlight
                             underlayColor={'transparent'}
                             onPress={() => this.clearAccount()}
-                            style= {{opacity:this.state.accountCloseOpacity}}>
+                            style={{
+                            opacity: this.state.accountCloseOpacity
+                        }}>
                             <Image
                                 source={IconClose}
                                 style={[
                                 styles.rightImage, {
                                     marginRight: 5,
                                     marginLeft: 5,
-                                    opacity: this.state.accountCloseOpacity,
+                                    opacity: this.state.accountCloseOpacity
                                 }
                             ]}/>
                         </TouchableHighlight>
@@ -143,7 +149,9 @@ export default class LoginView extends Component {
                         <TouchableHighlight
                             underlayColor={'transparent'}
                             onPress={() => this.clearPassWord()}
-                            style= {{opacity:this.state.passwordCloseOpacity}}>
+                            style={{
+                            opacity: this.state.passwordCloseOpacity
+                        }}>
                             <Image
                                 source={IconClose}
                                 style={[
@@ -252,7 +260,7 @@ const styles = StyleSheet.create({
     },
     rightImage: {
         height: 20,
-        width: 20,
+        width: 20
     },
     buttonStyle: {
         margin: 20,

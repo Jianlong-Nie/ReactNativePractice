@@ -27,6 +27,7 @@ import Circle from './js/home/map/circle';
 import Events from './js/home/map/events';
 import Navigation from './js/home/map/navigation';
 import Login from './js/login/login';
+import X5WebView from './js/WebView/X5WebViewTest';
 
 
 export const NavBarConfig = {
@@ -253,6 +254,14 @@ const Routes = {
         screen: Login,
         navigationOptions: {
             title:'登录',
+            ...NavBarConfig,
+        }
+    },
+    X5WebViewTest:{
+        name:'X5WebView',
+        screen:X5WebView,
+        navigationOptions: {
+            title:'X5WebView',
             ...NavBarConfig,
         }
     },

@@ -56,6 +56,11 @@ export default class MorePopWindow extends Component {
         this.props.navigation.navigate('Login',{name:'登录'});
     }
 
+    x5WebView(){
+        this.closeModal();
+        this.props.navigation.navigate('X5WebViewTest',{name:'X5WebViewTest'});
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -75,6 +80,11 @@ export default class MorePopWindow extends Component {
                     <TouchableOpacity activeOpacity={1} onPress={this.payCode.bind(this)} style={styles.itemView}>
                       <Image style={styles.imgStyle} source={IconXiu} />
                       <Text style={styles.textStyle}>登录</Text>
+                    </TouchableOpacity>
+                    <View style= {{backgroundColor:'white',height:0.5,width:mwidth}}/>
+                    <TouchableOpacity activeOpacity={1} onPress={()=> this.x5WebView()} style={styles.itemView}>
+                      <Image style={styles.imgStyle} source={IconXiu} />
+                      <Text style={styles.textStyle}>X5WebView</Text>
                     </TouchableOpacity>
                   </View>
                 </TouchableOpacity>
