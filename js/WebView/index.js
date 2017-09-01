@@ -1,7 +1,7 @@
 //import liraries
 import React, { Component } from 'react';
-//import WKWebView from 'react-native-wkwebview-reborn';
-import { View, Button, Text, StyleSheet, WebView, TouchableHighlight } from 'react-native';
+import WKWebView from 'react-native-wkwebview-reborn';
+import { View, Button, Text, StyleSheet, WebView, TouchableHighlight, Platform } from 'react-native';
 import { ActivityIndicator } from 'antd-mobile';
 import { NavigationActions } from 'react-navigation';
 class CustomWebView extends Component {
@@ -14,7 +14,7 @@ class CustomWebView extends Component {
     
     render() {
         const { navigation } = this.props;
-        let murl = 'http://192.168.31.244:3000/';
+        let murl = 'http://192.168.31.243:3000/';
         if (this.props.url) {
             murl = this.props.url;
         }
@@ -23,9 +23,9 @@ class CustomWebView extends Component {
                 murl = navigation.state.params.url;
             }  
         }
-       
+        const PlatformWebView = Platform.OS === 'android' ? WebView : WKWebView;
         return (
-            <WebView
+            <PlatformWebView
                 source={{uri: murl}}
                 scalesPageToFit={true}
                 onNavigationStateChange={(event) => {
