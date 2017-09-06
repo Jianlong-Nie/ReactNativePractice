@@ -4,7 +4,7 @@ import Home from './js/home';
 import ZhiFubaoIconSelected from './images/home/haier/zhuye_selected.png';
 import ZhiFubaoIconNormal from './images/home/haier/zhuye.png';
 import MineIconSelected from './images/home/haier/wode.png';
-import { StackNavigator, TabNavigator } from 'react-navigation';
+import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 import Controllers from  './controllers';
 import Mine from './js/mine';
 import { Image} from 'react-native';
@@ -70,50 +70,53 @@ TabBarItem.propTypes = {
     tintColor: PropTypes.string.isRequired,
 };
 
-// const router = TabNavigator(
-//     {
-//         MainTab: {
-//             screen: HomeRouter,
-//             navigationOptions: {
-//                 tabBarLabel: '首页',
-//                 tabBarIcon: ({ tintColor, focused }) => (
-//                     <TabBarItem
-//                         tintColor={tintColor}
-//                         focused={focused}
-//                         normalImage= {ZhiFubaoIconNormal}
-//                         selectedImage= {ZhiFubaoIconSelected}
-//                     />
-//                 ),
-//             },
-//         },
-//         SettingsTab: {
-//             screen: MineTab,
-//             navigationOptions: {
-//                 tabBarLabel: '我的',
-//                 tabBarIcon: ({ tintColor, focused }) => (
-//                     <TabBarItem
-//                         tintColor={tintColor}
-//                         focused={focused}
-//                         normalImage= {MineIconSelected}
-//                         selectedImage= {MineIconSelected}
-//                     />
-//                 ),
-//             },
-//         },
-//     },
-//     {
-//         tabBarPosition: 'bottom',
-//         animationEnabled: false,
-//         swipeEnabled: false,
-//         tabBarOptions:{
-//             activeTintColor: '#c60c1b',
-//             inactiveTintColor: 'gray',
-//             style: { backgroundColor: 'white'},
-//             upperCaseLabel: false,
-//         }
-//     }
-// );
+const router = TabNavigator(
+    {
+        MainTab: {
+            screen: HomeRouter,
+            navigationOptions: {
+                tabBarLabel: '首页',
+                tabBarIcon: ({ tintColor, focused }) => (
+                    <TabBarItem
+                        tintColor={tintColor}
+                        focused={focused}
+                        normalImage= {ZhiFubaoIconNormal}
+                        selectedImage= {ZhiFubaoIconSelected}
+                    />
+                ),
+            },
+        },
+        SettingsTab: {
+            screen: MineTab,
+            navigationOptions: {
+                tabBarLabel: '我的',
+                tabBarIcon: ({ tintColor, focused }) => (
+                    <TabBarItem
+                        tintColor={tintColor}
+                        focused={focused}
+                        normalImage= {MineIconSelected}
+                        selectedImage= {MineIconSelected}
+                    />
+                ),
+            },
+        },
+    },
+    {
+        tabBarPosition: 'bottom',
+        animationEnabled: false,
+        swipeEnabled: false,
+        showIcon: true,
+        tabBarComponent: TabBarBottom, 
+        tabBarOptions:{
+            activeTintColor: '#c60c1b',
+            inactiveTintColor: 'gray',
+            style: { backgroundColor: 'white'},
+            upperCaseLabel: false,
+            showIcon: true,
+        }
+    }
+);
 
 
 
-export default HomeRouter;
+export default router;

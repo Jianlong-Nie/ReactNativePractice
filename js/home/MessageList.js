@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
   },
   separator:{
     height: 15,
-    backgroundColor:'transparent'
+    backgroundColor:'gray'
   },
   itemtitle:{
     flexDirection: 'row',

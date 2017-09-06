@@ -92,7 +92,7 @@ class Home extends Component {
                     <SearchHeader /*style = {this.state.position.getLayout()*/{...this.props}/>
                     <SecondHeader {...this.props} />
                     <AppContent {...this.props} />
-                    <View style={{ backgroundColor: 'transparent', height: 15 }} />
+                    <View style={{ backgroundColor: 'gray', height: 15 }} />
                     <MessageList />
                 </ScrollView>
                 {

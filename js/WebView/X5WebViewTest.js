@@ -4,6 +4,7 @@ import {
     View,
     Text,
     Dimensions,
+    Platform
 } from 'react-native';
 import X5WebView from './X5WebView';
 const {width,height}  = Dimensions.get('window');

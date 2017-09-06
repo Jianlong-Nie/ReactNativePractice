@@ -14,7 +14,7 @@ class CustomWebView extends Component {
     
     render() {
         const { navigation } = this.props;
-        let murl = 'http://192.168.31.243:3000/';
+        let murl = 'https://www.baidu.com/';
         if (this.props.url) {
             murl = this.props.url;
         }
