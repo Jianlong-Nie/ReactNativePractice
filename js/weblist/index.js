@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component } from 'react';
-import { Button, View, Text, StyleSheet, TextInput, TouchableHighlight } from 'react-native';
+import { Button, View, Text, StyleSheet, TextInput, TouchableHighlight, TouchableOpacity } from 'react-native';
 import CustomWebView from '../WebView/index';
 import dismissKeyboard from 'react-native-dismiss-keyboard';
 import { Toast } from 'antd-mobile';
@@ -92,9 +92,8 @@ weblist.navigationOptions = props =>{
     const { navigation, setParams, } = props;
     return {
         headerRight: (
-            <Button
-                title='添加'
-                color='white'
+            <TouchableOpacity
+                style = {{ backgroundColor: 'transparent'}}
                 onPress={() =>{
                     if (!mitem.dest.length) {
                         mitem = {
@@ -107,11 +106,12 @@ weblist.navigationOptions = props =>{
                     //navigation.dispatch(NavigationActions.back({key: 'id-1503109937977-3'}));
                     navigation.goBack();
                     navigation.state.params.add(mitem);
-                    console.log('只是遇不见那年花开');
                 }
                 }
                     
-            />
+            >
+            <Text style={ styles.btntitle }>添加</Text>
+            </TouchableOpacity>
         ),};
 };
 // define your styles
@@ -137,6 +137,7 @@ const styles = StyleSheet.create({
         borderWidth: 0.5,
         width: 50,
         backgroundColor: 'lightgray',
+        color: 'white'
     },
     btntitle: {
         padding: 5,
@@ -144,6 +145,7 @@ const styles = StyleSheet.create({
         width: 50,
         textAlign: 'center',
         backgroundColor: 'transparent',
+        color: 'white'
 
     }
 });

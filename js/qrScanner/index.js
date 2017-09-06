@@ -11,9 +11,7 @@ export default class DefaultScreen extends Component {
         return (
             <QRScannerView
                 onScanResultReceived={this.barcodeReceived.bind(this)}
-
                 renderTopBarView={() => this._renderTitleBar()}
-
                 renderBottomMenuView={() => this._renderMenu()}
             />
         );
@@ -21,17 +19,13 @@ export default class DefaultScreen extends Component {
 
     _renderTitleBar(){
         return(
-            <Text
-                style={{color:'white',textAlignVertical:'center', textAlign:'center',font:20,padding:12}}
-            >Here is title bar</Text>
+            null
         );
     }
 
     _renderMenu() {
         return (
-            <Text
-                style={{color:'white',textAlignVertical:'center', textAlign:'center',font:20,padding:12}}
-            >Here is bottom menu</Text>
+            null
         );
     }
 

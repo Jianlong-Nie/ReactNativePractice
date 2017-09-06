@@ -15,11 +15,7 @@ const CustomSearchBar = () => {
     return (
         <View style={styles.customSearchBar}>
             <Image source={SearchImage} style={styles.searchIcon}/>
-            <TextInput
-                defaultValue=""
-                style={{flex: 1, height: 20, color: 'white'}}
-                editable = {false}
-            />
+            
         </View>
     );
 };
