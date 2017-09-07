@@ -33,7 +33,6 @@ class Home extends Component {
             navigantionHeaderOpacity: 0,
             headerOpacity: new Animated.Value(0),
         };
-       
     }
     async fetchApps() {
       const url = 'apps?filter={"where":{},"skip":0,"limit":20}';
