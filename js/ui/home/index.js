@@ -33,30 +33,24 @@ class Home extends Component {
 
         };
        
-        /*this.state.panResponder = PanResponder.create({
-            onStartShouldSetPanResponder: () => true,
-            // onPanResponderMove: (e)=>{
-            //     console.log(`${e.gesture.moveY}`);
-            // },
-            onPanResponderMove: Animated.event([null,
-                {
-                    moveX: this.state.position.x,
-                    moveY: this.state.position.y,
-                }
-            ])
-        });*/
     }
-
+    async fetchApps() {
+       const url = 'apps?filter={"where":{},"skip":0,"limit":20}';
+       try {
+          const json = await getJSON(url);
+          console.log('====================================');
+          console.log(`请求接口数据${JSON.stringify(json)}`);
+          console.log('====================================');
+       } catch (error) {
+           console.log('====================================');
+           console.log(`请求接口失败${error}`);
+           console.log('====================================');
+       }
+    }
     componentDidMount() {
-        // do stuff while splash screen is shown
-        // After having done stuff (such as async tasks) hide the splash screen
         SplashScreen.hide();
-
+        this.fetchApps();
     }
-    componentWillUnMount() {
-    }
-
-
     handleScroll = (e) => {
         var windowHeight = Dimensions.get('window').height,
             height = e.nativeEvent.contentSize.height,

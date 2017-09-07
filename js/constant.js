@@ -1,1 +1,1 @@
-export const ServicePrefix = 'https://d.apicloud.com/mcm/api';
+export const ServicePrefix = 'https://d.apicloud.com/mcm/api/';
