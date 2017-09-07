@@ -23,7 +23,12 @@
 		"react-native-svg-uri": "^1.2.0",
 		"react-native-wkwebview-reborn": "^1.7.0",
 		"react-navigation": "^1.0.0-beta.11",
-		"rn-viewpager": "^1.2.4"
+		"rn-viewpager": "^1.2.4",
+		"react-redux": "^5.0.6",
+		"redux": "^3.7.2",
+		"redux-logger": "^3.0.6",
+		"redux-thunk": "^2.2.0",
+		"immutable": "^3.8.1"
 	},
 	"devDependencies": {
 		"babel-jest": "20.0.3",

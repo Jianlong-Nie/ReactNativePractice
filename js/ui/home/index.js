@@ -28,14 +28,12 @@ class Home extends Component {
         super(props, context);
         this.state = {
             navigantionHeaderOpacity: 0,
-            // position:new Animated.ValueXY(),
             headerOpacity: new Animated.Value(0),
-
         };
        
     }
     async fetchApps() {
-       const url = 'apps?filter={"where":{},"skip":0,"limit":20}';
+    const url = 'apps?filter={"where":{},"skip":0,"limit":20}';
        try {
           const json = await getJSON(url);
           console.log('====================================');
