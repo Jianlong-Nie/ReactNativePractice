@@ -1,67 +1,43 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableHighlight } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { Grid } from 'antd-mobile';
 import ScanImage from '../../../images/home/haier/icon_saoyisao.png';
 import PayImage from '../../../images/home/haier/icon_pay.png';
 import XiuImage from '../../../images/home/haier/icon_shouqian.png';
 import CardImage from '../../../images/home/haier/icon_kabao.png';
 import AntDesign from '../antDesign';
-// const data = Array.from(new Array(4)).map((_val, i) => ({
-//     icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
-//     text: `name${i}`,
-// }));
-const data = [
-    {
-        icon: ScanImage,
-        text: '扫一扫', 
-    },
-    {
-        icon: PayImage,
-        text: '付款', 
-    },
-    {
-        icon: XiuImage,
-        text: '收款', 
-    },
-    {
-        icon: CardImage,
-        text: '卡包', 
-    },
-];
-// create a component
+
+
 class SecondHeader extends Component {
+    shouldComponentUpdate(nextProps, nextState) {
+        if (this.props.mainReducer !== nextProps.mainReducer) {
+            return true;
+        } 
+        return false;
+     }
     onClick = (dataItem) => {
-        switch(dataItem.text) {
-            case '扫一扫':
-                this.props.navigation.navigate('QRScanner', {name: '网页'});
-                break;
-            case '付款':
-                this.props.navigation.navigate('AntDesign', {name: 'antDesign'});
-                break;
-            case '收款':
-                this.props.navigation.navigate('AntDesignTwo', {name: 'AntDesignTwo'});
-                break;
-            case '卡包':
-                this.props.navigation.navigate('AntDesignThree', {name: 'AntDesignThree'});
-                break;
-            default:
-                break;
-        }
+        this.props.navigation.navigate(dataItem.key, {name: dataItem.appName});
     }
+    
     render() {
+        let apps = [];
+        const { homeApps } = this.props.mainReducer;
+        if (homeApps !== undefined) {
+           apps = homeApps.filter((item) => item.type === '2'); 
+        }
         return (
             <View style={styles.container}>
                 <Grid 
-                    data={data} 
+                    data={apps} 
                     hasLine={false}
                     renderItem={dataItem => {   
                         return (
-                            <TouchableHighlight style={styles.itemcontainer} onPress={() => this.onClick(dataItem)} activeOpacity={0}>
+                            <TouchableOpacity style={styles.itemcontainer} onPress={() => this.onClick(dataItem)}>
                                 <View style={[styles.itemcontainer,{opacity:this.props.opacity}]}>
-                                    <Image source={dataItem.icon} resizeMode = "contain" style={styles.itemimage}/>
-                                    <Text style={styles.desctext}>{dataItem.text}</Text>
+                                    <Image source={{uri: dataItem.appIcon}} resizeMode = "contain" style={styles.itemimage}/>
+                                    <Text style={styles.desctext}>{dataItem.appName}</Text>
                                 </View>
-                            </TouchableHighlight>
+                            </TouchableOpacity>
                         );
                     }
                     }

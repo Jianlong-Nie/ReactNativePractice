@@ -5,80 +5,15 @@ import {
     Text,
     StyleSheet,
     Image,
-    TouchableHighlight,
+    TouchableOpacity,
     AsyncStorage,
 } from 'react-native';
 import { Grid } from 'antd-mobile';
-import ShuizhanImage from '../../../images/home/haier/shuizhan.png';
-import ZhengChePeiSong from '../../../images/home/haier/zhengche-peisong.png';
-import PeiSongAnZhuang from '../../../images/home/haier/peisonganzhuang.png';
-import XiaoGuanJia from '../../../images/home/haier/xiaoguanjia.png';
-import AnZhuangImage from '../../../images/home/haier/peisonganzhuang.png';
-import QiangDImage from '../../../images/home/haier/qiangdan.png';
-import XiaoGuanJiaImage from '../../../images/home/haier/xiaoguanjia.png';
-import YanBaoFuWu from '../../../images/home/haier/yanbao-fuwu.png';
-import More from '../../../images/home/haier/more.png';
-
-
-// const data = [
-//     {
-//         icon: ShuizhanImage,
-//         text: '水站',
-//         dest: 'PickerDemo',
-//         type: 0,
-//     },
-//     {
-//         icon: ZhengChePeiSong,
-//         text: '整车配送',
-//         dest: 'SegmentComponent',
-//         type: 0,
-//     },
-//     {
-//         icon: PeiSongAnZhuang,
-//         text: '配送安装',
-//         dest: 'SegmentComponent',
-//         type: 0,
-//     },
-//     {
-//         icon: XiaoGuanJia,
-//         text: '小管家',
-//         dest: 'SegmentComponent',
-//         type: 0,
-//     },
-//     {
-//         icon: QiangDImage,
-//         text: '抢单',
-//         dest: 'PickerDemo',
-//         type: 0,
-//     },
-//     {
-//         icon: YanBaoFuWu,
-//         text: '延保服务',
-//         dest: 'PickerDemo',
-//         type: 0,
-//     },
-//     {
-//         icon: More,
-//         text: '更多',
-//         dest: 'PickerDemo',
-//         type: 0,
-//     },
-//     {
-//         icon: More,
-//         text: '地图',
-//         dest: 'PickerDemo',
-//         type: 0,
-//     }
-
-// ];
 
 // create a component
 class AppContent extends Component {
     constructor(props, context) {
         super(props, context);
-        // this.state = {
-        //     data: data
-        // };
         AsyncStorage.getItem('items', (error, items) => {
             console.log(`输出items${items}`);
             if (items) {
@@ -87,7 +22,6 @@ class AppContent extends Component {
                 };
             }
         });
-
     }
     
     shouldComponentUpdate(nextProps, nextState) {
@@ -108,10 +42,7 @@ class AppContent extends Component {
         const {navigation, setParams} = this.props;
         switch (dataItem.type) {
             case '1': 
-                navigation.navigate(dataItem.key, {name: item.appName});
-                break;
-            case '2':
-                navigation.navigate('CustomWebView', {name: 'webView', url: dataItem.dest});
+                navigation.navigate(dataItem.key, {name: dataItem.appName});
                 break;
             default:
                 break;
@@ -131,9 +62,7 @@ class AppContent extends Component {
                     hasLine={false}
                     renderItem={dataItem => {
                         return (
-                            <TouchableHighlight
-                                activeOpacity={0}
-                                underlayColor='transparent'
+                            <TouchableOpacity
                                 onPress={() => this.onClick(dataItem)}
                                 style={styles.itemcontainer}
                             >
@@ -143,7 +72,7 @@ class AppContent extends Component {
                                            style={styles.itemimage}/>
                                     <Text>{dataItem.appName}</Text>
                                 </View>
-                            </TouchableHighlight>
+                            </TouchableOpacity>
                         );
                     }
                     }
