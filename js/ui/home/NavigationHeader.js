@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, Dimensions, TouchableHighlight } from 'react-native';
 import { Grid } from 'antd-mobile';
-import ScanImage from '../../images/home/home_scan.png';
-import PayImage from '../../images/home/home_pay.png';
-import XiuImage from '../../images/home/home_xiu.png';
-import CardImage from '../../images/home/home_card.png';
-import JiaHaoImage from '../../images/home/jiahao.png';
+import ScanImage from '../../../images/home/home_scan.png';
+import PayImage from '../../../images/home/home_pay.png';
+import XiuImage from '../../../images/home/home_xiu.png';
+import CardImage from '../../../images/home/home_card.png';
+import JiaHaoImage from '../../../images/home/jiahao.png';
 
 const { width } = Dimensions.get('window');
 

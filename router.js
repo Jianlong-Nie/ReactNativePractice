@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Home from './js/home';
+import Home from './js/ui/home';
 import ZhiFubaoIconSelected from './images/home/haier/zhuye_selected.png';
 import ZhiFubaoIconNormal from './images/home/haier/zhuye.png';
 import MineIconSelected from './images/home/haier/wode.png';
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 import Controllers from  './controllers';
-import Mine from './js/mine';
+import Mine from './js/ui/mine';
 import { Image} from 'react-native';
-import './js/customComponent/CustomView';
+import './js/ui/customComponent/CustomView';
 
 const HomeRouter = StackNavigator(
     {

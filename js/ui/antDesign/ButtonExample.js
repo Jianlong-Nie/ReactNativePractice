@@ -17,7 +17,7 @@ const ButtonExample = () => (
                 </Button>
                 <Button style={{ marginBottom: 20 }} className="btn" loading>loading button</Button>
                 <Button style={{ marginBottom: 20 }} className="btn" icon="check-circle-o">with icon</Button>
-                <Button style={{ marginBottom: 20 }} className="btn" icon={require('../../images/home/chepiao.png')}>
+                <Button style={{ marginBottom: 20 }} className="btn" icon={require('../../../images/home/chepiao.png')}>
           with local icon
                 </Button>
 

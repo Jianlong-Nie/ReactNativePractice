@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { RefreshControl, ListView, Icon, WingBlank, WhiteSpace } from 'antd-mobile';
 import { View, Text, StyleSheet, Image, TouchableHighlight, Dimensions } from 'react-native';
-import DiDiImage from '../../images/home/didi.png';
+import DiDiImage from '../../../images/home/didi.png';
 const { width, height } = Dimensions.get('window');
 
 const data = [

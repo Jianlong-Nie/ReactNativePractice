@@ -2,10 +2,10 @@
 import React, { Component } from 'react';
 import { View, Text, Image, StyleSheet, TextInput, Dimensions, TouchableHighlight,Platform } from 'react-native';
 import { Button, TabBar, Icon, InputItem } from 'antd-mobile';
-import SearchImage from '../../images/home/haier/icon_search.png';
-import MicImage from '../../images/home/mic.png';
-import TongXunLuImage from '../../images/home/tongxunlu.png';
-import JiaHaoImage from '../../images/home/haier/tianjia.png';
+import SearchImage from '../../../images/home/haier/icon_search.png';
+import MicImage from '../../../images/home/mic.png';
+import TongXunLuImage from '../../../images/home/tongxunlu.png';
+import JiaHaoImage from '../../../images/home/haier/tianjia.png';
 import MorePopWindow from '../home/MorePopWindow.js';
 const headH = 64;
 const { width, height } = Dimensions.get('window');

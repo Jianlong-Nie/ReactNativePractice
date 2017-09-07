@@ -4,7 +4,7 @@ import {
     Animated, Easing, Text, View, LayoutAnimation, NativeModules,
     Dimensions, TouchableHighlight, ScrollView, PanResponder,
 } from 'react-native';
-import YanBaoFuWu from '../../images/home/haier/yanbao-fuwu.png';
+import YanBaoFuWu from '../../../images/home/haier/yanbao-fuwu.png';
 import AnimateDemo from "./AnimateDemo";
 
 

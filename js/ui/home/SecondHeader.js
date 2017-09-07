@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableHighlight } from 'react-native';
 import { Grid } from 'antd-mobile';
-import ScanImage from '../../images/home/haier/icon_saoyisao.png';
-import PayImage from '../../images/home/haier/icon_pay.png';
-import XiuImage from '../../images/home/haier/icon_shouqian.png';
-import CardImage from '../../images/home/haier/icon_kabao.png';
+import ScanImage from '../../../images/home/haier/icon_saoyisao.png';
+import PayImage from '../../../images/home/haier/icon_pay.png';
+import XiuImage from '../../../images/home/haier/icon_shouqian.png';
+import CardImage from '../../../images/home/haier/icon_kabao.png';
 import AntDesign from '../antDesign';
 // const data = Array.from(new Array(4)).map((_val, i) => ({
 //     icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',

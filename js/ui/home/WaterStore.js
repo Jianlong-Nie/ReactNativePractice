@@ -14,8 +14,8 @@ import {
   InputItem,
   ListView
 } from 'antd-mobile';
-import IconScan from '../../images/home/home_scan.png';
-import IconBill from '../../images/home/home_bill.png';
+import IconScan from '../../../images/home/home_scan.png';
+import IconBill from '../../../images/home/home_bill.png';
 import MorePopWindow from './MorePopWindow.js';
 
 const Item = Popover.Item;

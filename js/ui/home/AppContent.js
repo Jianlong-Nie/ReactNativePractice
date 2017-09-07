@@ -9,15 +9,15 @@ import {
     AsyncStorage,
 } from 'react-native';
 import {Grid} from 'antd-mobile';
-import ShuizhanImage from '../../images/home/haier/shuizhan.png';
-import ZhengChePeiSong from '../../images/home/haier/zhengche-peisong.png';
-import PeiSongAnZhuang from '../../images/home/haier/peisonganzhuang.png';
-import XiaoGuanJia from '../../images/home/haier/xiaoguanjia.png';
-import AnZhuangImage from '../../images/home/haier/peisonganzhuang.png';
-import QiangDImage from '../../images/home/haier/qiangdan.png';
-import XiaoGuanJiaImage from '../../images/home/haier/xiaoguanjia.png';
-import YanBaoFuWu from '../../images/home/haier/yanbao-fuwu.png';
-import More from '../../images/home/haier/more.png';
+import ShuizhanImage from '../../../images/home/haier/shuizhan.png';
+import ZhengChePeiSong from '../../../images/home/haier/zhengche-peisong.png';
+import PeiSongAnZhuang from '../../../images/home/haier/peisonganzhuang.png';
+import XiaoGuanJia from '../../../images/home/haier/xiaoguanjia.png';
+import AnZhuangImage from '../../../images/home/haier/peisonganzhuang.png';
+import QiangDImage from '../../../images/home/haier/qiangdan.png';
+import XiaoGuanJiaImage from '../../../images/home/haier/xiaoguanjia.png';
+import YanBaoFuWu from '../../../images/home/haier/yanbao-fuwu.png';
+import More from '../../../images/home/haier/more.png';
 
 
 const data = [

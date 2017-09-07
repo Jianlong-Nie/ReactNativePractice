@@ -11,8 +11,8 @@ import {
     Dimensions,
 } from 'react-native';
 import {WhiteSpace,} from 'antd-mobile';
-import IconScan from '../../images/home/home_scan.png';
-import IconXiu from '../../images/home/home_xiu.png';
+import IconScan from '../../../images/home/home_scan.png';
+import IconXiu from '../../../images/home/home_xiu.png';
 const {height,width} = Dimensions.get('window');
 const basePx = 375;
 

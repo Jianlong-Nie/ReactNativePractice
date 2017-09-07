@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {SegmentedControl, WingBlank} from 'antd-mobile';
 
 import {View, Text, StyleSheet, Image, TouchableHighlight} from 'react-native';
-import YanBaoFuWu from '../../images/home/haier/yanbao-fuwu.png';
+import YanBaoFuWu from '../../../images/home/haier/yanbao-fuwu.png';
 
 
 export default class SegmentComponent extends Component {

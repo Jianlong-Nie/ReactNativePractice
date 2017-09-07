@@ -17,6 +17,7 @@ import AppContent from './AppContent';
 import SecondHeader from './SecondHeader';
 import MessageList from './MessageList';
 import NavigationHeader from './NavigationHeader';
+import SHA1 from '../../util/SHA1';
 const { width, height } = Dimensions.get('window');
 const NavigationBar = Animated.createAnimatedComponent(NavigationHeader);
 
@@ -30,6 +31,11 @@ class Home extends Component {
             headerOpacity: new Animated.Value(0),
 
         };
+        const now = Date.now();
+        const appKey = SHA1("A6968565094002"+"UZ"+"62FB16B2-0ED6-B460-1F60-EB61954C823B"+"UZ"+now)+"."+now;
+        console.log('====================================');
+        console.log(`输出我的appkey${appKey}`);
+        console.log('====================================');
         /*this.state.panResponder = PanResponder.create({
             onStartShouldSetPanResponder: () => true,
             // onPanResponderMove: (e)=>{

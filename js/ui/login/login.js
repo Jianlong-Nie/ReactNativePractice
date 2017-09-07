@@ -10,13 +10,13 @@ import {
     Button,
     Alert
 } from 'react-native';
-import IconHead from '../../images/home/haier/wode.png';
-import IconPassWord from '../../images/home/pass_word.png';
-import IconShowPassWord from '../../images/home/pass_word_selected.png';
-import IconArrow from '../../images/home/arrow.png';
-import IconClose from '../../images/home/icon_close.png';
-import {Toast} from 'antd-mobile';
-const {width, height} = Dimensions.get('window');
+import IconHead from '../../../images/home/haier/wode.png';
+import IconPassWord from '../../../images/home/pass_word.png';
+import IconShowPassWord from '../../../images/home/pass_word_selected.png';
+import IconArrow from '../../../images/home/arrow.png';
+import IconClose from '../../../images/home/icon_close.png';
+import { Toast } from 'antd-mobile';
+const { width, height } = Dimensions.get('window');
 
 export default class LoginView extends Component {
     constructor(props) {
