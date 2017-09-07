@@ -11,6 +11,8 @@ import {
     Animated,
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import SplashScreen from 'react-native-splash-screen'
 import SearchHeader from './SearchHeader';
 import AppContent from './AppContent';
@@ -18,6 +20,7 @@ import SecondHeader from './SecondHeader';
 import MessageList from './MessageList';
 import NavigationHeader from './NavigationHeader';
 import { getJSON } from '../../network';
+import { changeHomeApp } from '../../redux/Actions';
 
 const { width, height } = Dimensions.get('window');
 const NavigationBar = Animated.createAnimatedComponent(NavigationHeader);
@@ -33,12 +36,13 @@ class Home extends Component {
        
     }
     async fetchApps() {
-    const url = 'apps?filter={"where":{},"skip":0,"limit":20}';
+      const url = 'apps?filter={"where":{},"skip":0,"limit":20}';
        try {
           const json = await getJSON(url);
           console.log('====================================');
           console.log(`请求接口数据${JSON.stringify(json)}`);
           console.log('====================================');
+          this.props.changeHomeApp(json);
        } catch (error) {
            console.log('====================================');
            console.log(`请求接口失败${error}`);
@@ -53,19 +57,11 @@ class Home extends Component {
         var windowHeight = Dimensions.get('window').height,
             height = e.nativeEvent.contentSize.height,
             offset = e.nativeEvent.contentOffset.y;
-
-        if (offset > 44) {
-            //   Animated.timing(this.state.headerOpacity,{
-            //       toValue: 1,
-            //   }).start();
+        if (offset > 64) {
             this.setState({ navigantionHeaderOpacity: 1 });
             console.log('输出上拉操作');
         } else {
-            //     Animated.timing(this.state.headerOpacity,{
-            //       toValue: 0,
-            //   }).start();
             this.setState({ navigantionHeaderOpacity: 0 });
-            //    console.log('输出下拉操作');
         }
 
     }
@@ -110,6 +106,14 @@ const styles = StyleSheet.create({
 });
 
 
+const mapDispatchToProps = dispatch => bindActionCreators({
+    changeHomeApp
+},dispatch);
 
-//make this component available to the app
-export default Home;
+const mapStateToProps = (state, ownProps) => {
+    return {
+        mainReducer: state.mainReducer
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Home);

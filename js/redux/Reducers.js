@@ -1,24 +1,23 @@
-import { CHANGE_TEXT, changeText } from './Actions';
+import { combineReducers } from 'redux';
+import { CHANGE_HOME_APP } from './Actions';
 
-const mainReducer = (state = changeText('welcome to React Native'), action) => {
-
+const mainReducer = (state = {}, action) => {
     const newState = state;
-    const text = action.text;
-
+    const homeApps = action.homeApps;
     // 判断 action 类型
     switch (action.type) {
-    case CHANGE_TEXT:
+    case CHANGE_HOME_APP:
         return {
             ...newState,
-            text: '改变了' + text
+            homeApps
         };
-
     default:
-        return {
-            ...newState,
-            text:state.text
-        };
+        return state;
     }
 };
+// 使用 ES6 的对象字面量简写方式定义对象结构
+const rootReducer = combineReducers({
+    mainReducer,
+});
 
-export default mainReducer;
+export default rootReducer;

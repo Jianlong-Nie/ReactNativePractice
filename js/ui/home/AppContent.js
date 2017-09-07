@@ -89,14 +89,16 @@ class AppContent extends Component {
         });
 
     }
-
+    
+    shouldComponentUpdate(nextProps, nextState) {
+       if (this.props.mainReducer !== nextProps.mainReducer) {
+           return true;
+       } 
+       return false;
+    }
+    
     addAction = (item) => {
         var mdata = this.state.data;
-        //   const mitem = {
-        //       icon: More,
-        //       text: '京东',
-        //       dest: '京东商城'
-        //   };
         mdata.splice(mdata.length - 1, 0, item);
         this.setState({data: mdata});
         AsyncStorage.setItem('items', JSON.stringify(mdata), () => {
@@ -106,8 +108,8 @@ class AppContent extends Component {
     onClick = (dataItem) => {
         const {navigation, setParams} = this.props;
         switch (dataItem.type) {
-            case 0: {
-                switch (dataItem.text) {
+            case '1': {
+                switch (dataItem.appName) {
                     // case '水站' :
                     //     navigation.navigate('WebView', {name: '网页'});
                     //     break;
@@ -153,10 +155,15 @@ class AppContent extends Component {
     };
 
     render() {
+        let apps = [];
+        const { homeApps } = this.props.mainReducer;
+        if (homeApps !== undefined) {
+           apps = homeApps.filter((item) => item.type === '1'); 
+        }
         return (
             <View style={styles.container}>
                 <Grid
-                    data={this.state.data}
+                    data={apps}
                     hasLine={false}
                     renderItem={dataItem => {
                         return (
@@ -168,9 +175,9 @@ class AppContent extends Component {
                             >
                                 <View style={styles.itemcontainer}>
                                     <Image resizeMode='contain'
-                                           source={dataItem.type === 0 ? dataItem.icon : {uri: dataItem.icon}}
+                                           source={{uri: dataItem.appIcon}}
                                            style={styles.itemimage}/>
-                                    <Text>{dataItem.text}</Text>
+                                    <Text>{dataItem.appName}</Text>
                                 </View>
                             </TouchableHighlight>
                         );
