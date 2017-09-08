@@ -20,6 +20,10 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.facebook.react.bridge.Arguments;
+import com.facebook.react.bridge.ReactContext;
+import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.uimanager.events.RCTEventEmitter;
 import com.myapp.R;
 import com.tencent.smtt.export.external.interfaces.IX5WebChromeClient.CustomViewCallback;
 import com.tencent.smtt.export.external.interfaces.JsPromptResult;
@@ -224,6 +228,16 @@ public class X5WebView extends WebView {
 				return false;
 			}
 		});
+	}
+
+	public void onReceiveNativeEvent() {
+		WritableMap event = Arguments.createMap();
+		event.putString("message", "MyMessage");
+		ReactContext reactContext = (ReactContext)getContext();
+		reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(
+				getId(),
+				"topChange",
+				event);
 	}
 
 	private void initWebViewSettings() {

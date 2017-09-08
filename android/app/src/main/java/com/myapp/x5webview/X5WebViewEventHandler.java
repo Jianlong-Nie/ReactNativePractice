@@ -214,6 +214,11 @@ public class X5WebViewEventHandler extends ProxyWebViewClientExtension implement
 		}
 
 		@Override
+		public void invalidate() {
+
+		}
+
+		@Override
 		public boolean dispatchTouchEvent(MotionEvent ev, View view) {
 			return webView.tbs_dispatchTouchEvent(ev, view);
 		}

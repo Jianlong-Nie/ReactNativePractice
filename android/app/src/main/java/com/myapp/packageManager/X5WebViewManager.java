@@ -8,6 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.JavascriptInterface;
 
+import com.facebook.react.bridge.Arguments;
+import com.facebook.react.bridge.Callback;
+import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
@@ -30,7 +35,7 @@ import com.tencent.smtt.sdk.WebViewClient;
  * Created by bill on 2017/8/31.
  */
 
-public class X5WebViewManager extends SimpleViewManager<X5WebView>{
+public class X5WebViewManager extends SimpleViewManager<X5WebView> {
     @Override
     public String getName() {
         return "X5WebView";
@@ -42,7 +47,7 @@ public class X5WebViewManager extends SimpleViewManager<X5WebView>{
 //        return new WebView(reactContext);
     }
 
-    private X5WebView initWebView(final Context context){
+    private X5WebView initWebView(final ThemedReactContext context) {
         X5WebView mWebView = new X5WebView(context);
         X5WebView.setSmallWebViewEnabled(true);
         mWebView.setWebViewClient(new WebViewClient() {
@@ -63,6 +68,10 @@ public class X5WebViewManager extends SimpleViewManager<X5WebView>{
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
 
+                WritableMap params = Arguments.createMap();
+                params.putInt("finish", 0);
+                context.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+                        .emit("message", params);
             }
         });
 
@@ -166,6 +175,15 @@ public class X5WebViewManager extends SimpleViewManager<X5WebView>{
         mWebView.addJavascriptInterface(new WebViewJavaScriptFunction() {
             @Override
             public void onJsFunctionCalled(String tag) {
+
+            }
+
+            @JavascriptInterface
+            public void postMessageToParent(String json) {
+                WritableMap params = Arguments.createMap();
+                params.putString("data", json);
+                context.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+                        .emit("message", params);
             }
 
             @JavascriptInterface
@@ -188,11 +206,23 @@ public class X5WebViewManager extends SimpleViewManager<X5WebView>{
             }
 
         }, "jsObj");
+
+//        WritableMap params = Arguments.createMap();
+////        params.putString("data",tag);
+//        params.putInt("unread", 5);
+//        context.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+//                .emit("message", params);
         return mWebView;
     }
 
     @ReactProp(name = "url")
-    public void loadUrl(X5WebView webView,@Nullable String url){
+    public void loadUrl(X5WebView webView, @Nullable String url) {
+        Log.e("000", url);
         webView.loadUrl(url);
+    }
+
+    @ReactMethod
+    public void onMessage(Callback callback) {
+
     }
 }
