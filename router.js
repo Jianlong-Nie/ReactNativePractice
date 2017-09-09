@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Home from './js/ui/home';
 import ZhiFubaoIconSelected from './images/home/haier/zhuye_selected.png';
@@ -7,8 +7,13 @@ import MineIconSelected from './images/home/haier/wode.png';
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 import Controllers from  './controllers';
 import Mine from './js/ui/mine';
-import { Image} from 'react-native';
+import { Image, Dimensions, View} from 'react-native';
 import './js/ui/customComponent/CustomView';
+import store from './js/redux/Store';
+import ProgressHud from './js/ui/ProgressHud';
+import { connect, Provider } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { changeProgress } from './js/redux/Actions';
 
 const HomeRouter = StackNavigator(
     {
@@ -17,15 +22,8 @@ const HomeRouter = StackNavigator(
             screen: Home,
         }
     },
-
     {
         initialRouteName: 'Main',
-        //headerMode: 'none',
-
-        /*
-   * Use modal on iOS because the card mode comes from the right,
-   * which conflicts with the drawer example gesture
-   */
         mode: 'card',
     }
 );
@@ -44,11 +42,6 @@ const MineTab = StackNavigator({
 {
     initialRouteName: 'Mine',
     headerMode: 'float',
-
-    /*
-   * Use modal on iOS because the card mode comes from the right,
-   * which conflicts with the drawer example gesture
-   */
     mode:  'card',
 }
 );
@@ -70,7 +63,7 @@ TabBarItem.propTypes = {
     tintColor: PropTypes.string.isRequired,
 };
 
-const router = TabNavigator(
+const Router = TabNavigator(
     {
         MainTab: {
             screen: HomeRouter,
@@ -117,6 +110,37 @@ const router = TabNavigator(
     }
 );
 
+const { width,height } = Dimensions.get('window');
+// create a component
+class mrouter extends Component {
+    
+    shouldComponentUpdate(nextProps, nextState) {
+        if (this.props.progressHud !== nextProps.progressHud) {
+            return true;
+        } 
+        return false;  
+    }
+    render() {
+        return (
+            <View style={{ width,height }}>
+                <Router />
+                {
+                    this.props.progressHud ?  <ProgressHud /> : null
+                }
+               
+            </View>
+        );
+    }
+}
 
+const mapDispatchToProps = (dispatch) => ({
+    ...bindActionCreators(changeProgress, dispatch),
+});
 
-export default router;
+const mapStateToProps = (state, ownProps) => {
+    return {
+        progressHud: state.progressHud,
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(mrouter);

@@ -4869,6 +4869,12 @@ react-native-search-box@^0.0.11:
   dependencies:
     prop-types "^15.5.10"
 
+react-native-spinkit@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-spinkit/-/react-native-spinkit-1.1.1.tgz#3ae512f3978bc750b7c02639911e1710750d8539"
+  dependencies:
+    prop-types "^15.5.8"
+
 react-native-splash-screen@^3.0.0:
   version "3.0.0"
   resolved "http://registry.npm.taobao.org/react-native-splash-screen/download/react-native-splash-screen-3.0.0.tgz#44ac95f84b9bf58d800af1ab9ff52093fa3efcb9"

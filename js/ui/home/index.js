@@ -20,12 +20,13 @@ import SecondHeader from './SecondHeader';
 import MessageList from './MessageList';
 import NavigationHeader from './NavigationHeader';
 import { getJSON } from '../../network';
-import { changeHomeApp } from '../../redux/Actions';
+import { changeHomeApp, changeProgress } from '../../redux/Actions';
+import ProgressHud from '../ProgressHud';
 
 const { width, height } = Dimensions.get('window');
 const NavigationBar = Animated.createAnimatedComponent(NavigationHeader);
 
-// create a component
+
 class Home extends Component {
     constructor(props, context) {
         super(props, context);
@@ -35,14 +36,17 @@ class Home extends Component {
         };
     }
     async fetchApps() {
+      this.props.changeProgress(true);
       const url = 'apps?filter={"where":{},"skip":0,"limit":20}';
        try {
           const json = await getJSON(url);
+          this.props.changeProgress(false);
           console.log('====================================');
           console.log(`请求接口数据${JSON.stringify(json)}`);
           console.log('====================================');
           this.props.changeHomeApp(json);
        } catch (error) {
+           this.props.changeProgress(false);
            console.log('====================================');
            console.log(`请求接口失败${error}`);
            console.log('====================================');
@@ -64,12 +68,9 @@ class Home extends Component {
         }
 
     }
-    static navigationOptions = {
-        header: null
-    };
     render() {
         return (
-            <View style={{ flex: 1 }}>
+            <View style={{ flex: 1, justifyContent: 'center'}}>
                 <ScrollView
                     /*{...this.state.panResponder.panHandlers}*/
                     bounces={false}
@@ -93,25 +94,35 @@ class Home extends Component {
     }
 }
 
+Home.navigationOptions = {
+    header: null
+};
+
 // define your styles
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#E7E7E7',
         height: height,
+        
     },
     messagelist: {
         marginTop: 20,
     },
+    spinner: {
+        position:'absolute',
+        alignSelf: 'center',
+    }
 });
 
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    changeHomeApp
+    changeHomeApp,changeProgress
 },dispatch);
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        mainReducer: state.mainReducer
+        mainReducer: state.mainReducer,
+        progressHud: state.progressHud,
     }
 }
 

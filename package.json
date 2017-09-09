@@ -11,6 +11,7 @@
 		"antd-mobile": "^1.6.3",
 		"browser-sync": "^2.18.13",
 		"code-push-cli": "^2.0.2-beta",
+		"immutable": "^3.8.1",
 		"rc-form": "^1.4.6",
 		"react": "16.0.0-alpha.12",
 		"react-native": "^0.47.1",
@@ -19,16 +20,16 @@
 		"react-native-code-push": "^5.0.0-beta",
 		"react-native-dismiss-keyboard": "^1.0.0",
 		"react-native-search-box": "^0.0.11",
+		"react-native-spinkit": "^1.1.1",
 		"react-native-splash-screen": "^3.0.0",
 		"react-native-svg-uri": "^1.2.0",
 		"react-native-wkwebview-reborn": "^1.7.0",
 		"react-navigation": "^1.0.0-beta.11",
-		"rn-viewpager": "^1.2.4",
 		"react-redux": "^5.0.6",
 		"redux": "^3.7.2",
 		"redux-logger": "^3.0.6",
 		"redux-thunk": "^2.2.0",
-		"immutable": "^3.8.1"
+		"rn-viewpager": "^1.2.4"
 	},
 	"devDependencies": {
 		"babel-jest": "20.0.3",
