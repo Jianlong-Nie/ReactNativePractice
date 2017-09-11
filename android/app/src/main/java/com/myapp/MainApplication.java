@@ -38,6 +38,11 @@ public class MainApplication extends Application implements ReactApplication {
         }
 
         @Override
+        protected String getJSMainModuleName() {
+            return "index";
+        }
+
+        @Override
         protected List<ReactPackage> getPackages() {
             return Arrays.<ReactPackage>asList(
                     new MainReactPackage(),
