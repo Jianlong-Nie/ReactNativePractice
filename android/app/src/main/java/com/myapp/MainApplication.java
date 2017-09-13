@@ -11,20 +11,24 @@ import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.lwansbrough.RCTCamera.RCTCameraPackage;
 import com.microsoft.codepush.react.CodePush;
-import com.myapp.packageManager.X5WebViewManager;
 import com.myapp.packageManager.X5WebViewPackage;
 
 import java.util.Arrays;
 import java.util.List;
 
-import cn.qiuxiang.react.amap3d.AMap3DPackage;
+import javax.annotation.Nullable;
 
-//import com.react.rnspinkit.RNSpinkitPackage;
-//import com.microsoft.codepush.react.CodePush;Ø
+//import cn.qiuxiang.react.amap3d.AMap3DPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
     private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
+
+        @Nullable
+        @Override
+        protected String getBundleAssetName() {
+            return "index.android.bundle";
+        }
 
         @Override
         protected String getJSBundleFile() {
@@ -42,12 +46,13 @@ public class MainApplication extends Application implements ReactApplication {
             return "index";
         }
 
+
         @Override
         protected List<ReactPackage> getPackages() {
             return Arrays.<ReactPackage>asList(
                     new MainReactPackage(),
-            new RNSpinkitPackage(),
-                    new AMap3DPackage(),
+                    new RNSpinkitPackage(),
+//                    new AMap3DPackage(),
                     new SplashScreenReactPackage(),
                     new X5WebViewPackage(),
                     new CodePush(BuildConfig.CODEPUSH_KEY, MainApplication.this, BuildConfig.DEBUG),
@@ -55,7 +60,6 @@ public class MainApplication extends Application implements ReactApplication {
             );
         }
     };
-
 
     @Override
     public ReactNativeHost getReactNativeHost() {
@@ -65,6 +69,6 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        SoLoader.init(this, /* native exopackage */ false);
+        SoLoader.init(this,  false);///* native exopackage */
     }
 }

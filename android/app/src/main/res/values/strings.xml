@@ -1,4 +1,4 @@
 <resources>
-    <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey"></string>
+    <string name="reactNativeCodePush_androidDeploymentKey" moduleConfig="true"></string>
     <string name="app_name">1699平台</string>
 </resources>

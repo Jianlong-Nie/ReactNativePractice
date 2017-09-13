@@ -67,7 +67,6 @@ import com.android.build.OutputFile
  * ]
  */
 
-
 /**
  * Set this to true to create two separate APKs instead of one:
  *   - An APK that only works on ARM devices
@@ -91,10 +90,19 @@ android {
         applicationId "com.myapp"
         minSdkVersion 16
         targetSdkVersion 22
+        multiDexEnabled true
         versionCode 1
         versionName "1.0.0"
         ndk {
             abiFilters "armeabi-v7a", "x86"
+        }
+    }
+    signingConfigs {
+        release {
+            storeFile file(MYAPP_RELEASE_STORE_FILE)
+            storePassword MYAPP_RELEASE_STORE_PASSWORD
+            keyAlias MYAPP_RELEASE_KEY_ALIAS
+            keyPassword MYAPP_RELEASE_KEY_PASSWORD
         }
     }
     splits {
@@ -111,6 +119,7 @@ android {
             buildConfigField "String", "CODEPUSH_KEY", '"80uYBvQx31R_IAbL7BnxcWLtAaNFd8650785-6732-40b6-858f-3713d6b26331"'
         }
         release {
+            signingConfig signingConfigs.release
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
             buildConfigField "String", "CODEPUSH_KEY", '"0x2YFayPul2ihq8Tm7ckswXntyj1d8650785-6732-40b6-858f-3713d6b26331"'
@@ -126,7 +135,7 @@ android {
         variant.outputs.each { output ->
             // For each separate APK per architecture, set a unique version code as described here:
             // http://tools.android.com/tech-docs/new-build-system/user-guide/apk-splits
-            def versionCodes = ["armeabi-v7a":1, "x86":2]
+            def versionCodes = ["armeabi-v7a": 1, "x86": 2]
             def abi = output.getFilter(OutputFile.ABI)
             if (abi != null) {  // null for the universal-debug, universal-release variants
                 output.versionCodeOverride =
@@ -144,10 +153,11 @@ dependencies {
     compile project(':react-native-code-push')
     compile project(':react-native-camera')
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:25.0.0'
-    compile 'com.facebook.react:react-native:+'
     // From node_modules
     compile files('libs/tbs_sdk_thirdapp_v3.3.0.1045_43300_sharewithdownload_withoutGame_obfs_20170605_170212.jar')
+    compile 'com.android.support:appcompat-v7:25.0.0'
+    compile 'com.facebook.react:react-native:+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 }
 
 // Run this once to be able to run the application with BUCK

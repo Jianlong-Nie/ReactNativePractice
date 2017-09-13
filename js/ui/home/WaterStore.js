@@ -52,7 +52,6 @@ export default class WaterStore extends Component {
   }
 
   render() {
-    console.log('水站');
     return (
       <View style={{backgroundColor:'white'}}>
         <WingBlank>
