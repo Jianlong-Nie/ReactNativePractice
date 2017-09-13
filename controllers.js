@@ -29,6 +29,7 @@ import Navigation from './js/ui/map/navigation';
 import Login from './js/ui/login/login';
 import X5WebView from './js/ui/WebView/X5WebViewTest';
 import CreactFactory from './js/ui/Creater';
+import VideoPlayer from './js/ui/videoPlayer';
 
 
 export const NavBarConfig = {
@@ -47,6 +48,15 @@ const Routes = {
         navigationOptions: {
             ...NavBarConfig,
             title: '定制',
+        } 
+    },
+    VideoPlayer: {
+        name: 'VideoPlayer',
+        description: 'VideoPlayer',
+        screen: VideoPlayer,
+        navigationOptions: {
+            ...NavBarConfig,
+            title: '视频播放器',
         } 
     },
     EditWeb: {

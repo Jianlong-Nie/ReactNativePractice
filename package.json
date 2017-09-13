@@ -19,6 +19,7 @@
 		"react-native-camera": "^0.10.0",
 		"react-native-code-push": "^5.0.0-beta",
 		"react-native-dismiss-keyboard": "^1.0.0",
+		"react-native-fs": "^2.5.1",
 		"react-native-search-box": "^0.0.11",
 		"react-native-spinkit": "^1.1.1",
 		"react-native-splash-screen": "^3.0.0",
