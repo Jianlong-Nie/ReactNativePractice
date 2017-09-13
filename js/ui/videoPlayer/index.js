@@ -91,13 +91,17 @@ class VideoPlayer extends Component {
     componentDidMount() {
 
     }
+    mPress = (item)=>{
+      const { navigation } = this.props;
+      navigation.navigate('Video',{});
+    }
     render() {
         return (
             <View style={styles.container}>
                 <FlatList
                     data={mp4s}
                     renderItem={({item}) => (
-                        <TouchableOpacity style={styles.item}>
+                        <TouchableOpacity style={styles.item} onPress={()=>this.mPress(item)}>
                             <Text style={styles.itemText}>
                                 {item.replace('张东武太极','').replace('_','').replace('_高清_id19531177.mp4','').replace('_','')}
                             </Text>

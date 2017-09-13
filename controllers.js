@@ -30,7 +30,7 @@ import Login from './js/ui/login/login';
 import X5WebView from './js/ui/WebView/X5WebViewTest';
 import CreactFactory from './js/ui/Creater';
 import VideoPlayer from './js/ui/videoPlayer';
-
+import VideoRealPlayer from './js/ui/videoPlayer/VideoRealPlayer';
 
 export const NavBarConfig = {
     headerStyle: { backgroundColor: NavColor },
@@ -48,6 +48,15 @@ const Routes = {
         navigationOptions: {
             ...NavBarConfig,
             title: '定制',
+        } 
+    },
+    Video: {
+        name: 'VideoRealPlayer',
+        description: 'VideoRealPlayer',
+        screen: VideoRealPlayer,
+        navigationOptions: {
+            ...NavBarConfig,
+            title: '视频',
         } 
     },
     VideoPlayer: {
