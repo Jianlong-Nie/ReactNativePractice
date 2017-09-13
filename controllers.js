@@ -28,6 +28,7 @@ import Events from './js/ui/map/events';
 import Navigation from './js/ui/map/navigation';
 import Login from './js/ui/login/login';
 import X5WebView from './js/ui/WebView/X5WebViewTest';
+import CreactFactory from './js/ui/Creater';
 
 
 export const NavBarConfig = {
@@ -39,6 +40,15 @@ export const NavBarConfig = {
 };
 
 const Routes = {
+    CreactFactory: {
+        name: 'CreactFactory',
+        description: 'CreactFactory',
+        screen: CreactFactory,
+        navigationOptions: {
+            ...NavBarConfig,
+            title: '定制',
+        } 
+    },
     EditWeb: {
         name: 'EditWeb',
         description: 'EditWeb',

@@ -9,9 +9,8 @@ import Controllers from  './controllers';
 import Mine from './js/ui/mine';
 import { Image, Dimensions, View} from 'react-native';
 import './js/ui/customComponent/CustomView';
-import store from './js/redux/Store';
 import ProgressHud from './js/ui/ProgressHud';
-import { connect, Provider } from 'react-redux';
+import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { changeProgress } from './js/redux/Actions';
 
@@ -58,10 +57,26 @@ const TabBarItem = props => {
 
 TabBarItem.propTypes = {
     focused: PropTypes.bool.isRequired,
-    selectedImage: PropTypes.string.isRequired,
-    normalImage: PropTypes.string.isRequired,
     tintColor: PropTypes.string.isRequired,
 };
+
+const tabBarIcon = ({ tintColor, focused }) => (
+    <TabBarItem
+        tintColor={tintColor}
+        focused={focused}
+        normalImage= { ZhiFubaoIconNormal }
+        selectedImage= {ZhiFubaoIconSelected}
+    />
+);
+
+const tabBarMineIcon = ({ tintColor, focused }) => (
+    <TabBarItem
+        tintColor={ tintColor }
+        focused={focused}
+        normalImage= {MineIconSelected}
+        selectedImage= {MineIconSelected}
+    />
+);
 
 const Router = TabNavigator(
     {
@@ -69,28 +84,14 @@ const Router = TabNavigator(
             screen: HomeRouter,
             navigationOptions: {
                 tabBarLabel: '首页',
-                tabBarIcon: ({ tintColor, focused }) => (
-                    <TabBarItem
-                        tintColor={tintColor}
-                        focused={focused}
-                        normalImage= {ZhiFubaoIconNormal}
-                        selectedImage= {ZhiFubaoIconSelected}
-                    />
-                ),
+                tabBarIcon: tabBarIcon,
             },
         },
         SettingsTab: {
             screen: MineTab,
             navigationOptions: {
                 tabBarLabel: '我的',
-                tabBarIcon: ({ tintColor, focused }) => (
-                    <TabBarItem
-                        tintColor={tintColor}
-                        focused={focused}
-                        normalImage= {MineIconSelected}
-                        selectedImage= {MineIconSelected}
-                    />
-                ),
+                tabBarIcon: tabBarMineIcon,
             },
         },
     },

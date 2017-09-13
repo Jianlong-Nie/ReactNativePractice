@@ -35,8 +35,8 @@ class AppContent extends Component {
         var mdata = this.state.data;
         mdata.splice(mdata.length - 1, 0, item);
         this.setState({data: mdata});
-        AsyncStorage.setItem('items', JSON.stringify(mdata), () => {
-        });
+        // AsyncStorage.setItem('items', JSON.stringify(mdata), () => {
+        // });
     }
     onClick = (dataItem) => {
         const {navigation, setParams} = this.props;

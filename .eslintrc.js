@@ -24,6 +24,7 @@ module.exports = {
         ],
         "no-unused-vars": 1,
         "no-console":1,
+        "display-name":0,
         "linebreak-style": [
             "error",
             "unix"
