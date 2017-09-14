@@ -85,15 +85,14 @@ const mp4s = [
     '张东武太极_79_第六段：跟我一起练_高清_id19531177.mp4',
     '张东武太极_80_老架一路：跟我一起练_高清_id19531177.mp4'
 ];
-
-// create a component
+const baseUrl = 'http://ovw1j2fft.bkt.clouddn.com/';
 class VideoPlayer extends Component {
     componentDidMount() {
 
     }
     mPress = (item)=>{
       const { navigation } = this.props;
-      navigation.navigate('Video',{});
+      navigation.navigate('Video',{url:encodeURI(`${baseUrl}${item}`)});
     }
     render() {
         return (
