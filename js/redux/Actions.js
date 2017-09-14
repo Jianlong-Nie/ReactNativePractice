@@ -1,3 +1,11 @@
+//redux test
+export const ACTION_TYPE_CLICK = 'ACTION_TYPE_CLICK';
+export function onClick(content) {
+    return {
+        type: ACTION_TYPE_CLICK,
+        text: content
+    };
+}
 export const CHANGE_HOME_APP = 'CHANGE_HOME_APP';
 export const CHANGE_PROGRESSHUD = 'CHANGE_PROGRESSHUD';
 

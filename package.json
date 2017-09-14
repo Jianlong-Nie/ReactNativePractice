@@ -11,6 +11,7 @@
 		"antd-mobile": "^1.6.3",
 		"browser-sync": "^2.18.13",
 		"code-push-cli": "^2.0.2-beta",
+		"dva-core": "^1.0.1",
 		"immutable": "^3.8.1",
 		"rc-form": "^1.4.6",
 		"react": "16.0.0-alpha.12",

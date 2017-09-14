@@ -29,6 +29,7 @@ import Navigation from './js/ui/map/navigation';
 import Login from './js/ui/login/login';
 import X5WebView from './js/ui/WebView/X5WebViewTest';
 import CreactFactory from './js/ui/Creater';
+import TestRedux from './js/ui/test/testRedux';
 
 
 export const NavBarConfig = {
@@ -275,6 +276,14 @@ const Routes = {
             ...NavBarConfig,
         }
     },
+    TestRedux: {
+        name:'TestRedux',
+        screen:TestRedux,
+        navigationOptions: {
+            title:'TestRedux',
+            ...NavBarConfig,
+        }
+    }
 
 };
 

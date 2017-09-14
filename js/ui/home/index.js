@@ -23,6 +23,8 @@ import { getJSON } from '../../network';
 import { changeHomeApp, changeProgress } from '../../redux/Actions';
 import ProgressHud from '../ProgressHud';
 
+import { createAction } from '../../util/utils';
+
 const { width, height } = Dimensions.get('window');
 const NavigationBar = Animated.createAnimatedComponent(NavigationHeader);
 
@@ -36,17 +38,21 @@ class Home extends Component {
         };
     }
     async fetchApps() {
-      this.props.changeProgress(true);
+        this.props.dispatch(createAction('progressHud/changeProgress')( true ));
+    //   this.props.changeProgress(true);
       const url = 'apps?filter={"where":{},"skip":0,"limit":20}';
        try {
           const json = await getJSON(url);
-          this.props.changeProgress(false);
+          this.props.dispatch(createAction('progressHud/changeProgress')( false ));
+        //   this.props.changeProgress({ visible: false });
           console.log('====================================');
           console.log(`请求接口数据${JSON.stringify(json)}`);
           console.log('====================================');
-          this.props.changeHomeApp(json);
+          this.props.dispatch(createAction('mainReducer/changeHomeApp')({ homeApps: json}));
+        //   this.props.changeHomeApp(json);
        } catch (error) {
-           this.props.changeProgress(false);
+            this.props.dispatch(createAction('progressHud/changeProgress')( false ));
+        //    this.props.changeProgress(false);
            console.log('====================================');
            console.log(`请求接口失败${error}`);
            console.log('====================================');
@@ -115,9 +121,9 @@ const styles = StyleSheet.create({
 });
 
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-    changeHomeApp,changeProgress
-},dispatch);
+// const mapDispatchToProps = dispatch => bindActionCreators({
+//     changeHomeApp,changeProgress
+// },dispatch);
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -126,4 +132,4 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Home);
+export default connect(mapStateToProps)(Home);
