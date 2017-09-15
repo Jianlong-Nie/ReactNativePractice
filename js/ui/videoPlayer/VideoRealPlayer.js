@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import Player from 'react-native-video';
 // create a component
 class Video extends Component {
@@ -19,7 +19,7 @@ class Video extends Component {
         console.log(`播放视频url${murl}`);
         console.log('====================================');
         return (
-            <Player source={{uri: murl}}   // Can be a URL or a local file.
+            <Player source={{uri: smurl}}   // Can be a URL or a local file.
                 ref={(ref) => {
                     this.player = ref;
                 }}                                      // Store reference
