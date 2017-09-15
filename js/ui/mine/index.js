@@ -1,7 +1,8 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, ListView, Image,PixelRatio, Dimensions} from 'react-native';
-import {Heading, Paragraph} from '../widget/Text.js';
+import { View, Text, StyleSheet, ListView, Image,PixelRatio, Alert, Dimensions} from 'react-native';
+import {Heading, Paragraph,} from '../widget/Text.js';
+import mPubSub from 'pubsub-js';
 const { width, height } = Dimensions.get('window');
 
 const _dataInfo = [
@@ -42,7 +43,22 @@ class Mine extends React.Component {
             dataSource: ds.cloneWithRows(_dataInfo)
         };        
     }
-
+   mySubcriber = (msg, data) => {
+    console.log( msg, data );
+    Alert.alert(
+        '收到广播',
+        `${msg}内容是：${data.message},此alert来自mine组件`,
+        [
+          {text: 'OK', onPress: () => console.log('OK Pressed')},
+        ],
+        { cancelable: false }
+      )
+   }
+   componentDidMount() {
+    var token = PubSub.subscribe( 'PublishMessage', this.mySubcriber );
+    //unsubscribe this subscriber from this topic
+    //PubSub.unsubscribe( token );
+   }
     _renderRow(rowData,rowId, rowIndex ) {
         return rowIndex == 0 ? (
             <View style = {{backgroundColor: '#c60c1b', padding: 20, flexDirection: 'row'}}>

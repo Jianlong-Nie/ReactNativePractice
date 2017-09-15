@@ -12,6 +12,7 @@
 		"browser-sync": "^2.18.13",
 		"code-push-cli": "^2.0.2-beta",
 		"immutable": "^3.8.1",
+		"pubsub-js": "^1.5.7",
 		"rc-form": "^1.4.6",
 		"react": "16.0.0-alpha.12",
 		"react-native": "^0.47.1",

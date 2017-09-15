@@ -31,6 +31,7 @@ import X5WebView from './js/ui/WebView/X5WebViewTest';
 import CreactFactory from './js/ui/Creater';
 import VideoPlayer from './js/ui/videoPlayer';
 import VideoRealPlayer from './js/ui/videoPlayer/VideoRealPlayer';
+import PubSub from './js/ui/PubSub';
 
 export const NavBarConfig = {
     headerStyle: { backgroundColor: NavColor },
@@ -41,6 +42,15 @@ export const NavBarConfig = {
 };
 
 const Routes = {
+    PubSub: {
+        name: 'PubSub',
+        description: 'PubSub',
+        screen: PubSub,
+        navigationOptions: {
+            ...NavBarConfig,
+            title: '广播',
+        }   
+    },
     CreactFactory: {
         name: 'CreactFactory',
         description: 'CreactFactory',
