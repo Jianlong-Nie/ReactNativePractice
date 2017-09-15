@@ -1,12 +1,19 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity,Alert } from 'react-native';
 import mPubSub from 'pubsub-js';
 
 // create a component
 class PubSub extends Component {
     onClick = () =>{
-       mPubSub.publishSync('PublishMessage',{message:'come from PubSub'});
+       Alert.alert(
+        '点击ok发送广播',
+        `广播名字PublishMessage内容是：come from PubSub,此alert来自PubSub组件`,
+        [
+          {text: 'OK', onPress: () => {mPubSub.publishSync('PublishMessage',{message:'come from PubSub'})}},
+        ],
+        { cancelable: false }
+      )
     }
     render() {
         return (
