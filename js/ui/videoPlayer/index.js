@@ -100,7 +100,7 @@ class VideoPlayer extends Component {
                 <FlatList
                     data={mp4s}
                     renderItem={({item}) => (
-                        <TouchableOpacity style={styles.item} onPress={()=>this.mPress(item)}>
+                        <TouchableOpacity style={styles.item} onPress={()=>this.mPress(item)} key={item}>
                             <Text style={styles.itemText}>
                                 {item.replace('张东武太极','').replace('_','').replace('_高清_id19531177.mp4','').replace('_','')}
                             </Text>

@@ -19,7 +19,7 @@ class Video extends Component {
         console.log(`播放视频url${murl}`);
         console.log('====================================');
         return (
-            <Player source={{uri: smurl}}   // Can be a URL or a local file.
+            <Player source={{uri: murl}}   // Can be a URL or a local file.
                 ref={(ref) => {
                     this.player = ref;
                 }}                                      // Store reference

@@ -33,6 +33,8 @@ import TestRedux from './js/ui/test/testRedux';
 import VideoPlayer from './js/ui/videoPlayer';
 import VideoRealPlayer from './js/ui/videoPlayer/VideoRealPlayer';
 import PubSub from './js/ui/PubSub';
+import LifeCycle from './js/ui/lifeCycle';
+
 
 export const NavBarConfig = {
     headerStyle: { backgroundColor: NavColor },
@@ -50,6 +52,15 @@ const Routes = {
         navigationOptions: {
             ...NavBarConfig,
             title: '广播',
+        }   
+    },
+    LifeCycle: {
+        name: 'LifeCycle',
+        description: 'LifeCycle',
+        screen: LifeCycle,
+        navigationOptions: {
+            ...NavBarConfig,
+            title: '生命周期',
         }   
     },
     CreactFactory: {
