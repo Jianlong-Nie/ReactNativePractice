@@ -30,7 +30,9 @@ import Login from './js/ui/login/login';
 import X5WebView from './js/ui/WebView/X5WebViewTest';
 import CreactFactory from './js/ui/Creater';
 import TestRedux from './js/ui/test/testRedux';
-
+import VideoPlayer from './js/ui/videoPlayer';
+import VideoRealPlayer from './js/ui/videoPlayer/VideoRealPlayer';
+import PubSub from './js/ui/PubSub';
 
 export const NavBarConfig = {
     headerStyle: { backgroundColor: NavColor },
@@ -41,6 +43,15 @@ export const NavBarConfig = {
 };
 
 const Routes = {
+    PubSub: {
+        name: 'PubSub',
+        description: 'PubSub',
+        screen: PubSub,
+        navigationOptions: {
+            ...NavBarConfig,
+            title: '广播',
+        }   
+    },
     CreactFactory: {
         name: 'CreactFactory',
         description: 'CreactFactory',
@@ -48,6 +59,24 @@ const Routes = {
         navigationOptions: {
             ...NavBarConfig,
             title: '定制',
+        } 
+    },
+    Video: {
+        name: 'VideoRealPlayer',
+        description: 'VideoRealPlayer',
+        screen: VideoRealPlayer,
+        navigationOptions: {
+            ...NavBarConfig,
+            title: '视频',
+        } 
+    },
+    VideoPlayer: {
+        name: 'VideoPlayer',
+        description: 'VideoPlayer',
+        screen: VideoPlayer,
+        navigationOptions: {
+            ...NavBarConfig,
+            title: '视频播放器',
         } 
     },
     EditWeb: {

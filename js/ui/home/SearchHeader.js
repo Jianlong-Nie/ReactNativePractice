@@ -31,6 +31,9 @@ class SearchHeader extends Component {
 
     showPop = () => {
         console.log('点击弹窗');
+        // const {navigation, setParams} = this.props;
+        // navigation.navigate('VideoPlayer', {name: '视频列表'});
+          
         this.setState({ showPop: !this.state.showPop });
     }
     render() {
