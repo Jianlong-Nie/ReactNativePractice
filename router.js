@@ -116,14 +116,15 @@ const Router = TabNavigator(
 
 const DrawerRouter = DrawerNavigator(
     {
-        MainTab: {
-            screen: HomeRouter,
-        },
         TabController: {
             screen: Router,
         },
+        MainTab: {
+            screen: HomeRouter,
+        },
+       
     },
-    { 
+    {   initialRouteName:'TabController',
         drawerWidth: 300,
         drawerPosition: 'right',
         contentComponent: RightDrawer,
