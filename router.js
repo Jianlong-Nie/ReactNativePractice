@@ -14,6 +14,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { changeProgress } from './js/redux/Actions';
 import GlobalStyle from './js/config/theme';
+import RightDrawer from './js/ui/RightDrawer';
+
 
 const HomeRouter = StackNavigator(
     {
@@ -116,23 +118,15 @@ const DrawerRouter = DrawerNavigator(
     {
         MainTab: {
             screen: HomeRouter,
-            navigationOptions: {
-                tabBarLabel: '首页',
-                tabBarIcon: tabBarIcon,
-            },
         },
-        SettingsTab: {
-            screen: MineTab,
-            navigationOptions: {
-                tabBarLabel: '我的',
-                tabBarIcon: tabBarMineIcon,
-            },
+        TabController: {
+            screen: Router,
         },
     },
     { 
-        drawerWidth: 200,
+        drawerWidth: 300,
         drawerPosition: 'right',
-        contentComponent: MineTab
+        contentComponent: RightDrawer,
     }
 );
 
@@ -149,7 +143,7 @@ class mrouter extends Component {
     render() {
         return (
             <View style={{ width,height }}>
-                <Router />
+                <DrawerRouter />
                 {
                     this.props.progressHud ?  <ProgressHud /> : null
                 }

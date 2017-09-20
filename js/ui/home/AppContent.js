@@ -44,6 +44,9 @@ class AppContent extends Component {
             case '1': 
                 navigation.navigate(dataItem.key, {name: dataItem.appName});
                 break;
+            case '3': 
+                navigation.navigate('DrawerOpen');
+                break;
             default:
                 break;
         }
