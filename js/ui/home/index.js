@@ -40,7 +40,7 @@ class Home extends Component {
     async fetchApps() {
         this.props.dispatch(createAction('progressHud/changeProgress')( true ));
     //   this.props.changeProgress(true);
-      const url = 'apps?filter={"where":{},"skip":0,"limit":20}';
+      const url = 'studyapps?filter={"where":{},"skip":0,"limit":20}';
        try {
           const json = await getJSON(url);
           this.props.dispatch(createAction('progressHud/changeProgress')( false ));
