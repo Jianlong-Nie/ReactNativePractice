@@ -1,4 +1,30 @@
-# Project for MyApp
+# **ReactNativePractice**
+
+这是一个以实战为目的的项目，里面用到了react现有的比较流行的技术栈，比如：antdesign、redux、网络请求async await、pub/sub模式、热更新（react-native-code-push）以及导航系统（包括tabbar导航、navigantor导航、侧边栏导航的实现）,实现了很多常用功能的demo比如：扫描二维码、视频播放、地图集成以及应用。
+
+### 用法
+
+`git clone https://github.com/zhuchuanwu/ReactNativePractice.git`
+
+安装第三方库：
+
+`yarn`
+
+之后就可以跑app了
+
+**需要注意的是react-native用的是0.45以上的版本，所以如果运行过程中有问题，请参考http://reactnative.cn/post/4301**
+
+项目截图：
+
+<img src="https://ws4.sinaimg.cn/large/006tKfTcly1fjpzdz9ruaj30ku112425.jpg" style="zoom:35%" />÷                                        <img src="https://ws1.sinaimg.cn/large/006tKfTcly1fjpzebexbsj30ku112jxk.jpg" style="zoom:35%" />
+
+
+
+
+
+<img src="https://ws4.sinaimg.cn/large/006tKfTcly1fjpze241nej30ku112dgs.jpg" style="zoom:35%" />÷                                        <img src="https://ws3.sinaimg.cn/large/006tKfTcly1fjpze8r6r9j30ku112whv.jpg" style="zoom:35%" />
+
+# Project for ReactNativePratice
 
 ## Dependencies
 
