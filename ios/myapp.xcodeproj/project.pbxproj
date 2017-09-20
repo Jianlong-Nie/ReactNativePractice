@@ -580,6 +580,11 @@
 				7F32B8BA95A244A287B2A370 /* libRCTCamera.a */,
 				7917949CD4BA4708AF7A8638 /* libCodePush.a */,
 				3CF1BCF6D8E148B4BCDC9863 /* libRCTBEEPickerManager.a */,
+				A139356EA6D646F19283D24B /* libSplashScreen.a */,
+				4FC79DB44474436184DD2F0D /* libRCTWKWebView.a */,
+				530BD44E28574DECBFA19034 /* libRNSpinkit.a */,
+				21ECB01AF12F4A83B40106FE /* libRNFS.a */,
+				6DC7A3ECA16247D585E54AA3 /* libRCTVideo.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -825,7 +830,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = V2GFP456SM;
+						ProvisioningStyle = Manual;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1494,9 +1499,10 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = V2GFP456SM;
+				DEVELOPMENT_TEAM = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
@@ -1521,8 +1527,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = lizy.rocks.TTAWH122;
+				PRODUCT_BUNDLE_IDENTIFIER = lizy.rocks.TTAWH122fdsf;
 				PRODUCT_NAME = myapp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1534,8 +1541,9 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V2GFP456SM;
+				DEVELOPMENT_TEAM = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
@@ -1560,8 +1568,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = lizy.rocks.TTAWH122;
+				PRODUCT_BUNDLE_IDENTIFIER = lizy.rocks.TTAWH122fdsf;
 				PRODUCT_NAME = myapp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

@@ -7,6 +7,8 @@ import MicImage from '../../../images/home/mic.png';
 import TongXunLuImage from '../../../images/home/tongxunlu.png';
 import JiaHaoImage from '../../../images/home/haier/tianjia.png';
 import MorePopWindow from '../home/MorePopWindow.js';
+import GlobalStyle from '../../config/theme';
+
 const headH = 64;
 const { width, height } = Dimensions.get('window');
 
@@ -62,7 +64,7 @@ class SearchHeader extends Component {
 // define your styles
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#c60c1b',
+        backgroundColor: GlobalStyle.themeColor,
         height: 64,
     },
     content:{

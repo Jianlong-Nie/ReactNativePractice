@@ -4,7 +4,7 @@ import Home from './js/ui/home';
 import ZhiFubaoIconSelected from './images/home/haier/zhuye_selected.png';
 import ZhiFubaoIconNormal from './images/home/haier/zhuye.png';
 import MineIconSelected from './images/home/haier/wode.png';
-import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
+import { StackNavigator, TabNavigator, TabBarBottom, DrawerNavigator } from 'react-navigation';
 import Controllers from  './controllers';
 import Mine from './js/ui/mine';
 import { Image, Dimensions, View} from 'react-native';
@@ -13,6 +13,7 @@ import ProgressHud from './js/ui/ProgressHud';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { changeProgress } from './js/redux/Actions';
+import GlobalStyle from './js/config/theme';
 
 const HomeRouter = StackNavigator(
     {
@@ -32,7 +33,7 @@ const MineTab = StackNavigator({
         screen: Mine,
         navigationOptions :{
             title: '个人中心',
-            headerStyle:{backgroundColor:'#c60c1b'},
+            headerStyle:{backgroundColor: GlobalStyle.themeColor},
             headerTitleStyle:{color:'white'},
             headerTintColor:'white',
         }
@@ -102,12 +103,36 @@ const Router = TabNavigator(
         showIcon: true,
         tabBarComponent: TabBarBottom, 
         tabBarOptions:{
-            activeTintColor: '#c60c1b',
+            activeTintColor: GlobalStyle.themeColor,
             inactiveTintColor: 'gray',
             style: { backgroundColor: 'white'},
             upperCaseLabel: false,
             showIcon: true,
         }
+    }
+);
+
+const DrawerRouter = DrawerNavigator(
+    {
+        MainTab: {
+            screen: HomeRouter,
+            navigationOptions: {
+                tabBarLabel: '首页',
+                tabBarIcon: tabBarIcon,
+            },
+        },
+        SettingsTab: {
+            screen: MineTab,
+            navigationOptions: {
+                tabBarLabel: '我的',
+                tabBarIcon: tabBarMineIcon,
+            },
+        },
+    },
+    { 
+        drawerWidth: 200,
+        drawerPosition: 'right',
+        contentComponent: MineTab
     }
 );
 

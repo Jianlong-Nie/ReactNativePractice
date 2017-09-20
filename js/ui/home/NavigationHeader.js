@@ -6,6 +6,8 @@ import PayImage from '../../../images/home/home_pay.png';
 import XiuImage from '../../../images/home/home_xiu.png';
 import CardImage from '../../../images/home/home_card.png';
 import JiaHaoImage from '../../../images/home/jiahao.png';
+import GlobalStyle from '../../config/theme';
+
 
 const { width } = Dimensions.get('window');
 
@@ -59,7 +61,7 @@ class NavigationHeader extends Component {
 // define your styles
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#c60c1b',
+        backgroundColor: GlobalStyle.themeColor,
         height: 64,
         position: 'absolute',
         left: 0,

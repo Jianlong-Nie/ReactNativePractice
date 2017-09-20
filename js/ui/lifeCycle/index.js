@@ -1,7 +1,8 @@
 //import liraries
 import React, { Component, PureComponent } from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, Dimensions } from 'react-native';
 
+const { width, height } = Dimensions.get('window');
 // create a component
 
 var functions = [];
@@ -64,6 +65,9 @@ class LifeCycle extends Component {
     componentDidUpdate(prevProps, prevState) {
         functions.push('componentDidUpdate');
         console.log('====================================');
+        console.log('数据类型',typeof prevProps);
+        console.log('====================================');
+        console.log('====================================');
         console.log(`shouldComponentUpdate方法${JSON.stringify(prevProps)}`);
         console.log('===================================='); 
     }
@@ -82,6 +86,7 @@ class LifeCycle extends Component {
         return (
             <View style={styles.container}>
                 <FlatList 
+                    style = {{height,width}}
                     data= { this.state.functions }
                     renderItem = {
                         (item)=> {
@@ -104,8 +109,9 @@ class LifeCycle extends Component {
 // define your styles
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         backgroundColor: 'white',
+        height,
+        width
     },
     item: {
         height: 50,

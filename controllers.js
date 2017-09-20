@@ -5,7 +5,6 @@ import AnimateComponent from './js/ui/home/AnimateComponent';
 
 import InstallView from './js/ui/home/install';
 import PickerDemo from './js/ui/picker/EricDemo';
-const NavColor = '#c60c1b';
 import QRScanner from './js/ui/qrScanner';
 import BattleOrder from './js/ui/battleOrder';
 import WaterStore from './js/ui/home/WaterStore';
@@ -34,7 +33,10 @@ import VideoPlayer from './js/ui/videoPlayer';
 import VideoRealPlayer from './js/ui/videoPlayer/VideoRealPlayer';
 import PubSub from './js/ui/PubSub';
 import LifeCycle from './js/ui/lifeCycle';
+import GlobalStyle from './js/config/theme';
 
+
+const NavColor = GlobalStyle.themeColor;
 
 export const NavBarConfig = {
     headerStyle: { backgroundColor: NavColor },

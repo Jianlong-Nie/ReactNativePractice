@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, ListView, Image,PixelRatio, Alert, Dimensions} from 'react-native';
 import {Heading, Paragraph,} from '../widget/Text.js';
 import mPubSub from 'pubsub-js';
+import GlobalStyle from '../../config/theme';
 const { width, height } = Dimensions.get('window');
 
 const _dataInfo = [
@@ -61,7 +62,7 @@ class Mine extends React.Component {
    }
     _renderRow(rowData,rowId, rowIndex ) {
         return rowIndex == 0 ? (
-            <View style = {{backgroundColor: '#c60c1b', padding: 20, flexDirection: 'row'}}>
+            <View style = {{backgroundColor: GlobalStyle.themeColor, padding: 20, flexDirection: 'row'}}>
                 <Image source = {{uri: rowData.imageUrl}} style = {styles.image}/>
                 <View style = {{flexDirection: 'column',paddingLeft: 10, paddingTop: 20}}>
                     <Heading style = {{color: 'white'}}>{rowData.title}</Heading>
@@ -96,7 +97,7 @@ class Mine extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#c60c1b'
+        backgroundColor: GlobalStyle.themeColor
     },
 
     whiteRowContainer: {

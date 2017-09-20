@@ -6,6 +6,7 @@ import PayImage from '../../../images/home/haier/icon_pay.png';
 import XiuImage from '../../../images/home/haier/icon_shouqian.png';
 import CardImage from '../../../images/home/haier/icon_kabao.png';
 import AntDesign from '../antDesign';
+import GlobalStyle from '../../config/theme';
 
 
 class SecondHeader extends Component {
@@ -50,7 +51,7 @@ class SecondHeader extends Component {
 // define your styles
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#c60c1b',
+        backgroundColor: GlobalStyle.themeColor,
         height: 110,
     },
     itemcontainer: {
